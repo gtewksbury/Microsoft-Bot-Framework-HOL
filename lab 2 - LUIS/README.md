@@ -27,6 +27,7 @@ Log into [the LUIS website](https://luis.ai) to begin building and training your
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
-
-`Note, to sign into the site, you'll need a valid Microsoft Account.  If you don't already have one, you can create one by clicking the *Sign-Up* button on the home screen.`
+``
+Note, to sign into the site, you'll need a valid Microsoft Account.  If you don't already have one, you can create one by clicking the *Sign-Up* button on the home screen.
+``
 
