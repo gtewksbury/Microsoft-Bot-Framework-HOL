@@ -23,11 +23,11 @@ While we can easily interpret and parse the relevant information from there requ
 Don't believe me?  Let's try it ourselves!
 
 ## Getting Started
-Log into [the LUIS website](https://luis.ai) to begin building and training our models.  
+Log into [the LUIS website](https://luis.ai) to begin building and training your model(s).  
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
-'''
+```
 Note, to sign into the site, you'll need a valid Microsoft Account.  If you don't already have one, you can create one by clicking the *Sign-Up* button on the home screen
-'''
+```
 
