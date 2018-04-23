@@ -1,4 +1,4 @@
-#Lab 2 - Language Understanding Intelligence Service (LUIS)
+#Lab 2 - Language Understanding Intelligence Service (LUIS)#
 
 If you're following the labs in order, at this point we have a pretty basic 'Hello World' bot that that simply listens to the incoming message from the user and returns the number of characters in the message (not very helpful).  For a bot to be useful, it needs to be able to understand the intent of a message and the important information provided within it.  Luckily for us, this is where LUIS steps in!
 
@@ -26,6 +26,8 @@ Don't believe me?  Let's try it ourselves!
 ##Create a LUIS App
 First things first, we need to log into [the LUIS website](https://luis.ai) to begin building and training our models.  
 
-#
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+![test](https://i.pinimg.com/736x/03/33/7c/03337c0e453ce192aeeaa609aab14e6f--national-parks-usa-grand-canyon-national-park.jpg)
 
 
