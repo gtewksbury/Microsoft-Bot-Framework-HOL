@@ -1,4 +1,4 @@
-#Lab 2 - Language Understanding Intelligence Service (LUIS)#
+# Lab 2 - Language Understanding Intelligence Service (LUIS)
 
 If you're following the labs in order, at this point we have a pretty basic 'Hello World' bot that that simply listens to the incoming message from the user and returns the number of characters in the message (not very helpful).  For a bot to be useful, it needs to be able to understand the intent of a message and the important information provided within it.  Luckily for us, this is where LUIS steps in!
 
