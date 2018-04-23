@@ -13,8 +13,7 @@ To see where LUIS really shines, let's consider the bot that we will be building
 
 * *Six of us are in the mood for a good Italian restaurant tonight at 8:30 here in Pittsburgh"
 
-
-Through years of social interactions, we as humans have been trained can easily parse the request and content of such requests.  However, from a procedural programming perspective, this level of understanding represents a significant challenge.  Luckily, as we'll see, in a matter of minutes, we can train LUIS to understand both these users' **Intent** to *Create a Reservation* as well as the pertinent information (or **Entities** in LUIS-speak) included in the above statements:
+While we can easily interpret and parse the relevant information from there requests, doing so programmatically represents a significant challenge.  Luckily, in a matter of minutes, LUIS can be trained to understand both the users' **Intent** to *Create a Reservation* as well as the pertinent information (or **Entities** in LUIS-speak) included in the above statements:
 
 1. Where:  **Pittsburgh**
 2. When:   **tomorrow night at 8:30 pm**
@@ -23,11 +22,8 @@ Through years of social interactions, we as humans have been trained can easily 
 
 Don't believe me?  Let's try it ourselves!
 
-##Create a LUIS App
-First things first, we need to log into [the LUIS website](https://luis.ai) to begin building and training our models.  
+## Getting Started
+Log into [the LUIS website](https://luis.ai) to begin building and training our models.  
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-![test](https://i.pinimg.com/736x/03/33/7c/03337c0e453ce192aeeaa609aab14e6f--national-parks-usa-grand-canyon-national-park.jpg)
-
+![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
