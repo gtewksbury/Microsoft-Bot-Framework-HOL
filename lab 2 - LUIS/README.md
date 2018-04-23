@@ -13,7 +13,7 @@ To see where LUIS really shines, let's consider the bot that we will be building
 
 * *Six of us are in the mood for a good Italian restaurant tonight at 8:30 here in Pittsburgh"
 
-While we can easily interpret and parse the relevant information from there requests, doing so programmatically represents a significant challenge.  Luckily, in a matter of minutes, LUIS can be trained to understand both the users' **Intent** to *Create a Reservation* as well as the pertinent information (or **Entities** in LUIS-speak) included in the above statements:
+While we can easily interpret and parse the relevant information from there requests, doing so programmatically represents a significant challenge.  Luckily, in a matter of minutes, LUIS can be trained to understand both the users' **Intent** to *Create a Reservation* as well as the relevant information (or **Entities** in LUIS-speak) included in the above statements:
 
 1. Where:  **Pittsburgh**
 2. When:   **tomorrow night at 8:30 pm**
@@ -23,13 +23,13 @@ While we can easily interpret and parse the relevant information from there requ
 Don't believe me?  Let's try it ourselves!
 
 ## Getting Started
-Log into [the LUIS website](https://luis.ai) to begin building and training your model(s).  
+Log into the [Luis Website](https://luis.ai) to begin building and training your model(s).  
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
 *Note, to sign into the site, you'll need a valid Microsoft Account.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.*
 
-### Create LUIS App
+### Create a LUIS App
 From the following screen, click the **Create New App** button
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-app.png)
 
@@ -39,11 +39,11 @@ Give your app a *Name* and *Description*
 
 Your app is now ready to be built and trained!
 
-*Notice that the new app already contains a default **None** intent.  A single app can and likely will have multiple intents to signify the different actions a user can request (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict the intent of the user's request.  LUIS will select **None** when no other intents are predicted (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+*Notice that the new app already contains a default **None** intent.  A single app can and likely will have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret user's intent.  LUIS will select **None** when no other intents are predicted (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
-
+### Add Intent
 
 
 
