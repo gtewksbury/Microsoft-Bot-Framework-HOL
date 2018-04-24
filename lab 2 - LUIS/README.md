@@ -55,6 +55,9 @@ The following screen is where we train our **intent** to understand different va
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-intent.png)
 
+
+### Add Entities
+
 Before we start training our *Create Reservation* **Intent**, let's define the data (or **Entities**) associated with our app.  **Entities** represent data that LUIS will be trained to identify within a user's request.  On the left menu, click *Entities*.  You should be taken to the following screen:
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-entities.png)
@@ -79,6 +82,7 @@ We've now identified the different information that LUIS should attempt to ident
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-entities-added.png)
 
+### Add Utterances
 
 We're now ready to start training our app!  Let's navigate back to our *Create Reservation* **intent**.  We are going to train our intent by giving it different examples of the ways people might ask for a reservation.  These examples are what LUIS refers to as **Utterances**.  Note that the more **utterances** we provide for training, the more accurate LUIS will become!
 
@@ -120,7 +124,7 @@ I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
 
-Hmm...although LUIS was able to identify the number of people and date, it seems that it is yet to master the art interpreting the restaurants location.  In the LUIS world, that can only make one thing...more training!  The difference here is that our location is actually two words *New* and *Orleans*.  To select this for training, simply click bot *New* and *Orleans*.  You should notice the brackets not enclose both.  Now click *New Orleans* and select *RestaurantReservation.Address*
+Hmm...although LUIS was able to identify the number of people and date, it seems that it is yet to master the art interpreting restaurant location.  In the LUIS world, that can only make one thing...more training!  The difference here is that our location is actually two words *New* and *Orleans*.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
@@ -129,7 +133,7 @@ As we said before, you model is only as good as your training.  Add and train 5 
 ```
 I'd like to make a reservation in Miami FL for two of us
 Can you make me a reservation next Thursday morning at 8 at a good Mexican restaurant in Los Angeles for 2 people
-3 of us would like a eat at chinese tomorrow at 2pm in Washington PA
+3 of us would like a eat chinese food tomorrow at 2pm in Washington PA
 I need a reservation for 6 people in Chicago at an italian restaurant
 
 ```
