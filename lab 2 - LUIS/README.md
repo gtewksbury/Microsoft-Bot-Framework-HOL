@@ -33,7 +33,7 @@ From the following screen, click the **Create New App** button
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-app.png)
 
-Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can name yours whatever you want.
+Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can name yours whatever you want).
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-create-new-app.png)
 
