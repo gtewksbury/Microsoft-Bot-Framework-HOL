@@ -44,14 +44,47 @@ Your app is now ready to be built and trained!
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
 ### Add Create Reservation Intent
-The next step is to add the **Intents** that our app will be trained to interpret.  For the purposes of this lab, we will be creating a single **intent** which will recognize requests to create a restaurant reservation.
+The next step is to add the **Intents** that our app will be trained to interpret.  For the purposes of this lab, we will be creating a single **Intent** which will recognize requests to create a restaurant reservation.
 
 Click the *Create New Intent* button and set the intent name to *Create Reservation*
 
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-create-intent.png)
 
-The following screen is where we train our intent to understand different variations of how users might ask for a reservation.  To get started, type the following into the top textbox and click *Enter*:
+The following screen is where we train our intent to understand different variations of how users might ask for a reservation.  
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-intent.png)
+
+Before we start training our *Create Reservation* **Intent**, let's define the data (or **Entities**) associated with our app.  **Entities** represent data that LUIS will be trained to identify within a user's request.  On the left menu, click *Entities*.  You should be taken to the following screen:
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-entities.png)
+
+Notice you have a few options.  You can *Create new entity* to define a new **Entity** from scratch, or you can use *prebuilt entities*.  For this lab, we are going to include a number of prebuilt entities.  Click the *Manage prebuilt entities* button and add the following:
+
+* **number**
+* **datetimeV2**
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-add-prebuilt-entities.png)
+
+Next, click the *Add prebuilt domain entities* and add the following:
+
+* **RestaurantReservation.Address**
+* **RestaurantReservation.Cuisine**
+* **RestaurantReservation.PlaceName**
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-add-domain-entities.png)
+
+We've now identified the different information that LUIS should attempt to identify within a given text.  Navigate back to the *Intents* screen.  You'll notice that the *None* Intent now contains 35 **utterances*... We'll get back to that in a moment.
+
+We're now ready to start training!  Select your *Create Reservation* intent.  You should be taken to the following screen:
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-intent.png)
+
+We are going to train our *Create Reservation* intent by giving LUIS examples of the ways people might ask for a reservation.  These examples are what LUIS refers to as **Utterances**.  Note that the more utterances provide and train, the more accurate LUIS will become.
+
+
+
+To get started, type the following into the top textbox and click *Enter*:
 
 ```
 
