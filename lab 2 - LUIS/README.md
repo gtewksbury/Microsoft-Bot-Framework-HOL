@@ -39,12 +39,25 @@ Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can n
 
 Your app is now ready to be built and trained!
 
-*Notice the newly created app already contains a default **None** intent.  A single app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+*Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
 ### Add Create Reservation Intent
+The next step is to add the **Intents** that our app will be trained to interpret.  For the purposes of this lab, we will be creating a single **intent** which will recognize requests to create a restaurant reservation.
 
+Click the *Create New Intent* button and set the intent name to *Create Reservation*
+
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-create-intent.png)
+
+The following screen is where we train our intent to understand different variations of how users might ask for a reservation.  To get started, type the following into the top textbox and click *Enter*:
+
+```
+
+please reserve me a table for 6 people in Pittsburgh for thai food
+
+```
 
 
 
