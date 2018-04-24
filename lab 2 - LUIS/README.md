@@ -92,6 +92,21 @@ Make me a reservation in Pitsburgh tomorrow night at 7:30 at a thai restaurant
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1.png)
 
+In a moment, you should see your text added to the **utterance** list.  Notice that it has identified *tomorrow night at 7:30* as our *datetimeV2* entity.
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1-added.png)
+
+
+We need to give LUIS a little help to understand the other pertinent information in our **utterance**.  Hover your mouse over *Pittsburgh*.  Notice it places brackets around the text.  
+
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-highlight-city-entity.png)
+
+Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather are training LUIS to understand this is the *RestaurantReservation.Address* based on natural language heuristics!
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-city-entity.png)
+
+
 
 
 
