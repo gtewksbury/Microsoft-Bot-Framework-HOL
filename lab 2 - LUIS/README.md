@@ -92,7 +92,7 @@ Make me a reservation in Pitsburgh tomorrow night at 7:30 at a thai restaurant
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1.png)
 
-In a moment, you should see your text added to the **utterance** list.  Notice that it has identified *tomorrow night at 7:30* as our *datetimeV2* entity.
+In a moment, you should see your text added to the **utterance** list.  Notice that it has identified *tomorrow night at 7:30* as our *datetimeV2* entity.  I'm always impressed by the number of variations in which LUIS can interpret dates and times!
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1-added.png)
 
@@ -102,14 +102,36 @@ We need to give LUIS a little help to understand the other pertinent information
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-highlight-city-entity.png)
 
-Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather are training LUIS to understand this is the *RestaurantReservation.Address* based on natural language heuristics!
+Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather are training LUIS to understand how to recognize *RestaurantReservation.Addresss* based on natural language heuristics!
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-city-entity.png)
 
+Now let's start to train the model to recognize the requested cuisine.  Click *thai* and select *RestaurantReservation.Cuisine*.
 
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-cuisine.png)
 
+Let's add another **utterance** and see what LUIS has learned!  Type the following statement into the *utterance* textbox and click enter:
 
+```
 
+I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
 
+```
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
+
+Hmm...although LUIS was able to identify the number of people and date, it seems that it is yet to master the art interpreting the restaurants location.  In the LUIS world, that can only make one thing...more training!  The difference here is that our location is actually two words *New* and *Orleans*.  To select this for training, simply click bot *New* and *Orleans*.  You should notice the brackets not enclose both.  Now click *New Orleans* and select *RestaurantReservation.Address*
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
+
+As we said before, you model is only as good as your training.  Add and train 5 or 6 more examples of reservation **utterances** providing different cuisine types and locations.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
+
+```
+I'd like to make a reservation in Miami FL for two of us
+Can you make me a reservation next Thursday morning at 8 at a good Mexican restaurant in Los Angeles for 2 people
+3 of us would like a eat at chinese tomorrow at 2pm in Washington PA
+I need a reservation for 6 people in Chicago at an italian restaurant
+
+```
 
 
