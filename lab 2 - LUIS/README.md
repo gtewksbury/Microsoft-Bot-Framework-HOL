@@ -22,7 +22,7 @@ While we can easily interpret and parse the relevant information from there requ
 Don't believe me?  Let's try it for ourselves!
 
 ## Getting Started
-Log into the [Luis Website](https://luis.ai) to begin building and training your model(s).  
+Log into the [Luis Website](https://www.luis.ai) to begin building and training your model(s).  
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
