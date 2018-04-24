@@ -39,7 +39,7 @@ Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can n
 
 Your app is now ready to be built and trained!
 
-*Notice that the new app already contains a default **None** intent.  A single app can and likely will have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret user's intent.  LUIS will select **None** when no other intents are predicted (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+*Notice the newly created app already contains a default **None** intent.  A single app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
