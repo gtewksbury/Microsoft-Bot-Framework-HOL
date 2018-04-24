@@ -1,7 +1,6 @@
 # Lab 2 - Language Understanding Intelligence Service (LUIS)
 
-If you're following the labs in order, at this point we have a pretty basic 'Hello World' bot that that simply listens to the incoming message from the user and returns the number of characters in the message (not very helpful).  For a bot to be useful, it needs to be able to understand the intent of a message and the important information provided within it.  Luckily for us, this is where LUIS steps in!
-
+If you're following the labs in order, at this point we have a pretty basic 'Hello World' bot that that simply listens to the incoming message from the user and returns the number of characters in the message (not very helpful).  Users typically interact with bots through natural language.  It's the bot's job to understand these natural language commands and act accordingly.  This is where LUIS comes in!
 
 LUIS is a natural language processing machine-learning service in Microsoft's Cognitive Service's suite of APIs that can be easily trained to understand the content of natural language content.  Best of all, LUIS provides a FREE tier that we can start using immediately without any upfront cost!
 
@@ -43,7 +42,7 @@ Your app is now ready to be built and trained!
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
-### Add Intent
+### Add Create Reservation Intent
 
 
 
