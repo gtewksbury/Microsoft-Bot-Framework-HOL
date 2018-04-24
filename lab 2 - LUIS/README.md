@@ -138,4 +138,12 @@ I need a reservation for 6 people in Chicago at an italian restaurant
 
 ```
 
+### Re-associated Utterances
 
+If you navigate back to your **Intents** list,  you should see the count of **utternances** you added to your *Create Reservation* **intent**.  Oddly enough though, you'll notice that we also have a number of **utterances** in our *None* intent.  That seems strange, since we didn't add any **utterances** to *None*.  Let's click on the *None* intent and see what's there.
+
+LUIS was kind enough to include these **utterances** when we added the *RestaurantReservation.Address*, *RestaurantReservation.PlaceName*, and *RestaurantReservation.Cuisne* *prebuilt domain entities* to our app.  However, in reviewing these, many of them should be associated with our *Create Reservation* intent.
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-none-utterances.png)
+
+Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** that include *RestaurantReservation.PlaceName* with the *None* **intent** as our bot will provide recommendations based on the requested cuisine.
