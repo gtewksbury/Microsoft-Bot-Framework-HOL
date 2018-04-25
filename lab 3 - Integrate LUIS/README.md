@@ -168,16 +168,16 @@ Let's start by retrieving the LUIS **entities** from the given *LuisResult*.  Ba
 
 Here we call *LuisResult's TryFindEntity* extension method which will look in the *LuisResult* for a value associated with the given **entity** name (if you remember from the last lab, we associated a *'RestaurantReservation.Address'* entity with our LUIS application).
 
+> While *string* values are simple to parse through the *LuisResult.TryFindEntity(...)* method, grabbing the converted values for Dates and Integers requires a little more work.  Therefore, I've added a custom *LuisExtensions* class to help make this a bit easier.
+
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
 * User State - State tied to the user outside of any specific conversation
 * Conversation State - State tied to a conversation (which could include group conversations)
 * Private Conversation State - State tied to the current user within a given conversation
 
-For the sake of these tutorials, we are using the built-in memory state provider, however, for production bots you would want to persist state to durable storage.  To learn more about storing state in Azure Cosmos DB or Azure Table Storage, please refer to the [Manage Stating](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-state-azure-cosmosdb) documentation provided by Microsoft (it's really easy to setup, it just requires a little dependency injection).
+> For the sake of these tutorials, we are using the built-in memory state provider, however, for production bots you would want to persist state to a more durable storage.  To learn more about storing state in Azure Cosmos DB or Azure Table Storage, please refer to the [Managing State](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-state-azure-cosmosdb) documentation provided by Microsoft (it's really easy to setup, it just requires a little dependency injection).
 
-
-> While *string* values are simple to parse through the *LuisResult.TryFindEntity(...)* method, grabbing the converted values for Dates and Integers requires a little more work.  Therefore, I've added a custom *LuisExtensions* class to help make this a bit easier.
 
 Let's continue to build out our *CreateReservation* method.  Here's the final result:
 
