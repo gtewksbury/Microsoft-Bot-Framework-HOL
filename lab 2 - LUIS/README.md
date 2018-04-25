@@ -205,4 +205,4 @@ Remember, the more training you provide, the more accurate **intent** and **enti
 
 ## Next Steps
 
-Now that we've trained and published our LUIS app, it's time to integrate it with our chat bot!
+Now that we've trained and published our LUIS app, it's time to integrate it with our chat bot in [Lab 3](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%203%20-%20Integrate%20LUIS)!
