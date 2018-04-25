@@ -170,7 +170,7 @@ Here we call *LuisResult's TryFindEntity* extension method which will look in th
 
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
-* User State - State tied to the user across all conversations
+* User State - State tied to the user outside of any conversations
 * Conversation State - State tied to a conversation (which could include group conversations)
 * Private Conversation State - State tied to the current user within a given conversation
 
