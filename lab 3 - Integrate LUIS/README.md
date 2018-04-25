@@ -6,14 +6,14 @@ Congratulations on making it this far!  At this point you should have setup your
 
 In this lab, we are going to integrate the sample bot we created in [Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup) with the LUIS model we trained in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).  Moving forward, we're going to be spending most of our time in Visual Studio, so hopefully you're ready to get your hands dirty with some coding!
 
-I hate to do this to you, but I'm going to ask that you start this lab from the *start* project included in this lab (as opposed to the project we created in Lab 1).  I promise, they are almost identical with a couple of minor exceptions:
+I hate to do this to you, but I'm going to ask that you start from the *start* project included in this lab (as opposed to the project we created in Lab 1).  I promise, they are almost identical with a couple of minor exceptions:
 
-* The *starter* project's Bot Builder has been upgraded to *3.15.0* to support some of the newer features we'll need (nothing more than a nuget update)
-* It contains a couple of Luis helper extension methods to help parse dates and integer values
-* It contains a *Reservation.cs* class file which simply defines some properties which define a reservation.  We won't be using it much in here, but we will in future labs.
+* The *starter* project's Bot Builder SDK has been upgraded to *3.15.0* to support some of the newer features we'll need (nothing more than a nuget update)
+* It contains a couple of extension methods to help parse dates and integer values from *LuisResults*
+* It contains a *Reservation.cs* class file which contains some properties which define a reservation (We won't be using it much in here, but we will in future labs).
 
 ## LuisDialog
-Alright, let's open the *starter* Visual Studio project and open the *RootDialog.cs* file.  It should look something like this:
+Alright, let's open the *starter* Visual Studio project in this lab and open the *RootDialog.cs* file.  It should look something like this:
 
 ```csharp
 
@@ -66,9 +66,9 @@ Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inhe
     }
 ```
 
-> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog that integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  Basically, it handles the *StartAsync* and *MessageReceived* handler.  The *MessageReceived* handler in turn passes your message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to different methods that you configure to handle specific **Intents**
+> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog which integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  To summarize, it handles the *StartAsync* and implements it's own *MessageReceived* handler.  The *MessageReceived* handler in turn passes the incoming user message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to methods that you configure to handle specific **intents**.  We'll take a look at how to wireup the dialog to our LUIS app and **Iintents** now!
 
-Now, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, this can be done by simply decorating our class with the *LuisModelAttribute*, giving it the Model ID and Subscription Key for our LUIS endpoint.  
+First, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, this can be done by simply decorating our class with the *LuisModelAttribute*, giving it the Model ID and Subscription Key for our LUIS endpoint.  
 
 ```csharp
 
@@ -81,7 +81,7 @@ Now, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, t
 
 ```
 
-If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
+> If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
 
