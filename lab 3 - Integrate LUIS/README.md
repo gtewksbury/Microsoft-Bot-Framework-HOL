@@ -149,7 +149,7 @@ What happened?  Hopefully your *None* method was hit!
 ## State Management
 As your bot becomes more complicated, you'll likely need to save state as you move from **Dialog** to **Dialog** throughout a **conversation**.  In this example, we're going to retrieve the **entities** within the *LuisResult* and store them in state.
 
-Let's start by retrieving the LUIS **entities** from the request.  Back in your *CreateReservation* method, let's add the following code:
+Let's start by retrieving the LUIS **entities** from the given *LuisResult*.  Back in your *CreateReservation* method, let's add the following code:
 
 ```csharp
         [LuisIntent("Create Reservation")]
@@ -166,7 +166,7 @@ Let's start by retrieving the LUIS **entities** from the request.  Back in your 
         }
 ```
 
-Here we call *LuisResult's TryFindEntity* extension method which will attempt to retrieve a value based on the given **entity** name (if you remember from the last lab, we associated a *'RestaurantReservation.Address'* entity with our LUIS application).
+Here we call *LuisResult's TryFindEntity* extension method which will look in the *LuisResult* for a value associated with the given **entity** name (if you remember from the last lab, we associated a *'RestaurantReservation.Address'* entity with our LUIS application).
 
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
