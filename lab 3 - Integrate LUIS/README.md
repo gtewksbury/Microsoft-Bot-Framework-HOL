@@ -64,10 +64,9 @@ csharp```
     {
 
     }
-
 ```
 
->Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create a base dialog that integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  Basically, it handles the *StartAsync* and *MessageReceived* handler.  The *MessageReceived* handler in turn passes your message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to different methods that you define for specific LUIS **Intents**
+> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create a base dialog that integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  Basically, it handles the *StartAsync* and *MessageReceived* handler.  The *MessageReceived* handler in turn passes your message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to different methods that you define for specific LUIS **Intents**
 
 Now, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, this can be done by simply decorating our class with the *LuisModelAttribute*, giving it the Model ID and Subscription Key for our LUIS endpoint.  If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
 
