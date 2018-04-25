@@ -168,13 +168,13 @@ Now that we've trained our model, it's time to publish our changes so that we ca
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
 
-You'll notice you have the open to publish to both *Production* and *Staging* endpoints.  This allows you to retrain your model and publish to a *Staging* environment to verify you changes before pushing to *Production*.
+*You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain your model and publish to a Staging environment to verify you changes before pushing to Production.*
 
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!
 
 Notice the URL associated with your Starter_Key.  Mine looks something like this:
 
-*https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/`a2b4583a-539b-4fa8-8062-c3f0648b5400`?subscription-key=`<subscription key>`&verbose=true&timezoneOffset=0&q=*
+*https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
 
 The first highlighted section is your LUIS Model ID, tied to the LUIS application we created.  The second highlight section (obfuscated from prying eyes), is your Starter_Key.  Without this key, you'll receive a 401-Unauthorized response.
 
