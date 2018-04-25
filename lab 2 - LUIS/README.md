@@ -170,19 +170,21 @@ Now that we've trained our model, it's time to publish our changes so that we ca
 
 *You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain your model and publish to a Staging environment to verify you changes before pushing to Production.*
 
-Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!
+Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  **Note, you'll need to publish every time you re-train your model if you want those changes to be accessible via the REST API**.
 
 Notice the URL associated with your Starter_Key.  Mine looks something like this:
 
 *https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
 
-The first highlighted section is your LUIS Model Id, which identifies the LUIS application we just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling through the REST API.
+The first highlighted section is your LUIS Model Id, which identifies the LUIS application we just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
-Copy the url into your favorite REST client and add your utterance to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
+Copy the url into your favorite REST client and an example your utterance to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-rest-api.png)
 
-You'll also notice a *Keys* button.  For now, we'll be working off the **Free** started key provided by LUIS.  This gives you 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created within your Azure subscription for higher throughput and performance.  For now, we're going to stick with our starter key.
+You'll see that the response not only identified the *Create Reservation* **intent** but also provides me a list of **entity** values it parsed from the request.  Notice also that the *tomorrow night at 7* is further provided as a date/time value of *2018-04-26 19:00:00*.
+
+Finally, make not of the *Keys* button.  For now, we'll be working off the **Free** started key provided by LUIS.  This gives you 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created within your Azure subscription for higher throughput and performance.  For now, we're going to stick with our starter key.
 
 ## Quick Recap
 
