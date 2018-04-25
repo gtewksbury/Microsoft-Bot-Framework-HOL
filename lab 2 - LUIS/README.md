@@ -206,7 +206,7 @@ Here's what we accomplished:
 3.	We trained our app to recognize the appropriate **intent** and **entities** within sample **utterances**
 4.	We published our LUIS app so it can be consumed externally via highly-available REST APIs
 
-Remember, the more training you provide your model, the more accurate **intent** predictions and **entity** identification will become.  A strong model will have hundreds of trained and validated **utterances**.
+Remember, the more training you provide your model, the more accurate **intent** and **entity** predications will become.  A strong model will have hundreds of trained and validated **utterances**.
 
 ## Next Steps
 
