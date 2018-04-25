@@ -195,7 +195,7 @@ You'll see that the response not only identified the *Create Reservation* **inte
 
 #### Keys
 
-Make not of the *Keys* button back on the *Publish* screen.  For now, we've been working off the **Free** started key provided by LUIS.  This gives us 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created through your Azure subscription for higher throughput and performance.
+Make note of the *Keys* button back on the *Publish* screen.  For now, we're working off the **Free** Starter_Key provided by LUIS.  This gives us 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created through your Azure subscription for higher throughput and performance.
 
 ## Quick Recap
 
