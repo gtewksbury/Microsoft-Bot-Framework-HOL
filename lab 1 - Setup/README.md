@@ -134,6 +134,8 @@ Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulato
 
 On the Emulator's right pane, you notice some information was output to the *Log* section.  The log will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occurs).
 
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+
 > Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
@@ -145,7 +147,7 @@ Go back to the *RootDialog* in Visual Studio and put a breakpoint on the *StartA
 Now let's go back to the Emulator and type a message to our Bot and click *Enter*.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-type-message.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-connected.png)
 
 You should notice that our *StartAsync* method breakpoint hit.  When you start a new conversation, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example, that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the provided message (or in our case, *Activity*) should be passed to the *MessageReceived* handler.  Let's hit F5 and see what happens next.
 
