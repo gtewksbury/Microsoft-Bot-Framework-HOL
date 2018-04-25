@@ -187,7 +187,7 @@ Notice the URL associated with your Starter_Key.  Mine looks something like this
 
 The first highlighted section is your LUIS Model Id, which uniquely identifies the LUIS application you just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
-Copy the url into your favorite REST client and an example **utterance** to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
+Copy the url into your favorite REST client and add an example **utterance** to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-rest-api.png)
 
