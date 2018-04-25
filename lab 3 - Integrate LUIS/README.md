@@ -245,7 +245,7 @@ Let's continue to build out our *CreateReservation* method.  Here's the final re
 
 ```
 
-Here we are simply parsing and storing the remaining **entities** (if provided), reply with the **entity** values we successfully parsed, and wait for the next message.  Let's also make the *None* method a little more informative:
+Here we are simply parsing and storing the remaining **entities** (if provided by the user and recognized by LUIS), reply with the **entity** values we successfully parsed, and wait for the next message.  Let's also make the *None* method a little more informative:
 
 ```csharp
         [LuisIntent("")]
