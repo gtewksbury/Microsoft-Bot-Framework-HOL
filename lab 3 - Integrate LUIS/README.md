@@ -1,4 +1,4 @@
-# Lab 3 - Integrating LUIS
+# Lab 3 - LUISDialog and State Management
 Congratulations on making it this far!  At this point you should have setup your .NET Bot Framework development environment ([Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup)) and have created, trained, and published your LUIS application ([Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).
 
 > Note, make sure that didn't forget to **publish** you LUIS app before preceding this lab, or things won't go quite as expected.
@@ -13,7 +13,7 @@ I hate to do this to you, but I'm going to ask that start this lab from the *sta
 * It contains a *Reservation.cs* class file which simply defines some properties which define a reservation.  We won't be using it much in here, but we will in future labs.
 
 ## LuisDialog
-Alright, let's open the Visual Studio project in lab 3's *start* directory.  Go ahead an open the *RootDialog.cs* file.  It should look something like this:
+Alright, let's open the Visual Studio project in this lab's *start* directory.  Go ahead an open the *RootDialog.cs* file.  It should look something like this:
 
 ```csharp
 
@@ -43,7 +43,7 @@ Alright, let's open the Visual Studio project in lab 3's *start* directory.  Go 
 }
 ```
 
-Go ahead and remove the *StartAsync* and *MessageReceivedAsync*.
+Go ahead and remove the *StartAsync* and *MessageReceivedAsync* methods.
 
 ```csharp
 
@@ -55,7 +55,7 @@ Go ahead and remove the *StartAsync* and *MessageReceivedAsync*.
 
 ```
 
-Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inherit from the .NET Bot Builder's native *LuisDialog* with a *Reservation* type parameter.  You're *RootDialog* should now look like this:
+Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inherit from .NET Bot Builder's *LuisDialog* with a *Reservation* type parameter.  You're *RootDialog* should now look like this:
 
 ```csharp
 
