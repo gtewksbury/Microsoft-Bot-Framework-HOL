@@ -31,9 +31,8 @@ However, none of these **channels** support a local debugging experience.  Lucki
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator.png)
 
-To install the Bot Emulator 
 
-## Visual Studio Bot Framework Project Template
+## Installing Visual Studio Bot Framework Project Templates
 
 Before you build your first .NET Bot Application, you'll want to install the Visual Studio Bot Framework Project Template.  This will give you a nice starting point with a working sample you can run immediately.
 
@@ -54,5 +53,18 @@ Once the templates has been added successfully, open Visual Studio 2017 (if Visu
 
 Navigate to *File* > *New Project* and select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, you might have to check the template download locations in the previous step).
 
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
+
+At this point you should be all set to start with a brand new Visual Studio bot application.  Before we run it, let's take a moment to review the project structure
+
+> If you're impatient like me, you might try to immediately run the project.  Just make sure you're connected to the internet as project template has a number of *nuget* packages that must be downloaded, including the *Bot Builder SDK*.
+
+## Basic Project Structure
+
+We're almost ready to run our bot an start interfacing with it via the Bot Emulator, but before we do, let's take a brief moment to review the Visual Studio project that was created.
+
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
 
