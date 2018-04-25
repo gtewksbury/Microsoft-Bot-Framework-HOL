@@ -173,3 +173,15 @@ You can also *End Conversations*, essentially wiping out the state of a given co
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
 
 After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was against called.  Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
+
+## Quick Recap
+
+Congratulations, you now have a complete Visual Studio environment capable of debugging custom bot applications!  Alright, I admit it, the sample bot we created isn't very exciting.  But hey, you're now setup and ready to create exciting new user experiences!  Throughout the remainder of the labs, we'll be building out a bot that helps users make restaurant reservations.  Users will be able to ask our bot things like:
+
+*	Make me a reservation at a good Indian restaurant in Pittsburgh
+*	Can you book me a table tomorrow night at 7:30 for Mexican?
+
+But wait a minute, we're simply sending text-based messages to our bot.  How can we possibly parse useful information from text to understand what the user is requesting?  That my friends is where Natural Language processing and Machine Learning come in.
+
+## Next Steps
+In [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) we'll build a machine learning model using Microsoft's Language Understanding Intelligence Service (known as LUIS) to do just that.
