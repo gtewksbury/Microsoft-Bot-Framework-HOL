@@ -88,11 +88,9 @@ We're now ready to start training our app!  Let's navigate back to our *Create R
 
 Enter the following **utterance** into your *Create Reservation* **intent** and click *Enter*
 
-```
 
-Make me a reservation in Pitsburgh tomorrow night at 7:30 at a thai restaurant
+> Make me a reservation in Pitsburgh tomorrow night at 7:30 at a thai restaurant
 
-```
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1.png)
 
@@ -116,11 +114,9 @@ Now let's start to train the model to recognize the requested cuisine.  Click *t
 
 Let's add another **utterance** and see what LUIS has learned!  Type the following statement into the *utterance* textbox and click enter:
 
-```
 
-I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
+> I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
 
-```
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
 
@@ -130,11 +126,14 @@ Hmm...although LUIS was able to identify the number of people and date, it seems
 
 As we said before, you model is only as good as your training.  Add and train 5 or 6 more examples of reservation **utterances** providing different cuisine types and locations.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
 
-```
-I'd like to make a reservation in Miami FL for two of us
-Can you make me a reservation next Thursday morning at 8 at a good Mexican restaurant in Los Angeles for 2 people
-3 of us would like a eat chinese food tomorrow at 2pm in Washington PA
-I need a reservation for 6 people in Chicago at an italian restaurant
+
+> I'd like to make a reservation in Miami FL for two of us
+
+> Can you make me a reservation next Thursday morning at 8 at a good Mexican restaurant in Los Angeles for 2 people
+
+> 3 of us would like a eat chinese food tomorrow at 2pm in Washington PA
+
+> I need a reservation for 6 people in Chicago at an italian restaurant
 
 ```
 
@@ -172,11 +171,8 @@ Now that we've trained our model, it's time to publish our changes so that we ca
 
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  
 
-```
 
-Note, if you re-train your model, you'll have to re-publish before those changes impact your LUIS API.
-
-```
+> Note, if you re-train your model, you'll have to re-publish before those changes impact your LUIS API.
 
 
 #### Calling LUIS Externally
