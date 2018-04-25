@@ -314,5 +314,5 @@ This time we should notice that the date is NOT returned.  This is because you d
 In this lab, we successfully connected our bot to our LUIS application, and configured  our *RootDialog* with handlers for specific **intents**.  We also learned how to parse **entity** values from the provided *LuisResult*.  Finally, we learned how to persist and retrieve state for our bot application.
 
 ## Next Steps
-At this point we are able to configure our *RootDialog* to handle LUIS intents, but we haven't really done anything useful with the provided information.  In the next lab, we'll learn how to structure conversational flow with multiple dialogs as well as some more advanced interface features, such as **card** views.
+At this point we are able to configure our *RootDialog* to handle LUIS intents, but we haven't really done anything useful with the provided information.  In the next lab, we'll learn how to structure conversational flow with multiple dialogs as well as some more advanced interface features, such as **card** and **suggestions** views.
  
