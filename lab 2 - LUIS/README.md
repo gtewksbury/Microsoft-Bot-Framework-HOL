@@ -170,7 +170,13 @@ Now that we've trained our model, it's time to publish our changes so that we ca
 
 *You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain your model and publish to a Staging environment to verify you changes before pushing to Production.*
 
-Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  **Note, you'll need to publish every time you re-train your model if you want those changes to be accessible via the REST API**.
+Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  
+
+```
+
+Note, re-trained models won't impact your API until you publish
+
+```
 
 
 #### Calling LUIS Externally
