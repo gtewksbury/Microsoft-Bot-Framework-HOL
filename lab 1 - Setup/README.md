@@ -29,7 +29,7 @@ In a production world, user's interface with your Bots through one or many confi
 However, none of these **channels** support a local debugging experience.  Luckily for us, Microsoft has created a Bot Emulator desktop client that can serve as a testing and debugging **channel** as you develop your bot application!
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/bot-emulator.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator.png)
 
 
 However, non of these providethroughout the development of your bot, you'll likely want a way to quickly test and debug your bot prior to deploying to these channels.  Luckily, Microsoft provides the Bot Emulator as another supported Channel, allowing developers to invoke th
