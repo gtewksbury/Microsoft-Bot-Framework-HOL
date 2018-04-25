@@ -1,13 +1,13 @@
 # Bot Framework Setup
 
-In this lab, we will setup our Visual Studio .NET Bot Framework development environment.  This includes the following:
+In this lab, we'll setup our Visual Studio .NET Bot Framework development environment.  This includes the following:
 
 1.	Installing the Bot Emulator (used for testing our bot locally)
 2.	Adding the Visual Studio 2017 Bot Framework project template
 3.	Create and running our first *Hello World* bot project
 4.	A quick review of the Bot Builder SDK for .NET
 
-> Note, the following labs will require Visual Studio 2017 for Windows
+> Note, the following labs will require Visual Studio 2017 (preferably with the latest updates)
 
 
 ## Installing the Bot Emulator
@@ -39,7 +39,7 @@ Before you build your first .NET Bot Application, you'll want to install the Vis
 > Note, the following labs have been developed using Visual Studio 2017.  Additionally, the Bot Builder SDK for .NET requires .NET Framework 4.6 or higher.
 
 
-To install the Visual Studio Bot Framework Project Template, download the [Bot Application] (http://aka.ms/bf-bc-vstemplate) zip file and save it to your Visual Studio project templates directory
+To install the Visual Studio Bot Framework Project Template, download the [Bot Application](http://aka.ms/bf-bc-vstemplate) zip file and save it to your Visual Studio project templates directory
 
 > For typical Visual Studio installations, the *project templates* directory is located at ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ProjectTemplates\Visual C#\ `
  
@@ -47,9 +47,9 @@ Next, download [Bot Controller](http://aka.ms/bf-bc-vscontrollertemplate) and [B
 
 > For typical Visual Studio installations, the *item templates* directory is located at ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ItemTemplates\Visual C#\ `
 
-More information on installing .NET Bot Framework Visual Studio templates can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart)
+More information on installing .NET Bot Framework Visual Studio templates can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart).
 
-Once the templates has been added successfully, open Visual Studio 2017 (if Visual Studio was previously open, you might have to close it and re-open it for Visual Studio to find your templates)
+Once the templates has been added successfully, open Visual Studio 2017 (if Visual Studio was previously open, you might have to close it and re-open it for Visual Studio to find your templates).
 
 Navigate to *File* > *New Project* and select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, you might have to check the template download locations in the previous step).
 
@@ -62,7 +62,7 @@ At this point you should be all set to start developing your bot application.  B
 
 ## Basic Project Structure
 
-We're almost ready to run our bot an start interfacing with it via the Bot Emulator, but before we do, let's take a brief moment to review the Visual Studio project that was created.
+We're almost ready to run our bot and start and interact with it via the Bot Emulator, but before we do, let's take a brief moment to review the Visual Studio project that was created.
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
@@ -88,4 +88,31 @@ If you've done any web development with Visual Studio, you'll probably notice Vi
             var response = Request.CreateResponse(HttpStatusCode.OK);
             return response;
         }
+``` 
+
+As you can see, **channels** invoke our bot application via RESTful Post calls to our *Messages* endpoint, passing an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with almost any application!  We can also see that the controller invokes a new *RootDialog*.  Let take a quick look at *RootDialog* to see what's going on there.
+
+```csharp
+    public class RootDialog : IDialog<object>
+    {
+        public Task StartAsync(IDialogContext context)
+        {
+            context.Wait(MessageReceivedAsync);
+
+            return Task.CompletedTask;
+        }
+
+        private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<object> result)
+        {
+            var activity = await result as Activity;
+
+            // calculate something for us to return
+            int length = (activity.Text ?? string.Empty).Length;
+
+            // return our reply to the user
+            await context.PostAsync($"You sent {activity.Text} which was {length} characters");
+
+            context.Wait(MessageReceivedAsync);
+        }
+    }
 ``` 
