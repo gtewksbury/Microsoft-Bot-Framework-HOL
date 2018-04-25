@@ -172,6 +172,9 @@ Now that we've trained our model, it's time to publish our changes so that we ca
 
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  **Note, you'll need to publish every time you re-train your model if you want those changes to be accessible via the REST API**.
 
+
+#### Calling LUIS Externally
+
 Notice the URL associated with your Starter_Key.  Mine looks something like this:
 
 *https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
@@ -184,7 +187,9 @@ Copy the url into your favorite REST client and an example your utterance to the
 
 You'll see that the response not only identified the *Create Reservation* **intent** but also provides me a list of **entity** values it parsed from the request.  Notice also that the *tomorrow night at 7* is further provided as a date/time value of *2018-04-26 19:00:00*.
 
-Finally, make not of the *Keys* button.  For now, we'll be working off the **Free** started key provided by LUIS.  This gives you 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created within your Azure subscription for higher throughput and performance.  For now, we're going to stick with our starter key.
+#### Keys
+
+Make not of the *Keys* button back on the *Publish* screen.  For now, we've been working off the **Free** started key provided by LUIS.  This gives us 10,000 requests per month!  However, for production workloads, you can associate a Standard Tier Cognitive Service's subscription key created through your Azure subscription for higher throughput and performance.
 
 ## Quick Recap
 
