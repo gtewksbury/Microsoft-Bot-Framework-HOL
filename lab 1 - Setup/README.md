@@ -116,3 +116,14 @@ As you can see, **channels** invoke our bot application via RESTful Post calls t
         }
     }
 ``` 
+
+Immediately we see a few things that are probably new to us.  Our class implements  something called *IDialog<object>* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK.  No better way to see how things work than to step through the code, so let's run the project and see it in action!
+
+## Testing your Bot Application
+
+Go ahead an run your Visual Studio project in *Debug* mode.  You should notice a new window open in your defualt browser.  Make note of the URL and port in your browser.
+
+> If you receive any build errors, make sure you are connected to the internet and Visual Studio is able to download nuget packages
+
+Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulator and append */api/messages* (the url should be http://localhost:3979/api/messages).
+
