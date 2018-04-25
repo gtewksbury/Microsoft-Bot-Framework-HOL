@@ -202,9 +202,9 @@ Make note of the *Keys* button back on the *Publish* screen.  For now, we're wor
 Here's what we accomplished:
 
 1.	We created a new LUIS app through the [LUIS website](https://www.luis.ai)
-2.	We added **entities** that define the data we want to extract from a user's **uttereance**
-3.	We trained our app to recognize the appropriate intent data **entities** within sample **utterances**
-4.	We published our LUIS app so it can be consumed externally via REST APIs
+2.	We added **entities** that define the data we want to extract from a user's **utterance**
+3.	We trained our app to recognize the appropriate **intent** and **entities** within sample **utterances**
+4.	We published our LUIS app so it can be consumed externally via highly-available REST APIs
 
 Remember, the more training you provide your model, the more accurate **intent** predictions and **entity** identification will become.  A strong model will have hundreds of trained and validated **utterances**.
 
