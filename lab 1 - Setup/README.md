@@ -65,7 +65,7 @@ At this point you should be all set to start developing your bot application.  B
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
-If you've done any web development with Visual Studio, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application via RESTful Post calls to our *Messages* endpoint, passing an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
+If you've done any .NET web development, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application via RESTful Post calls to a Web API endpoint, passing something called an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
 
 ```csharp
 
