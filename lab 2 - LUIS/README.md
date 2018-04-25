@@ -185,9 +185,9 @@ Notice the URL associated with your Starter_Key.  Mine looks something like this
 
 *https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
 
-The first highlighted section is your LUIS Model Id, which identifies the LUIS application we just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
+The first highlighted section is your LUIS Model Id, which uniquely identifies the LUIS application you just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
-Copy the url into your favorite REST client and an example your utterance to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
+Copy the url into your favorite REST client and an example **utterance** to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-rest-api.png)
 
