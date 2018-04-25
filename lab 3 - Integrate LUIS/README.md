@@ -81,7 +81,9 @@ First, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily,
 
 ```
 
+
 > If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
+
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
 
