@@ -1,4 +1,4 @@
-# Lab 3 - LUISDialog and State Management
+# Lab 3 - LuisDialog and State Management
 Congratulations on making it this far!  At this point you should have setup your .NET Bot Framework development environment ([Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup)) and have created, trained, and published your LUIS application ([Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).
 
 > Make sure that didn't forget to **publish** you LUIS app before preceding to this lab, or things won't go quite as expected.
