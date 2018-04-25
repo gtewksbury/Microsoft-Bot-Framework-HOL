@@ -135,7 +135,6 @@ As we said before, you model is only as good as your training.  Add and train 5 
 
 > I need a reservation for 6 people in Chicago at an italian restaurant
 
-```
 
 ### Re-associated Utterances
 
