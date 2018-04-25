@@ -136,6 +136,7 @@ On the Emulator's right pane, you notice some information was output to the *Log
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-connected.png)
 
+
 > Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
@@ -144,19 +145,31 @@ Go back to the *RootDialog.cs* class in Visual Studio and put a breakpoint on th
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-visual-studio-breakpoints.png)
 
-Now let's go back to the Emulator and type a message to our Bot and click *Enter*.
+Now let's go back to the Emulator and type a message to our bot and see what happens.
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-type-message.png)
 
-You should notice that our *StartAsync* method breakpoint hit.  When you start a new conversation, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example, that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the provided message (or in our case, *Activity*) should be passed to the *MessageReceived* handler.  Let's hit F5 and see what happens next.
+You should notice that our *StartAsync* method breakpoint hit.  
 
-As you might have expected, our MessageReceived handler was invoked.  You can also see that after computing the message size, the code passes a message to *IDialogContext.PostAsync(...)*.  The *PostAsync* method is how the Bot Framework sends messages back to the user.  Finally, *MessageReceived* calls *IDialogContext.Wait(MessageReceived)*.  This instructs the Bot Framework to wait indefinitely for response from the user and to invoke the MessageReceived handle when the message is received.  At this point, the state of the dialog is serialized until the user sends another message.
+> When you start a new conversation, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example, that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the provided message (or in our case, *Activity*) should be passed to the *MessageReceived* handler.
+
+Let's hit F5 and see what happens next.  As you might have expected, our MessageReceived handler was invoked.
+
+> You can also see that after computing the message size, the code passes a message to *IDialogContext.PostAsync(...)*.  The *PostAsync* method is how the Bot Framework sends messages back to the user.  Finally, *MessageReceived* calls *IDialogContext.Wait(MessageReceived)*.  This instructs the Bot Framework to wait indefinitely for a response from the user and to invoke the MessageReceived handle when the message is received.  At this point, the state of the dialog is serialized until it receives another message.
 
 Let's F5 one more time and take a look at our Emulator.
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-response.png)
 
-Awesome!  We can see the bot returned a message to us (via the *PostAsync* call).  Keep your breakpoints in place, and type another message into the Emulator.
+Nice!  We can see the bot returned a message to us (via the *PostAsync* call).  Keep your breakpoints in place, and type another message into the Emulator.
 
-Hmm...this time we went straight to the *MessageReceived* without calling *StartAsync*.  This is because *StartAsync* is only called the first time the dialog is invoked for a given conversation (remember, we previosly told Bot Framework to *Wait* for incoming messages and invoke *MessageReceived* when they arrive.
+Hmm...this time we went straight to the *MessageReceived* without calling *StartAsync*.  
+> This is because *StartAsync* is only called the first time the dialog is invoked for a given conversation (remember, we instructed Bot Framework to *Wait* for incoming messages and invoke *MessageReceived* when they arrive.
+
+You can also *End Conversations*, essentially wiping out the state of a given conversation.  While you can do this programmatically, you can also do so directly through the Bot Emulator one of two ways shown below:
+
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
+
+After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was against called.  Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
