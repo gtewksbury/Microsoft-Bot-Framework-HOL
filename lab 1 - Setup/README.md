@@ -88,7 +88,7 @@ If you've done any .NET web development, you'll probably notice Visual Studio cr
         }
 ``` 
 
-  We can also see that the controller invokes a new *RootDialog*.  Let take a quick look at *RootDialog* to see what's going on there.
+  We can also see that the controller seems to invoke a new *RootDialog*.  Let take a quick look at *RootDialog* to see what's going on there.
 
 ```csharp
     public class RootDialog : IDialog<object>
@@ -115,7 +115,7 @@ If you've done any .NET web development, you'll probably notice Visual Studio cr
     }
 ``` 
 
-Immediately we see a few things that are probably new to us.  Our class implements  something called *IDialog* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK.  No better way to see how things work than to step through the code, so let's run the project and see it in action!
+Immediately we see a few things that are probably new to us.  Our *RootDialog* class implements  something called *IDialog* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK (don't worry, we'll cover these in detail in future labs).  No better way to see how things work than to step through the code, so let's run the project and see it in action!
 
 ## Testing your Bot Application
 
@@ -130,12 +130,13 @@ Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulato
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
 
-On the Emulator's right pane, you notice some information was output to the *Log* section.  The log will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occurs).
+On the Emulator's right pane, you'll notice some information was output to the *Log* section.  This section will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occured).
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-connected.png)
 
 
-> Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator
+> Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator.
+
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
 
@@ -150,7 +151,7 @@ Now let's go back to the Emulator and type a message to our bot and see what hap
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
-> When you start a new conversation, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example, that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the provided message (or in our case, *Activity*) should be passed to the *MessageReceived* handler.
+> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the dialog should expect to receive a message from the user which should be passed to the *MessageReceived* handler.
 
 Let's hit F5 and see what happens next.  As you might have expected, our MessageReceived handler was invoked.
 
