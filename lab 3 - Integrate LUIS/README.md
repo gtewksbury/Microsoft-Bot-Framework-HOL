@@ -1,19 +1,19 @@
 # Lab 3 - LUISDialog and State Management
 Congratulations on making it this far!  At this point you should have setup your .NET Bot Framework development environment ([Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup)) and have created, trained, and published your LUIS application ([Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).
 
-> Note, make sure that didn't forget to **publish** you LUIS app before preceding this lab, or things won't go quite as expected.
+> Note, make sure that didn't forget to **publish** you LUIS app before preceding to this lab, or things won't go quite as expected.
 
 
 In this lab, we are going to integrate the sample bot we created in [Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup) with the LUIS model we trained in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).  Moving forward, we're going to be spending most of our time in Visual Studio, so hopefully you're ready to get your hands dirty with some coding!
 
-I hate to do this to you, but I'm going to ask that start this lab from the *start* project included in this lab (as opposed to the project we created in Lab 1).  I promise, they are almost identical with a couple of minor exceptions:
+I hate to do this to you, but I'm going to ask that you start this lab from the *start* project included in this lab (as opposed to the project we created in Lab 1).  I promise, they are almost identical with a couple of minor exceptions:
 
 * The *starter* project's Bot Builder has been upgraded to *3.15.0* to support some of the newer features we'll need (nothing more than a nuget update)
-* It contains a couple of Luis helper extension methods that we'll discuss later in the lab
+* It contains a couple of Luis helper extension methods to help parse dates and integer values
 * It contains a *Reservation.cs* class file which simply defines some properties which define a reservation.  We won't be using it much in here, but we will in future labs.
 
 ## LuisDialog
-Alright, let's open the Visual Studio project in this lab's *start* directory.  Go ahead an open the *RootDialog.cs* file.  It should look something like this:
+Alright, let's open the *starter* Visual Studio project and open the *RootDialog.cs* file.  It should look something like this:
 
 ```csharp
 
@@ -66,11 +66,11 @@ Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inhe
     }
 ```
 
-> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create a base dialog that integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  Basically, it handles the *StartAsync* and *MessageReceived* handler.  The *MessageReceived* handler in turn passes your message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to different methods that you define for specific LUIS **Intents**
+> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog that integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  Basically, it handles the *StartAsync* and *MessageReceived* handler.  The *MessageReceived* handler in turn passes your message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to different methods that you configure to handle specific **Intents**
 
 Now, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, this can be done by simply decorating our class with the *LuisModelAttribute*, giving it the Model ID and Subscription Key for our LUIS endpoint.  If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
 
-[Luis Publish](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
 
 Mine looks something like this:
 
@@ -122,7 +122,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 At this point, let's run our bot and see how smart it is.  Go ahead and place breakpoints in the *None* and *CreateReservation* methods and run Visual Studio in *Debug* mode.
 
-[Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/vis2017-breakpoints.png)
 
 Fire up the bot emulator and type in a message similar to the following:
 
@@ -266,7 +266,7 @@ Make me a reservation in Pittsburgh tomorrow at 12:30 pm
 
 You should see a response similar to the following in your emulator.
 
-[Luis Publish](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-intial-state.png)
 
 Let's send another message.  This time only send the locatoin in the request:
 
@@ -274,7 +274,8 @@ Let's send another message.  This time only send the locatoin in the request:
 Make me a reservation in Cleveland
 ``
 
-[Luis Publish](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-second-state.png)
 
 Wait a second, I only provided the city this time.  Why did it also return the date from the previous request.  If you remember, we replied with any values that we stored in state.  The state persists throughout the conversation.  If you left and came back to your bot 8 hours from now, the state from the previous response would still be stored.  I wonder what happens to the state if you end the conversation.  Let's go back into Visual Studio in the *CreateReservation* method and make a small change.  
 
