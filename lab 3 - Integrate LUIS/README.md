@@ -15,7 +15,7 @@ I hate to do this to you, but I'm going to ask that start this lab from the *sta
 ## LuisDialog
 Alright, let's open the Visual Studio project in lab 3's *start* directory.  Go ahead an open the *RootDialog.cs* file.  It should look something like this:
 
-csharp```
+```csharp
 
     [Serializable]
     public class RootDialog : IDialog<object>
@@ -45,7 +45,7 @@ csharp```
 
 Go ahead and remove the *StartAsync* and *MessageReceivedAsync*.
 
-csharp```
+```csharp
 
     [Serializable]
     public class RootDialog : IDialog<object>
@@ -57,7 +57,7 @@ csharp```
 
 Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inherit from the .NET Bot Builder's native *LuisDialog* with a *Reservation* type parameter.  You're *RootDialog* should now look like this:
 
-csharp```
+```csharp
 
     [Serializable]
     public class RootDialog : LuisDialog<Reservation>
@@ -79,7 +79,7 @@ Mine looks something like this:
 > The first highlighted section is your LUIS Model Id, which uniquely identifies the LUIS application you just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
 
-csharp```
+```csharp
 
     [Serializable]
     [LuisModel("<Your Luis Model Id>", "<Your LUIS Subscription Key>")]
@@ -93,7 +93,7 @@ csharp```
 Now we have to tell the *LuisDialog* which methods to call when it predicts specific **intents**.  This done by decorating methods with the *LuisIntentAttribute*  Go ahead and add the following 2 methods to *RootDialog*:
 
 
-csharp```
+```csharp
 
     public class RootDialog : LuisDialog<Reservation>
     {
@@ -147,7 +147,7 @@ As your bot becomes more complicated, you'll likely need to save state as you mo
 
 Let's start by retrieving the LUIS **entities** from the request.  Back in your *CreateReservation* method, let's add the following code:
 
-csharp```
+```csharp
         [LuisIntent("Create Reservation")]
         public async Task CreateReservation(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
         {
@@ -177,7 +177,7 @@ For the sake of these tutorials, we are using the built-in memory state provider
 
 Let's continue to build out our *CreateReservation* method.  Here's the final result:
 
-csharp```
+```csharp
 
         [LuisIntent("Create Reservation")]
         public async Task CreateReservation(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
@@ -243,8 +243,7 @@ csharp```
 
 Here we are simply parsing and storing the remaining **entities** (if provided), reply with the **entity** values we successfully parsed, and wait for the next message.  Let's also make the *None* method a little more informative:
 
-csharp```
-
+```csharp
         [LuisIntent("")]
         [LuisIntent("None")]
         public async Task None(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
@@ -281,7 +280,7 @@ Wait a second, I only provided the city this time.  Why did it also return the d
 
 Let's replace this:
 
-csharp```
+```csharp
 
 context.Wait(MessageReceived);
 
@@ -289,7 +288,7 @@ context.Wait(MessageReceived);
 
 With this:
 
-csharp```
+```csharp
 context.EndConversation(EndOfConversationCodes.CompletedSuccessfully);
 ```
 
