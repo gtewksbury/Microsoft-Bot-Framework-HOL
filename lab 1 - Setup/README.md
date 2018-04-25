@@ -1,4 +1,4 @@
-# Bot Framework Setup
+# Lab 1 - Bot Framework Setup
 
 In this lab, we'll setup our Visual Studio .NET Bot Framework development environment.  This includes the following:
 
@@ -51,7 +51,7 @@ If you have issues, more information on installing .NET Bot Framework Visual Stu
 
 Once the templates have been added, open Visual Studio 2017 (if Visual Studio was previously open, you might need to close it and re-open it for Visual Studio to find your templates).
 
-Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might now have been installed correctly in the previous steps).
+Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might now have been installed correctly in the previous steps).  Since throughout the labs we'll be creating a restaurant reservation bot, I named mine *GoodEats*, but you can name yours whatever you want.
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
@@ -140,7 +140,7 @@ On the Emulator's right pane, you'll notice some information was output to the *
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
 
-Go back to the *RootDialog.cs* class in Visual Studio and put a breakpoint on the *StartAsync* method and *MessageReceived* method.
+Go back to the *RootDialog.cs* class in Visual Studio and put a breakpoint on the *StartAsync* method and *MessageReceivedAsync* method.
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-visual-studio-breakpoints.png)
 
@@ -151,11 +151,11 @@ Now let's go back to the Emulator and type a message to our bot and see what hap
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
-> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the dialog should expect to receive a message from the user which should be passed to the *MessageReceived* handler.
+> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should expect to receive a message from the user which should be passed to the *MessageReceivedAsync* handler.
 
-Let's hit F5 and see what happens next.  As you might have expected, our MessageReceived handler was invoked.
+Let's hit F5 and see what happens next.  As you might have expected, our *MessageReceivedAsync* handler was invoked.
 
-> You can also see that after computing the message size, the code passes a message to *IDialogContext.PostAsync(...)*.  The *PostAsync* method is how the Bot Framework sends messages back to the user.  Finally, *MessageReceived* calls *IDialogContext.Wait(MessageReceived)*.  This instructs the Bot Framework to wait indefinitely for a response from the user and to invoke the MessageReceived handler when a message arrives.  At this point, the state of the dialog is serialized until it receives another message.
+> You can also see that after computing the message size, the code passes a message to *IDialogContext.PostAsync(...)*.  The *PostAsync* method is how the Bot Framework sends messages back to the user.  Finally, *MessageReceivedAsync* calls *IDialogContext.Wait(MessageReceivedAsync)*.  This instructs the Bot Framework to wait indefinitely for a response from the user and to invoke the *MessageReceivedAsync* handler when a message arrives.  At this point, the state of the dialog is serialized until it receives another message.
 
 Let's F5 one more time and take a look at our Emulator.
 
@@ -163,24 +163,26 @@ Let's F5 one more time and take a look at our Emulator.
 
 Nice!  We can see the bot returned a message to us (thanks to the *PostAsync* call).  Keep your breakpoints in place, and type another message into the Emulator.
 
-Hmm...this time we went straight to the *MessageReceived* without calling *StartAsync*.  
-> This is because *StartAsync* is only called the first time the dialog is invoked for a given conversation (remember, we instructed Bot Framework to *Wait* for incoming messages and invoke *MessageReceived* when they arrive).  Apparent, we are still in the same conversation.
+Hmm...this time we went straight to the *MessageReceivedAsync* without calling *StartAsync*.  
+> This is because *StartAsync* is only called the first time the dialog is invoked for a given conversation (remember, we instructed Bot Framework to *Wait* for incoming messages and invoke *MessageReceivedAsync* when they arrive).  Apparent, we are still in the same conversation.
 
 You can always *End Conversations*, essentially wiping out the state of a given **conversation**.  Upon doing so, the next message sent by the user will initiate a new **conversation**.  While you can do this programmatically, you can also do so directly through the Bot Emulator one of two ways as shown below:
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
 
-After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was against called.  Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
+After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was again called.  Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
 
 ## Quick Recap
 
-Congratulations, you now have a complete Visual Studio environment capable of debugging custom bot applications!  Alright, I admit it, the sample bot we created isn't very exciting.  But hey, you're now setup and ready to create exciting new user experiences!  Throughout the remainder of the labs, we'll be building out a bot that helps users make restaurant reservations.  Users will be able to ask our bot things like:
+Congratulations, you now have a complete Visual Studio development environment capable of debugging custom bot applications!  Alright, I admit it, the sample bot we created isn't very exciting.  But hey, you're now setup and ready to create exciting new user experiences!  
+
+Throughout the remainder of the labs, we'll be building out a bot that helps users make restaurant reservations.  Users will be able to ask our bot things like:
 
 *	Make me a reservation at a good Indian restaurant in Pittsburgh
 *	Can you book me a table tomorrow night at 7:30 for Mexican?
 
-But wait a minute, we're simply sending text-based messages to our bot.  How can we possibly parse useful information from text to understand what the user is requesting?  That my friends is where Natural Language processing and Machine Learning come in.
+But wait a minute, we're simply sending text-based messages to our bot.  How can we possibly parse and interpret all the variations of how users might ask for a reservation?  That my friends is where Natural Language processing and Machine Learning comes in.
 
 ## Next Steps
-In [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) we'll build a machine learning model using Microsoft's Language Understanding Intelligence Service (known as LUIS) to do just that.
+In [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) we'll build a machine learning model using Microsoft's Language Understanding Intelligence Service (known as LUIS) to give our bot some smarts.
