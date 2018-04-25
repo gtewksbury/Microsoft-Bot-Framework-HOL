@@ -174,7 +174,7 @@ Make sure *Production* is selected and click the *Publish to production slot* bu
 
 ```
 
-Note, re-trained models won't impact your API until you publish
+Note, if you re-train your model you'll have to re-publish for those changes to impact the LUIS API.
 
 ```
 
