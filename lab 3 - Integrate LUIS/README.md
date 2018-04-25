@@ -87,8 +87,10 @@ If you don't remember these values, you can retrieve them from the *publish* pag
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
 
-> Mine looks something like this:
-> *westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
+Mine looks something like this:
+
+*westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
+
 > The first highlighted section is your LUIS Model Id, which uniquely identifies the LUIS application you just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
 
