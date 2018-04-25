@@ -128,11 +128,8 @@ As we said before, you model is only as good as your training.  Add and train 5 
 
 
 > I'd like to make a reservation in Miami FL for two of us
-
 > Can you make me a reservation next Thursday morning at 8 at a good Mexican restaurant in Los Angeles for 2 people
-
 > 3 of us would like a eat chinese food tomorrow at 2pm in Washington PA
-
 > I need a reservation for 6 people in Chicago at an italian restaurant
 
 
