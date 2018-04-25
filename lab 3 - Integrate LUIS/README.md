@@ -122,7 +122,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 ```
 
-> You can see that these methods accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's internal *MessageReceived* method, but also a *LuisResult* which includes any **entities** LUIS was able to parse from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* **intent**.  We also decorated the *None* method with the *'None'* **intent** as well as *blank value*.  The *blank value* tells LuisDialog to call this method when it predicted an intent, but no other methods in are decorated to handle the intent.
+> You can see that these methods accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's internal *MessageReceived* method, but also a *LuisResult* which includes any **entities** LUIS was able to parse from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* **intent**.  We also decorated the *None* method with the *'None'* **intent** as well as *blank value*.  The *blank value* tells LuisDialog to call this method when it predicted an **intent**, but no other methods in are decorated to handle the intent.
 
 At this point, let's run our bot and see how smart it is.  Go ahead and place breakpoints in the *None* and *CreateReservation* methods and run Visual Studio in *Debug* mode.
 
@@ -134,11 +134,11 @@ Fire up the bot emulator and type in a message similar to the following:
 Make me a reservation in Pittsburgh tomorrow at 7:30 pm
 ``
 
-Hopefully the *CreateReservation* method hit!  Take a moment to inspect the *LuisResult* that was passed to the method.  You should hopefully see the *RestaurantReservation.Address* and the *builtin.datetimeV2.datetime* entity.
+Hopefully the *CreateReservation* method hit!  Take a moment to inspect the *LuisResult* that was passed to the method.  You should hopefully see the *RestaurantReservation.Address* and the *builtin.datetimeV2.datetime* **entities** and their parsed values.
 
-> If you don't get the expected results, it might mean that you needs to be further trained and re-published, or your current model was never published.
+> If you don't get the expected results, it might mean that your app needs to be further trained and re-published, or your current model was never published.
 
-Assuming the last test was successful, let's type another message into the Bot Emulator.  Something that has nothing to do with restaurant reservations:
+Assuming the last test was successful, let's type another message into the Bot Emulator.  Something that has nothing to do with restaurant reservations, such as:
 
 ``
 What's the weather like in Pittsburgh
@@ -166,7 +166,7 @@ Let's start by retrieving the LUIS **entities** from the request.  Back in your 
         }
 ```
 
-*LuisResult* contains a *TryFindEntity* extension method which will attempt to retrieve a value based on the given **entity** name (if you remember from the last lab, we associated a *'RestaurantReservation.Address'* entity with our LUIS application).  This will set the passed *EntityRecommenation* instance if the **entity** was found in the request.
+Here we call *LuisResult's TryFindEntity* extension method which will attempt to retrieve a value based on the given **entity** name (if you remember from the last lab, we associated a *'RestaurantReservation.Address'* entity with our LUIS application).
 
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
