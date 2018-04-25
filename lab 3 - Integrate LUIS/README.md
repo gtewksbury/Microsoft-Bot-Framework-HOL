@@ -149,7 +149,7 @@ What happened?  Hopefully your *None* method was hit!
 ## State Management
 As your bot becomes more complicated, you'll likely need to save state as you move from **Dialog** to **Dialog** throughout a **conversation**.  In this example, we're going to retrieve the **entities** within the *LuisResult* and store them in state.
 
-Let's start by retrieving the LUIS **entities** from the given *LuisResult*.  Back in your *CreateReservation* method, let's add the following code:
+Let's start by retrieving the LUIS **entities** from the given *LuisResult*.  Back in Visual Studio, let's update the *CreateReservation* method as follows:
 
 ```csharp
         [LuisIntent("Create Reservation")]
