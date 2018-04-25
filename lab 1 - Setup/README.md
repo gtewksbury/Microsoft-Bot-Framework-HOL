@@ -56,7 +56,7 @@ Navigate to *File* > *New Project* and select *Visual C#* in the *New Project* d
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
 
-At this point you should be all set to start with a brand new Visual Studio bot application.  Before we run it, let's take a moment to review the project structure
+At this point you should be all set to start developing your bot application.  Before we run it though, let's take a moment to review the project structure.
 
 > If you're impatient like me, you might try to immediately run the project.  Just make sure you're connected to the internet as project template has a number of *nuget* packages that must be downloaded, including the *Bot Builder SDK*.
 
@@ -67,4 +67,25 @@ We're almost ready to run our bot an start interfacing with it via the Bot Emula
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
+If you've done any web development with Visual Studio, you'll probably notice Visual Studio created a new ASP.NET Web API project.  Let's open *MessagesController.cs* and take a look.
 
+```csharp
+
+        /// <summary>
+        /// POST: api/Messages
+        /// Receive a message from a user and reply to it
+        /// </summary>
+        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
+        {
+            if (activity.Type == ActivityTypes.Message)
+            {
+                await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
+            }
+            else
+            {
+                HandleSystemMessage(activity);
+            }
+            var response = Request.CreateResponse(HttpStatusCode.OK);
+            return response;
+        }
+``` 
