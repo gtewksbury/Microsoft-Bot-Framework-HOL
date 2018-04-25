@@ -94,7 +94,7 @@ Mine looks something like this:
 > The first highlighted section is your LUIS Model Id, which uniquely identifies the LUIS application you just created.  The second highlighted section (obfuscated from prying eyes), is my Starter_Key.  Without this key, you'll receive a 401-Unauthorized response when calling the REST API.
 
 
-Now we have to tell the *LuisDialog* which methods to call when it predicts specific **intents**.  This done by decorating methods with the *LuisIntentAttribute*  Go ahead and add the following 2 methods to *RootDialog*:
+Now we have to tell the *LuisDialog* which methods to call when it predicts specific **intents**.  This done by decorating methods with the *LuisIntentAttribute*.  Go ahead and add the following 2 methods to *RootDialog*:
 
 
 ```csharp
@@ -122,7 +122,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 ```
 
-> You can see that the method accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's *MessageReceived* method, but also the *LuisResult* which includes the recommended intent as well as any **entities** parsed from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* intent.  We also decorated the *None* method with the *'None'* **intent** as well as ''.  '' tells LuisDialog to call this method when it predicted an intent, but no other methods in are decorated to handle the intent.
+> You can see that the method accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's internal *MessageReceived* method, but also a *LuisResult* which includes the recommended intent as well as any **entities** LUIS was able to parse from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* intent.  We also decorated the *None* method with the *'None'* **intent** as well as ''.  '' tells LuisDialog to call this method when it predicted an intent, but no other methods in are decorated to handle the intent.
 
 At this point, let's run our bot and see how smart it is.  Go ahead and place breakpoints in the *None* and *CreateReservation* methods and run Visual Studio in *Debug* mode.
 
