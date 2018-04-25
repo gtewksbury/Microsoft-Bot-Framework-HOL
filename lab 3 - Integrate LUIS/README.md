@@ -307,7 +307,7 @@ The bot should respond with the entered city and date.  Now go ahead and type th
 Make me a reservation in Pittsburgh
 ``
 
-This time we notice that the date is not returned.  This is because your message didn't provide a date for the reservation and the previous state was wiped clean when you ended the conversation.
+This time we should notice that the date is NOT returned.  This is because you didn't provide a date for the reservation and the previous state was wiped clean when you ended the conversation.
 
 ## Quick Recap
 
