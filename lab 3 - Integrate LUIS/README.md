@@ -260,7 +260,7 @@ Here we are simply parsing and storing the remaining **entities** identified by 
         }
 ```
 
-Here we just post back to the user that we don't understand the request and wait for the next message.  Let's run the application again and type the following into the Bot Emulator (note, at this point you can remove your breakpoints):
+Here we just notify the user that we didn't understand the request and wait for the next message.  Let's run the application again and type the following into the Bot Emulator (note, at this point you can remove your breakpoints):
 
 ``
 Make me a reservation in Pittsburgh tomorrow at 12:30 pm
