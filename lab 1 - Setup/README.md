@@ -3,7 +3,7 @@
 In this lab, we'll setup our Visual Studio .NET Bot Framework development environment.  This includes the following:
 
 1.	Installing the Bot Emulator (used for testing our bot locally)
-2.	Adding the Visual Studio 2017 Bot Framework project template
+2.	Adding the Visual Studio 2017 Bot Framework project templates
 3.	Create and running our first *Hello World* bot project
 4.	A quick review of the Bot Builder SDK for .NET
 
@@ -11,7 +11,7 @@ In this lab, we'll setup our Visual Studio .NET Bot Framework development enviro
 
 
 ## Installing the Bot Emulator
-In a production world, user's interface with your Bots through one or many configured **Channels**.  These channels represent the different *interfaces* that end-users can use to interact with your bot application.  One of the power features of Bot Framework is the ability to code once for multiple channels.  Currently, the supported channels include the following:
+In a production world, user's interface with your bots through one or many configured **Channels**.  These channels represent the different *interfaces* that end-users can use to interact with your application.  One of the power features of Bot Framework and Bot Services is the ability to code once for multiple channels.  Currently, the supported channels include the following:
 
 *	Cortana
 *	Bing
@@ -39,30 +39,28 @@ Before you build your first .NET Bot Application, you'll want to install the Vis
 > Note, the following labs have been developed using Visual Studio 2017.  Additionally, the Bot Builder SDK for .NET requires .NET Framework 4.6 or higher.
 
 
-To install the Visual Studio Bot Framework Project Template, download the [Bot Application](http://aka.ms/bf-bc-vstemplate) zip file and save it to your Visual Studio project templates directory
+To install the Visual Studio Bot Framework project template, download the [Bot Application](http://aka.ms/bf-bc-vstemplate) zip file and save it to your Visual Studio project templates directory (Don't unzip it).
 
-> For typical Visual Studio installations, the *project templates* directory is located at ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ProjectTemplates\Visual C#\ `
+> For typical Visual Studio installations, the *project templates* directory is located under ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ProjectTemplates\Visual C#\ `
  
-Next, download [Bot Controller](http://aka.ms/bf-bc-vscontrollertemplate) and [Bot Dialog](http://aka.ms/bf-bc-vsdialogtemplate) zip files and save them to your Visual Studio item templates directory
+Next, download the [Bot Controller](http://aka.ms/bf-bc-vscontrollertemplate) and [Bot Dialog](http://aka.ms/bf-bc-vsdialogtemplate) zip files and save them to your Visual Studio item templates directory (Again, no need to unzip these files).
 
-> For typical Visual Studio installations, the *item templates* directory is located at ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ItemTemplates\Visual C#\ `
+> For typical Visual Studio installations, the *item templates* directory is located under ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ItemTemplates\Visual C#\ `
 
-More information on installing .NET Bot Framework Visual Studio templates can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart).
+If you have issues, more information on installing .NET Bot Framework Visual Studio templates can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart).
 
-Once the templates has been added successfully, open Visual Studio 2017 (if Visual Studio was previously open, you might have to close it and re-open it for Visual Studio to find your templates).
+Once the templates have been added, open Visual Studio 2017 (if Visual Studio was previously open, you might need to close it and re-open it for Visual Studio to find your templates).
 
-Navigate to *File* > *New Project* and select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, you might have to check the template download locations in the previous step).
+Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might now have been installed correctly in the previous steps).
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
 
-At this point you should be all set to start developing your bot application.  Before we run it though, let's take a moment to review the project structure.
-
-> If you're impatient like me, you might try to immediately run the project.  Just make sure you're connected to the internet as project template has a number of *nuget* packages that must be downloaded, including the *Bot Builder SDK*.
-
 ## Basic Project Structure
 
-We're almost ready to run our bot and start and interact with it via the Bot Emulator, but before we do, let's take a brief moment to review the Visual Studio project that was created.
+At this point you should be all set to start developing your bot application.  Before we run it though, let's take a brief moment to examine the project structure.
+
+> If you're impatient like me, you might try to immediately run the project.  Just make sure you're connected to the internet as the project template has a number of *nuget* packages that must be downloaded, including the *Bot Builder SDK*.
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
