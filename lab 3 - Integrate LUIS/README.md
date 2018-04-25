@@ -122,7 +122,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 ```
 
-> You can see that these methods accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's internal *MessageReceived* method, but also a *LuisResult* which includes any **entities** LUIS was able to parse from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* intent.  We also decorated the *None* method with the *'None'* **intent** as well as ''.  '' tells LuisDialog to call this method when it predicted an intent, but no other methods in are decorated to handle the intent.
+> You can see that these methods accept not only the *IDialogContext* and *IMessageActivity* that were passed to LUIS's internal *MessageReceived* method, but also a *LuisResult* which includes any **entities** LUIS was able to parse from the request.  Additionally, you'll notice that we decorated the *CreateReservation* method with the name of our *'Create Reservation'* **intent**.  We also decorated the *None* method with the *'None'* **intent** as well as *blank value*.  The *blank value* tells LuisDialog to call this method when it predicted an intent, but no other methods in are decorated to handle the intent.
 
 At this point, let's run our bot and see how smart it is.  Go ahead and place breakpoints in the *None* and *CreateReservation* methods and run Visual Studio in *Debug* mode.
 
