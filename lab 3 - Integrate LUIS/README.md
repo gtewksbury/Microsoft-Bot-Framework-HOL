@@ -270,7 +270,7 @@ You should see a response similar to the following in your emulator.
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-intial-state.png)
 
-Let's send another message.  This time only send the locatoin in the request:
+Let's send another message.  This time only send the location in the request:
 
 ``
 Make me a reservation in Cleveland
@@ -295,7 +295,7 @@ With this:
 context.EndConversation(EndOfConversationCodes.CompletedSuccessfully);
 ```
 
-Go ahead an run Visual Studio and the Bot Eumulator.  Within the emulator, type the following message:
+Go ahead an run Visual Studio and the Bot Emulator.  Within the emulator, type the following message:
 
 ``
 Make me a reservation in Pittsburgh tomorrow at 12:30 pm
@@ -307,4 +307,12 @@ The bot should respond with the entered city and date.  Now go ahead and type th
 Make me a reservation in Pittsburgh
 ``
 
-This time we notice that the date is not returned.  This is because your message didn't provide a date and the previous state was wiped clean when you ended the conversation.  In fact, when you send a message after ending the conversation, an entirely new **Dialog Stack** was created.  
+This time we notice that the date is not returned.  This is because your message didn't provide a date for the reservation and the previous state was wiped clean when you ended the conversation.
+
+## Quick Recap
+
+In this lab, we successfully connected our bot application to our LUIS app, and configured *Dialog* with handlers for specific **intents**.  We also learned how to interrogate the provided *LuisResult* to retrieve **entity** values parsed by LUIS and store these values within the **conversation's** state.
+
+## Next Steps
+At this point we are able to configure our *Dialog* to handle LUIS intents, but we haven't really done anything useful with the provided information.  In the next lab, we'll learn how to structure bot applications with multiple dialogs as well as some more advanced interface features, like **cards** and **suggestions**.
+ 
