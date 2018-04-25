@@ -67,7 +67,7 @@ We're almost ready to run our bot and start and interact with it via the Bot Emu
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
-If you've done any web development with Visual Studio, you'll probably notice Visual Studio created a new ASP.NET Web API project.  Let's open *MessagesController.cs* and take a look.
+If you've done any web development with Visual Studio, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application via RESTful Post calls to our *Messages* endpoint, passing an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
 
 ```csharp
 
@@ -90,7 +90,7 @@ If you've done any web development with Visual Studio, you'll probably notice Vi
         }
 ``` 
 
-As you can see, **channels** invoke our bot application via RESTful Post calls to our *Messages* endpoint, passing an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with almost any application!  We can also see that the controller invokes a new *RootDialog*.  Let take a quick look at *RootDialog* to see what's going on there.
+  We can also see that the controller invokes a new *RootDialog*.  Let take a quick look at *RootDialog* to see what's going on there.
 
 ```csharp
     public class RootDialog : IDialog<object>
@@ -117,7 +117,7 @@ As you can see, **channels** invoke our bot application via RESTful Post calls t
     }
 ``` 
 
-Immediately we see a few things that are probably new to us.  Our class implements  something called *IDialog<object>* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK.  No better way to see how things work than to step through the code, so let's run the project and see it in action!
+Immediately we see a few things that are probably new to us.  Our class implements  something called *IDialog* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK.  No better way to see how things work than to step through the code, so let's run the project and see it in action!
 
 ## Testing your Bot Application
 
@@ -125,5 +125,36 @@ Go ahead an run your Visual Studio project in *Debug* mode.  You should notice a
 
 > If you receive any build errors, make sure you are connected to the internet and Visual Studio is able to download nuget packages
 
-Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulator and append */api/messages* (the url should be http://localhost:3979/api/messages).
+Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulator and append */api/messages* (the url should be http://localhost:3979/api/messages) and click *Connect*.
 
+> You'll notice inputs for *Microsoft App ID* and *Microsoft App Password*.  You can leave those blank for now as they are not required for local debugging.
+
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+
+On the Emulator's right pane, you notice some information was output to the *Log* section.  The log will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occurs).
+
+> Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
+
+Go back to the *RootDialog* in Visual Studio and put a breakpoint on the *StartAsync* method and *MessageReceived* method.
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-visual-studio-breakpoints.png)
+
+Now let's go back to the Emulator and type a message to our Bot and click *Enter*.
+
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-type-message.png)
+
+You should notice that our *StartAsync* method breakpoint hit.  When you start a new conversation, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example, that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceived)*.  This tells Bot Framework that the provided message (or in our case, *Activity*) should be passed to the *MessageReceived* handler.  Let's hit F5 and see what happens next.
+
+As you might have expected, our MessageReceived handler was invoked.  You can also see that after computing the message size, the code passes a message to *IDialogContext.PostAsync(...)*.  The *PostAsync* method is how the Bot Framework sends messages back to the user.  Finally, *MessageReceived* calls *IDialogContext.Wait(MessageReceived)*.  This instructs the Bot Framework to wait indefinitely for response from the user and to invoke the MessageReceived handle when the message is received.  At this point, the state of the dialog is serialized until the user sends another message.
+
+Let's F5 one more time and take a look at our Emulator.
+
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-response.png)
+
+Awesome!  We can see the bot returned a message to us (via the *PostAsync* call).  Keep your breakpoints in place, and type another message into the Emulator.
+
+Hmm...this time we went straight to the *MessageReceived* without calling *StartAsync*.  This is because *StartAsync* is only called the first time the dialog is invoked for a given conversation (remember, we previosly told Bot Framework to *Wait* for incoming messages and invoke *MessageReceived* when they arrive.
