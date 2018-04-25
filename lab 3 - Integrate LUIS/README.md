@@ -279,7 +279,7 @@ Make me a reservation in Cleveland
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-second-state.png)
 
-Wait a second, I only provided the city this time.  Why did it also return the date from the previous request.  If you remember, we replied with any values that we stored in state.  The state persists throughout the conversation.  If you left and came back to your bot 8 hours from now, the state from the previous response would still be stored.  I wonder what happens to the state if you end the conversation.  Let's go back into Visual Studio in the *CreateReservation* method and make a small change.  
+Wait a second, I only provided the city this time.  Why did it also return the date from the previous request?  If you remember, we replied with any values that we stored in state.  This state persists throughout the conversation.  I wonder what happens to the state if you end the conversation?  Let's go back into Visual Studio in the *CreateReservation* method and make a small change.  
 
 Let's replace this:
 
