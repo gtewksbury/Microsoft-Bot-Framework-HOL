@@ -200,6 +200,10 @@ In some cases, you may want to send the user rich visualizations a long with you
         }
 ```
 
+And here's what it looks like in the Bot Emulator
+
+> You'll notice slight variations of how different **channels** render attachments.  You can visit the [Channel Inspector](https://docs.botframework.com/en-us/channel-inspector/channels/Skype/) to view examples of these variants.
+
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%204%20-%20Bot%20Builder/images/bot-eumulator-hero-card.png)
 
 > Always be aware of the different **channels** your users might be interfacing with.  For example, visualizations wouldn't make sense if your bot is integrated with speech-only **channels**.
