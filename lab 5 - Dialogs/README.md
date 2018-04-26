@@ -221,6 +221,8 @@ namespace GoodEats.Dialogs
 
 > Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an option to provide the user with fixed options, this is a preferred user experience as opposed to forcing them to type everything.  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
 
+![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/suggested-actions.png)
+
 
 ### Reservation Restaurant Dialog
 Create a new class or code file called *RestaurantDialog.cs* in the Dialogs directory and replace with the following code:
@@ -326,6 +328,8 @@ namespace GoodEats.Dialogs
 ```
 
 > Here we are sending the user a visual card (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine (including an image of the restaurants logo).  You'll notice each card contains 2 *buttons*.  One of the buttons allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the *button* value (set as the restaurant name) using *ActionType.ImBack*.  There are other available *ActionTypes* as well.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
+
+![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
 
 ### Reservation Date / Time Dialog
 Create a new class or code file called *WhenDialog.cs* in the Dialogs directory and replace with the following code:
@@ -558,3 +562,5 @@ namespace GoodEats.Dialogs
 ```
 
 > Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a fixed layout, you can optional create *AdaptiveCards* provide you complete control over the layout [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots).
+
+![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
