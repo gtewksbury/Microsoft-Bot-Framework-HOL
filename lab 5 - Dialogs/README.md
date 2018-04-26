@@ -17,6 +17,12 @@ The code in the RestaurantServices uses the EatStreet API to query for restauran
 
 	![Update Web.config](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/web-config.png)
 
+
+#### Update Root Dialog
+Since you're going to be working from the *starter* solution in this lab, you'll need to re-apply your *LUIS Model Id* and *LUIS Subscription Key* in your *RootDialog*.  Go ahead and open the *RootDialog.cs* file in the *starter* directory and update the *LuisModelAttribute* with the values for your LUIS app:
+
+ ![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/root-dialog-update.png)
+
 ## Reservation Conversation Logic
 Below you'll find a high-level blueprint of our reservation conversational flow.  Hopefully you notice a number of repeating patterns for each dialog. 
 
