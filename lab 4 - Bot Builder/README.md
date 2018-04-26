@@ -200,13 +200,13 @@ In some cases, you may want to send the user rich visualizations a long with you
         }
 ```
 
-And here's what it looks like in the Bot Emulator
+And here's what it looks like in the Bot Emulator.
 
 > You'll notice slight variations of how different **channels** render attachments.  You can visit the [Channel Inspector](https://docs.botframework.com/en-us/channel-inspector/channels/Skype/) to view examples of these variants.
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%204%20-%20Bot%20Builder/images/bot-eumulator-hero-card.png)
 
-> Always be aware of the different **channels** your users might be interfacing with.  For example, visualizations wouldn't make sense if your bot is integrated with speech-only **channels**.
+> Always be aware of the different **channels** with which your users might be interfacing.  For example, visualizations wouldn't make sense if your bot is integrated with speech-only **channels**.
 
 ###DialogContext.SayAsync
 *IDialogContext.PostAsync(string)* works well when your sending messages to text-based **channels**, such as Web Chat, Slack, and Microsoft Teams, but what if your bot supports speech-based channels such as Cortana.  In these cases, you can send messages via *IDialogContext.SayAsync(...)*.  The text you provide can be decorated to control various characteristics of synthesized speech via [Speech Synthesis Markup Language](https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx).
