@@ -177,14 +177,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
-    <Compile Include="Dialogs\ConfirmReservationDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="StateExtensions.cs" />
-    <Compile Include="Dialogs\LocationDialog.cs" />
-    <Compile Include="Dialogs\PartySizeDialog.cs" />
-    <Compile Include="Dialogs\CuisineDialog.cs" />
-    <Compile Include="Dialogs\RestaurantDialog.cs" />
-    <Compile Include="Dialogs\WhenDialog.cs" />
     <Compile Include="ValueTypeExtensions.cs" />
     <Compile Include="Models\RestaurantSearchResults.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
