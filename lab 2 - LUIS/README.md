@@ -135,6 +135,9 @@ As we said before, you model is only as good as your training.  Add and train 5 
 
 > I need a reservation for 6 people in Chicago at an italian restaurant
 
+At this point you probably have 5 or 6 utterances trained, and LUIS is probably starting to understand your requests.  Just remember as you go through the labs that the more training you provide, the more accurate LUIS will become.  This is the power of machine learning!  We can make our app smarter through training without having to *code* around individual scenarios!  Here's an example of the model I trained building this lab:
+
+#Add Image
 
 ### Re-associated Utterances
 

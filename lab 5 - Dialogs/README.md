@@ -11,9 +11,11 @@ The code in the RestaurantServices uses the EatStreet API to query for restauran
 
 2.	Once registered, you should immediately be taken to a page which allows you to generate an access key.  Click *Request new API Key* and copy the provided key
 
-
+	![Generate API Key](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/eat-street-registered.png)
 
 3.	Open the *web.config* and copy the key to the *EastStreetApiKey* value 
+
+	![Update Web.config](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/web-config.png)
 
 ## Reservation Conversation Logic
 Below you'll find a high-level blueprint of our reservation conversational flow.  Hopefully you notice a number of repeating patterns for each dialog. 
