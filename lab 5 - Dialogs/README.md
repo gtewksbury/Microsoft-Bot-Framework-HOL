@@ -49,7 +49,7 @@
 ## Create State-Specific Dialogs
 
 ### Reservation Location Dialog
-Create a new class file called LocationDialog.cs in the Dialogs directory and replace with the following code:
+Create a new class or code file called *LocationDialog.cs* in the Dialogs directory and replace with the following code:
 
 ```csharp
 
@@ -122,7 +122,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### Reservation Cuisine Dialog
-Create a new class file called CuisineDialog.cs in the Dialogs directory and replace with the following code:
+Create a new class or code file called *CuisineDialog.cs* in the Dialogs directory and replace with the following code:
 
 ```csharp
 
@@ -218,7 +218,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### Reservation Restaurant Dialog
-Create a new class file called RestaurantDialog.cs in the Dialogs directory and replace with the following code:
+Create a new class or code file called *RestaurantDialog.cs* in the Dialogs directory and replace with the following code:
 
 ```csharp
 
@@ -323,10 +323,9 @@ namespace GoodEats.Dialogs
 > Comments
 
 ### Reservation Date / Time Dialog
-Create a new class file called WhenDialog.cs in the Dialogs directory and replace with the following code:
+Create a new class or code file called *WhenDialog.cs* in the Dialogs directory and replace with the following code:
 
 ```csharp
-
 
 using Microsoft.Bot.Builder.Dialogs;
 using System;
@@ -383,6 +382,171 @@ namespace GoodEats.Dialogs
                 // wait for the user to respond with another date / time
                 context.Wait(MessageReceived);
             }
+        }
+    }
+}
+```
+
+### Reservation Party Size Dialog
+Create a new class or code file called *PartySizeDialog.cs* in the Dialogs directory and replace with the following code:
+
+```csharp
+
+using Microsoft.Bot.Builder.Dialogs;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Bot.Connector;
+using GoodEats.Models;
+
+namespace GoodEats.Dialogs
+{
+    [Serializable]
+    public class PartySizeDialog : IDialog<Reservation>
+    {
+        public async Task StartAsync(IDialogContext context)
+        {
+            if (context.HasPartySize())
+            {
+                // we already have a party size.  pass off to the confirmation dialog
+                context.Call(new ConfirmReservationDialog(), ReservationConfirmedAsync);
+            }
+            else
+            {
+                // we don't yet have a party size; prompt the user for their party size
+                await context.PostAsync(Properties.Resources.PARTY_REQUEST);
+                
+                // wait for the user response
+                context.Wait(MessageReceived);
+            }
+        }
+
+        protected async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> item)
+        {
+            var response = await item;
+
+            // attempt to parse the party size based on the phoeh library (can parse '7' or 'seven')
+            var partySize = response.Text.ToInteger();
+
+            if (partySize.HasValue)
+            {
+                // the user provided a valid party size, therefore set the party size state
+                context.SetPartySize(partySize.Value);
+
+                // send message to the user confirming the provided party size
+                await context.PostAsync(Properties.Resources.CONFIRMATION);
+
+                // pass off to the reservation confirmation dialog
+                context.Call(new ConfirmReservationDialog(), ReservationConfirmedAsync);
+            }
+            else
+            {
+                // we didn't understand the user-provided party size (int)
+                // send the user a message indicating we didn't recognize the party size they entered
+                await context.PostAsync(Properties.Resources.PARTY_UNRECOGNIZED);
+
+                // wait for the user to respond with another party size
+                context.Wait(MessageReceived);
+            }
+        }
+
+        private async Task ReservationConfirmedAsync(IDialogContext context, IAwaitable<Reservation> response)
+        {
+            // we received confirmation from the reservation confirmation dialog!
+            var reservation = await response;
+
+            // send information to the user with their confirmation details
+            var text = string.Format(Properties.Resources.BOOKED_CONFIRMATION, reservation.Restaurant, reservation.When.ToLongDateString(), reservation.When.ToLongTimeString());
+            await context.PostAsync(text);
+
+            // end the conversation (this will reset the dialog stack and clear all convesation state)
+            context.EndConversation(EndOfConversationCodes.CompletedSuccessfully);
+        }
+    }
+}
+```
+
+### Reservation Date / Time Dialog
+Create a new class or code file called *ConfirmReservationDialog.cs* in the Dialogs directory and replace with the following code:
+
+```csharp
+
+using GoodEats.Models;
+using Microsoft.Bot.Builder.Dialogs;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.Bot.Connector;
+
+namespace GoodEats.Dialogs
+{
+    [Serializable]
+    public class ConfirmReservationDialog : IDialog<Reservation>
+    {
+        public async Task StartAsync(IDialogContext context)
+        {
+            // send a confirmation message to the user
+            await PostAsync(context, Properties.Resources.RESERVATION_CONFIRMATION);
+
+            // wait for the user to respond
+            context.Wait(MessageReceived);
+        }
+
+        protected async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> item)
+        {
+            var confirmation = await item;
+
+            if (string.Equals(confirmation.Text, "confirm", StringComparison.InvariantCultureIgnoreCase))
+            {
+                // the user confirmed the reservation
+                var restaurant = context.Restaurant();
+
+                // create a new reservation instance
+                var reservation = new Reservation
+                {
+                    Restaurant = restaurant.Name,
+                    RestaurantAddress = $"{restaurant.StreetAddress} {restaurant.City}, {restaurant.State} {restaurant.Zip}",
+                    When = context.When(),
+                    PartySize = context.PartySize()
+                };
+
+                // complete the dialog, passing the reservation to the party size dialog's
+                // callback method
+                context.Done(reservation);
+            }
+            else
+            {
+                // send the user a message indicated we didn't understand their response
+                await PostAsync(context, Properties.Resources.CONFIRMATION_UNRECOGNIZED);
+
+                // wait for the user to respond with a confirmation
+                context.Wait(MessageReceived);
+            }
+        }
+
+        private async Task PostAsync(IDialogContext context, string text)
+        {
+            // get the restaurant and reservation date / time from state
+            var restaurant = context.Restaurant();
+            var when = context.When();
+
+            // build a new hero card which will provide details of the
+            // reservation to be confirmed by the user
+            var card = new HeroCard
+            {
+                Title = $"{restaurant.Name} ({context.PartySize()} people)",
+                Subtitle = $"{when.ToLongDateString()} at {when.ToLongTimeString()}",
+                Text = $"{restaurant.StreetAddress} {restaurant.City}, {restaurant.State} {restaurant.Zip}",
+                Images = new List<CardImage> { new CardImage(url: restaurant.LogoUrl) },
+                Buttons = new List<CardAction> { new CardAction() { Title = "Reserve", Type = ActionTypes.ImBack, Value = "confirm" } }
+            };
+
+            // create a new message including the hero card
+            var message = context.MakeMessage();
+            message.Text = text;
+            message.Attachments = new List<Attachment> { card.ToAttachment() };
+
+            // send hte message to the user
+            await context.PostAsync(message);
         }
     }
 }
