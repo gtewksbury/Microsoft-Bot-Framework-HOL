@@ -1,4 +1,17 @@
 
+## Prerequisites
+There are a couple things we need to take care of before we get started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
+
+### Eat Street API Key
+The code in the RestaurantServices uses the EatStreet API to query for restaurants by location.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
+
+1.	Navigate to the [Eat Street sign-in page](https://developers.eatstreet.com/sign-in) and create a new account
+	
+	
+2.	Once registered, you should immediately be taken to a page which allows you to generate an access key.  Click *Request new API Key* and copy the provided key
+
+3.	Open the *web.config* and copy the key to the *EastStreetApiKey* value 
+
 ## Reservation Conversation Logic
 Below you'll find a high-level blueprint of our reservation conversational flow.  Hopefully you notice a number of repeating patterns for each dialog. 
 
@@ -48,10 +61,11 @@ Below you'll find a high-level blueprint of our reservation conversational flow.
         * IF the user-provided a valid confirmation, save to state and call *Done*
         * OTHERWISE, ask the user to confirm their reservation and *Wait* for their response  
 
-## Create State-Specific Dialogs
+## Dialogs
+Let's add **Dialogs** for each piece of reservation state our application is tracking.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
 
 ### Reservation Location Dialog
-Create a new class or code file called *LocationDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
@@ -124,7 +138,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### Reservation Cuisine Dialog
-Create a new class or code file called *CuisineDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *CuisineDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
@@ -225,7 +239,7 @@ namespace GoodEats.Dialogs
 
 
 ### Reservation Restaurant Dialog
-Create a new class or code file called *RestaurantDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *RestaurantDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
@@ -332,7 +346,7 @@ namespace GoodEats.Dialogs
 ![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
 
 ### Reservation Date / Time Dialog
-Create a new class or code file called *WhenDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *WhenDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
@@ -397,7 +411,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### Reservation Party Size Dialog
-Create a new class or code file called *PartySizeDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *PartySizeDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
@@ -475,7 +489,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### Reservation Confirmation Dialog
-Create a new class or code file called *ConfirmReservationDialog.cs* in the Dialogs directory and replace with the following code:
+Create a new class or code file called *ConfirmReservationDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
 
