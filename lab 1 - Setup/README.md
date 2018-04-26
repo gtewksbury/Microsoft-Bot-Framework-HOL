@@ -31,6 +31,8 @@ However, none of these **channels** support a local debugging experience.  Lucki
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator.png)
 
+You can download and run the Bot Emulator installer from [here](https://github.com/Microsoft/BotFramework-Emulator/releases/download/v3.5.35/botframework-emulator-Setup-3.5.35.exe). 
+
 
 ## Installing Visual Studio Bot Framework Project Templates
 

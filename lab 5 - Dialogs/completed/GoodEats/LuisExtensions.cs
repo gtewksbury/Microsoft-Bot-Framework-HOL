@@ -21,7 +21,7 @@ namespace GoodEats
 
             if (result.TryFindEntity(type, out var recommendation))
             {
-               
+
                 var resolutionValues = (IList<object>)recommendation.Resolution["values"];
                 foreach (var value in resolutionValues)
                 {

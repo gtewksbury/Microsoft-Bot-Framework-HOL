@@ -172,7 +172,7 @@ Here we call *LuisResult's TryFindEntity* extension method which will look in th
 
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
-* User State - State tied to the user outside of any specific conversation
+* User State - State tied to the user outside of any specific conversation (NOT cleared when conversation ends)
 * Conversation State - State tied to a conversation (which could include group conversations)
 * Private Conversation State - State tied to the current user within a given conversation
 
@@ -314,5 +314,7 @@ This time we should notice that the date is NOT returned.  This is because you d
 In this lab, we successfully connected our bot to our LUIS application, and configured  our *RootDialog* with handlers for specific **intents**.  We also learned how to parse **entity** values from the provided *LuisResult*.  Finally, we learned how to persist and retrieve state for our bot application.
 
 ## Next Steps
-At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In the next lab, we'll learn how to structure conversational flow with multiple dialogs and respond to users with rich visualizations using **card** views and **suggestions**.
+At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In subsequent labs, we'll create a more sophisticated conversational flow with multiple dialogs.  However, before doing so, I thought it would be a good idea to review some of the basic .NET Bot Builder concepts.  In [Lab 4]() we'll focus on learning these concepts before moving back to Visual Studio to enhance our bot!
+
+
  
