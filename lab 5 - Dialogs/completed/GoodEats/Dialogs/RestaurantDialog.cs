@@ -21,20 +21,14 @@ namespace GoodEats.Dialogs
 
         public async Task StartAsync(IDialogContext context)
         {
-            if (context.Restaurant() == null)
-            {
-                // we don't yet have a restaurant; prompt the user to select a restaurant
-                var response = string.Format(Properties.Resources.RESTAURANT_REQUEST, context.Cuisine(), context.Location());
-                await PostAsync(context, response);
 
-                // wait for the user to respond with a restaurant
-                context.Wait(MessageReceived);
-            }
-            else
-            {
-                // we already have a restaurant; move onto the when dialog
-                context.Call(new WhenDialog(), null);
-            }
+            // we don't yet have a restaurant; prompt the user to select a restaurant
+            var response = string.Format(Properties.Resources.RESTAURANT_REQUEST, context.Cuisine(), context.Location());
+            await PostAsync(context, response);
+
+            // wait for the user to respond with a restaurant
+            context.Wait(MessageReceived);
+
         }
 
         protected async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> item)
