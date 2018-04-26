@@ -60,7 +60,7 @@ namespace GoodEats.Dialogs
             else
             {
                 // send user a message indicating we didn't find restaurants in the provided location
-                var response = string.Format(Properties.Resources.CUISINE_UNRECOGNIZED, cuisine);
+                var response = string.Format(Properties.Resources.CUISINE_UNRECOGNIZED, cuisine.Text);
                 await PostAsync(context, response);
 
                 // wait for the user to respond with another location

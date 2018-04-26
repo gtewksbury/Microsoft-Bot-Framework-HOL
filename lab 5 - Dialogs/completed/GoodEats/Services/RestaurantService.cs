@@ -37,9 +37,8 @@ namespace GoodEats.Services
             var client = new RestClient("https://api.eatstreet.com/publicapi/v1");
             var request = CreateRequest();
             request.AddParameter("street-address", location);
-            request.AddParameter("search", cuisine);
             var details = await client.ExecuteGetTaskAsync<RestaurantSearchResults>(request);
-            return details.IsSuccessful && details.Data.Restaurants.Count > 0;
+            return details.IsSuccessful && details.Data.Restaurants.Any(r => r.FoodTypes.Contains(cuisine));
         }
 
         /// <summary>
@@ -53,9 +52,8 @@ namespace GoodEats.Services
             var client = new RestClient("https://api.eatstreet.com/publicapi/v1");
             var request = CreateRequest();
             request.AddParameter("street-address", location);
-            request.AddParameter("search", cuisine);
             var details = await client.ExecuteGetTaskAsync<RestaurantSearchResults>(request);
-            return details.Data.Restaurants;
+            return details.Data.Restaurants.Where(r => r.FoodTypes.Contains(cuisine)).ToList();
         }
 
         /// <summary>
@@ -106,7 +104,7 @@ namespace GoodEats.Services
 
             var cuisines = response.Data.Restaurants
                 .SelectMany(r => r.FoodTypes)
-                .GroupBy(g => g.Replace(" Food", ""))
+                .GroupBy(g => g)
                 .Select(c => new Cuisine { Name = c.Key, Count = c.Count() })
                 .OrderByDescending(o => o.Count);
             return cuisines;

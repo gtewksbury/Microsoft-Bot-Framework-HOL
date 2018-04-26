@@ -1,5 +1,7 @@
 
 ## Reservation Conversation Logic
+Below you'll find a high-level blueprint of our reservation conversational flow.  Hopefully you notice a number of repeating patterns for each dialog. 
+
 
 * **RootDialog**
     * Gather the state provided by the user's initial request and *Call* the *LocationDialog*
@@ -110,7 +112,7 @@ namespace GoodEats.Dialogs
             else
             {
                 // send user a message indicating we didn't find restaurants in the provided location
-                var response = string.Format(Properties.Resources.LOCATION_UNRECOGNIZED, location);
+                var response = string.Format(Properties.Resources.LOCATION_UNRECOGNIZED, location.Text);
                 await context.PostAsync(response);
 
                 // wait for the user to respond with another location
@@ -188,7 +190,7 @@ namespace GoodEats.Dialogs
             else
             {
                 // send user a message indicating we didn't find restaurants in the provided location
-                var response = string.Format(Properties.Resources.CUISINE_UNRECOGNIZED, cuisine);
+                var response = string.Format(Properties.Resources.CUISINE_UNRECOGNIZED, cuisine.Text);
                 await PostAsync(context, response);
 
                 // wait for the user to respond with another location
@@ -216,6 +218,9 @@ namespace GoodEats.Dialogs
     }
 }
 ```
+
+> Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an option to provide the user with fixed options, this is a preferred user experience as opposed to forcing them to type everything.  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
+
 
 ### Reservation Restaurant Dialog
 Create a new class or code file called *RestaurantDialog.cs* in the Dialogs directory and replace with the following code:
@@ -277,7 +282,7 @@ namespace GoodEats.Dialogs
             else
             {
                 // send user a message indicating we didn't find the restaurant
-                var text = string.Format(Properties.Resources.RESTAURANT_UNRECOGNIZED, restaurant, context.Location());
+                var text = string.Format(Properties.Resources.RESTAURANT_UNRECOGNIZED, response.Text, context.Location());
                 await PostAsync(context, text);
 
                 // wait for the user to respond with another location
@@ -320,7 +325,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Comments
+> Here we are sending the user a visual card (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine (including an image of the restaurants logo).  You'll notice each card contains 2 *buttons*.  One of the buttons allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the *button* value (set as the restaurant name) using *ActionType.ImBack*.  There are other available *ActionTypes* as well.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
 
 ### Reservation Date / Time Dialog
 Create a new class or code file called *WhenDialog.cs* in the Dialogs directory and replace with the following code:
@@ -465,7 +470,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-### Reservation Date / Time Dialog
+### Reservation Confirmation Dialog
 Create a new class or code file called *ConfirmReservationDialog.cs* in the Dialogs directory and replace with the following code:
 
 ```csharp
@@ -551,3 +556,5 @@ namespace GoodEats.Dialogs
     }
 }
 ```
+
+> Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a fixed layout, you can optional create *AdaptiveCards* provide you complete control over the layout [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots).
