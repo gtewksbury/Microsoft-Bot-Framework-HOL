@@ -7,8 +7,11 @@ The code in the RestaurantServices uses the EatStreet API to query for restauran
 
 1.	Navigate to the [Eat Street sign-in page](https://developers.eatstreet.com/sign-in) and create a new account
 	
-	
+	![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/create-eat-street-account.png)
+
 2.	Once registered, you should immediately be taken to a page which allows you to generate an access key.  Click *Request new API Key* and copy the provided key
+
+
 
 3.	Open the *web.config* and copy the key to the *EastStreetApiKey* value 
 
