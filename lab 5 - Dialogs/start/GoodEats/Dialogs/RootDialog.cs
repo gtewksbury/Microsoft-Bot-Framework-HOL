@@ -1,84 +1,73 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using GoodEats.Models;
 using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Connector;
-using GoodEats.Models;
 using Microsoft.Bot.Builder.Luis;
 using Microsoft.Bot.Builder.Luis.Models;
+using Microsoft.Bot.Connector;
+using System;
+using System.Threading.Tasks;
 
 namespace GoodEats.Dialogs
 {
     [Serializable]
-    [LuisModel("12e1e7da-4bf4-42b1-b3e2-0da78f7814e3", "1f7769f4b8f9477bb15ba7c3b5a9a8ad")]
+    [LuisModel("12e1e7da-4bf4-42b1-b3e2-0da78f7814e3", "")]
     public class RootDialog : LuisDialog<Reservation>
     {
-
         [LuisIntent("")]
         [LuisIntent("None")]
         public async Task None(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
         {
             // send a message to the user indicating the request was not recognized
-            await context.PostAsync("Sorry, I don't understand.  I only know how to make restaurant reservations.");
+            await context.PostAsync(Properties.Resources.NONE);
 
-            // wait for the next user request
-            context.Wait(MessageReceived);
+            // end the conversation
+            context.EndConversation(EndOfConversationCodes.Unknown);
         }
 
         [LuisIntent("Create Reservation")]
         public async Task CreateReservation(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
         {
-            await context.PostAsync("Looks like your attempting to create a reservation.  Let's see what information we were able to pull");
-
-            // attempt to parse the location from the request if provided by the user
+            // attempt to parse the reservation location (city, state) if provided and set to state
             if (result.TryFindEntity("RestaurantReservation.Address", out var locationRecommendation))
             {
-                context.PrivateConversationData.SetValue("LOCATION", locationRecommendation.Entity);
+                context.SetLocation(locationRecommendation.Entity);
             }
 
-            // attempt to parse a cuisine from the luis result if provided by the user
+            // attempt to parse the cuisine preference if provided and set to state
             if (result.TryFindEntity("RestaurantReservation.Cuisine", out var cuisineRecommendation))
             {
-                context.PrivateConversationData.SetValue("CUISINE", cuisineRecommendation.Entity);
+                context.SetCuisine(cuisineRecommendation.Entity);
             }
 
-            // attempt to parse the date time if provided by the user
-            if (result.TryFindDateTime("builtin.datetimeV2.datetime", out var when))
+            // if the user enters a full date (for example, tomorrow night at 9pm), set to state
+            if (result.TryFindDateTime("builtin.datetimeV2.datetime", out var date))
             {
-                context.PrivateConversationData.SetValue("WHEN", when.Value.ToString());
+                context.SetWhen(date.Value);
+            }
+            // if the user only enters a time (9pm), we parse the time into the current date
+            else if (result.TryFindDateTime("builtin.datetimeV2.time", out var time))
+            {
+                context.SetWhen(time.Value);
             }
 
-            // attempt to parse the number of people if provided by the user
+            // if the user provided the number of people, set the value in state
             if (result.TryFindInteger("builtin.number", out var partySize))
             {
-                context.PrivateConversationData.SetValue("PARTY_SIZE", partySize.Value);
-            }
-            
-            // reply with the parsed location if we saved in state
-            if (context.PrivateConversationData.ContainsKey("LOCATION"))
-            {
-                await context.PostAsync($"Location Preference:  {context.PrivateConversationData.GetValueOrDefault<string>("LOCATION")}");
+                context.SetPartySize(partySize.Value);
             }
 
-            // reply with the parsed cuisine if we saved in state
-            if (context.PrivateConversationData.ContainsKey("CUISINE"))
-            {
-                await context.PostAsync($"Cuisine Preference:  {context.PrivateConversationData.GetValueOrDefault<string>("CUISINE")}");
-            }
+            // send a message to the user confirming their intent to create a reservation
+            await context.PostAsync(Properties.Resources.GREETING);
 
-            // reply with the parsed date / time if we saved in state
-            if (context.PrivateConversationData.ContainsKey("WHEN"))
-            {
-                await context.PostAsync($"Date Preference:  {context.PrivateConversationData.GetValueOrDefault<DateTime>("WHEN")}");
-            }
+            // we need to make sure we capture the following information for the reservation:
+            // 1. User's location (city, state)
+            // 2. User's preferred cuisine (thai, italian, etc.)
+            // 3. Restaurant (based on location and cuisine)
+            // 4. Date / time of the reservation
+            // 5. Number of people
 
-            // reply with the parsed number of people if saved in state
-            if (context.PrivateConversationData.ContainsKey("PARTY_SIZE"))
-            {
-                await context.PostAsync($"Party Size Preference:  {context.PrivateConversationData.GetValueOrDefault<int>("PARTY_SIZE")}");
-            }
-
-            // end the conversation
-            context.EndConversation(EndOfConversationCodes.CompletedSuccessfully);
+            // we start by first invoking a dialog for requesting the location
+            // and in turn call other state-specific dialogs in sequence
+            context.Call(new LocationDialog(), null);
         }
     }
 }

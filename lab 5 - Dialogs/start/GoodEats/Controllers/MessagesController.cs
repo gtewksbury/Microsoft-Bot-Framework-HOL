@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.Dialogs.Internals;
+using GoodEats.Dialogs;
+using Autofac;
 
 namespace GoodEats
 {
@@ -16,7 +19,7 @@ namespace GoodEats
         /// </summary>
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
-            if (activity.Type == ActivityTypes.Message)
+            if (activity.Type == ActivityTypes.Message || activity.Type == ActivityTypes.EndOfConversation)
             {
                 await Conversation.SendAsync(activity, () => new Dialogs.RootDialog());
             }

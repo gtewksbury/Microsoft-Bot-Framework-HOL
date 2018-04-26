@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace GoodEats.Models
 {
@@ -10,7 +7,7 @@ namespace GoodEats.Models
         public string Restaurant { get; set; }
 
         public string RestaurantAddress { get; set; }
-
+        
         public DateTime When { get; set; }
 
         public int PartySize { get; set; }
