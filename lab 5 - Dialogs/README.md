@@ -1,6 +1,6 @@
 
-*    **RootDialog**
-    *   Gather the state provided by the user's initial request and *Call* the *LocationDialog*
+* **RootDialog**
+    * Gather the state provided by the user's initial request and *Call* the *LocationDialog*
 *    **LocationDialog**     
     *    *StartAsync*
         *    IF the location was NOT retrieved from the original request, ask the user for their preferred location and *Wait* for their response
