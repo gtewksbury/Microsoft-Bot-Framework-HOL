@@ -1,8 +1,8 @@
 
 ## Prerequisites
-There are a couple things we need to take care of before we get started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
+There are just a couple things we need to take care of before we get started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
 
-### Eat Street API Key
+#### Eat Street API Key
 The code in the RestaurantServices uses the EatStreet API to query for restaurants by location.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
 
 1.	Navigate to the [Eat Street sign-in page](https://developers.eatstreet.com/sign-in) and create a new account
