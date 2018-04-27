@@ -26,7 +26,7 @@ Log into the [Luis Website](https://www.luis.ai) to begin building and training 
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
-*Note, to sign into the site, you'll need a valid Microsoft Account.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.*
+> To sign into the site, you'll need a valid Microsoft Account.  Preferably, the Microsoft account you select would be associated with an Azure subscription as well, so you can optionally associate your LUIS app with a Standard pricing tier (you *might* start received 403 throttling errors in [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down) on the free tier), but this is NOT required for these labs.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.*
 
 ### Create a LUIS App
 From the following screen, click the **Create New App** button
@@ -39,7 +39,7 @@ Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can n
 
 Your app is now ready to be built and trained!
 
-*Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+> Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
@@ -126,6 +126,9 @@ Hmm...although LUIS was able to identify the number of people and date, it seems
 
 As we said before, you model is only as good as your training.  Add and train 5 or 6 more examples of reservation **utterances** providing different cuisine types and locations.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
 
+> Make me a reservation in Pittsburgh
+
+> I'd like to reserve a table in Cleveland
 
 > I'd like to make a reservation in Miami FL for two of us
 
@@ -135,9 +138,15 @@ As we said before, you model is only as good as your training.  Add and train 5 
 
 > I need a reservation for 6 people in Chicago at an italian restaurant
 
-At this point you probably have 5 or 6 utterances trained, and LUIS is probably starting to understand your requests.  Just remember as you go through the labs that the more training you provide, the more accurate LUIS will become.  This is the power of machine learning!  We can make our app smarter through training without having to *code* around individual scenarios!  Here's an example of the model I trained building this lab:
+> make me a reservation at a good middle eastern restaurant in cleveland
 
-#Add Image
+> Make me a reservation in Boston
+
+> Can you make me a reservation in Nashville
+
+> Reserve me a table at a local Mediterranean restaurant
+
+Go ahead an map the entities in these requests.  Just remember as you go through the labs that the more training you provide, the more accurate LUIS will become.  This is the power of machine learning!  We can make our app smarter through training without having to *code* around individual scenarios!
 
 ### Re-associated Utterances
 
@@ -147,21 +156,21 @@ LUIS was kind enough to include these **utterances** when we added the *Restaura
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
-Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.
+Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  I also excluded any **utterances** that include **RestaurantReservation.PlaceName** as our bot will not support user's requesting specific restaurants.
 
-It's important to note that at any point in time, you can modify the associated intent of an **utterance**.  In fact, once you've published your model (we'll discuss *publishing* in the following section), you view see (and modify) LUIS's categorization of individual **utterances** from your users by navigating to the *Review endpoint utterances* link in the left menu!
+It's important to note that at any point in time, you can modify the associated intent of an **utterance**.  In fact, once you've published your model (we'll discuss *publishing* in the following section), you can view (and modify) LUIS's categorization of individual **utterances** from your users by navigating to the *Review endpoint utterances* link in the left menu!
 
 ### Training and Testing
 
-Let's make it official and train our app based on all the information we've given it!  You've probably noticed a *Train* button in the top right (next to the *Test* button).  Go ahead an click it!
+At this point you should have trained LUIS with around 25 utterances (give or take).  Let's make it official and train our app based on all the information we've given it so far!  You've probably noticed a *Train* button in the top right (next to the *Test* button).  Go ahead an click it!
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-train.png)
 
-After a few moments, you're model has now been trained with your latest **utterances**.  You can retrain at any point in time.  Let's go ahead and test your model!  Click the *Test* button and enter a new reservation request.
+After a few moments, you're model has now been trained with your latest **utterances** (it's important to note that you can retrain at any point in time).  Let's go back to our *Create Reservation* intent and see how smart LUIS has become.  Go ahead and add a new **utterance**, for example `Can you make me a reservation in Boston at a good seafood restaurant for eight people tomorrow at 5:30 pm`.
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-test.png)
+What happened?  For me, LUIS was able to identify all the pertinent information in the request with very high confidence!  Nice work LUIS, pat on the back to ya!
 
-Hopefully it correct identified your intents!  It's important to note predictions are scored on a scale between 0 and 1.  Look at the score for you're request.  Depending on the results, you might want...Wait for it...MORE TRAINING!
+> Predictions are scored on a scale between 0 and 1.  Look at the score for you're request.  Depending on the results, you might need more training.
 
 ### Publishing
 

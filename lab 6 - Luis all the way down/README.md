@@ -168,7 +168,7 @@ namespace GoodEats.Dialogs
 
 > Don't forget to set your *LUIS Model Id* and *LUIS Subscription Key* in the *LuisModelAttribute*.  The same goes for the *RootDialog* if you're working from the starter solution in this lab.
 
-This will serve as the base class for our following **Dialogs**:
+This will serve as the base class for following **Dialogs**:
 
 1. *ConfirmationReservationDialog*
 2. *CuisineDialog*
@@ -179,10 +179,10 @@ This will serve as the base class for our following **Dialogs**:
 
 Upon reviewing the code, you'll notice a couple things:
 
-1. Along with our *Create Reservation* intent, *LuisReservationDialog* handle a number of other intents we have yet to create
-2. We have an abstract *None* intent handler.  Looks like our other our other dialogs will need to implement this method.
+1. Along with our *Create Reservation* intent, *LuisReservationDialog* handle a number of other intents we have yet to create.
+2. We have an abstract *None* intent handler.  Looks like our other dialogs will need to implement this method.
 
-Next we're going to update our **Dialogs** to inherit from our new *LuisReservationDialog* along with a couple of small enhancements.
+Next we're going to update our **Dialogs** to inherit from our new *LuisReservationDialog* (along with a couple of small enhancements).
 
 #### ConfirmationReservationDialog
 Copy the following code into your *ConfirmReservationDialog.cs* file:
@@ -651,13 +651,134 @@ Here's the basic blueprint for the updated conversational logic witin each of th
    
 * *StartAsync*
 	* IF the state is NOT set for the given dialog, prompt the user for the appropriate information and *Wait* for a response
-	* IF the state IS currently set BUT is NOT valid, notify the user by asking them to provide another value and *Wait* for a response
-	* IF the state is set and is valid for the given dialog, *Call* the next dialog in the chain
+	* IF the state IS currently set but is NOT valid, notify the user by asking them to provide another value and *Wait* for a response
+	* IF the state is set valid for the given dialog, *Call* the next dialog in the chain
 * *MessageReceivedAsync*
-	* IF the user provided a VALID value for the given dialog, set the state, and *Call* the next dialog in the chain
+	* IF the user provided a valid value for the given dialog, set the state, and *Call* the next dialog in the chain
 	* OTHERWISE, call the base *LuisReservationDialog's* *MessageReceivedAsync* handler, passing the user's response
 * *LuisReservationDialog.MessageReceivedAsync*
 	* Pass the user's response to LUIS and attempt to identify the user's **Intent** and provided **entities**
 	* IF an appropriate **intent** handler IS found on the *LuisReservationDialog*, pass the parsed LuisResult to the handler
 		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the converation back through our chain
 	* If an **intent** handler is NOT found on *LuisReservationDialog*, invoke the *None* handler, which when implemented by the parent dialog, notifies the user that the request was not understand by asking them to provide another value, and *Wait* for a response 
+
+Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh`.  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
+
+![Smarter Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-change-location.png)
+
+> Hopefully you're bot was smart enough to handle this!  if not, it probably needs more training.  In that case, go back to the [Luis Website](https://www.luis.ai) and enter, train, and publish some additional **utterances** (If you need a refresher on doing so, you can refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).  Here are some examples:
+>
+* `Actually, I want to make a reservation in Pittsburgh`
+* `Sorry, I actually wanted to reserve a table in Miami FL`
+
+
+At this point, our bot is starting to become pretty powerful, allowing the user to update reservation values at any step in the process!  But how did it work?
+
+In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* intent and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our converation chain.
+
+Alright, let's try something else.  Go back to your emulator, and walk through creating a reservation, all the way up until the bot asked you for the number of people.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
+
+![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
+
+What happened here?  We'll, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that has been trained to do so.  Remember our *LuisReservationDialog* contained a number of handlers for **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
+
+#### Set Reservation Location Intent
+Browse to your [LUIS App](https://www.luis.ai), and create a new **intent** called *Set Reservation Location*.
+
+> If you need a refresher on creating, training, and publishing intents, refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).
+
+Add some **utterances** representing someone wanting to change their location and map the *RestaurantReservation.Address* entities when required.  Here are some examples:
+
+> actual, I'll be in Houston TX
+
+> sorry, I'm actually near Boston
+
+> could you look in Baltimore
+
+> I forgot, I'm in Pittsburgh
+
+> Forget that, I'll be in San Francisco
+
+> actually, I forgot, I'll be in chicago
+
+> actually, can you look in Los Angeles
+
+> change my location to Cleveland
+
+> sorry, i gave you the wrong location, let's look in Phoenix
+
+> Update my location to Orlando FL
+
+#### Set Reservation Date Intent
+Create a new **intent** called *Set Reservation Date*.
+
+Add some utterances representing someone wanting to change their reservation date and map the *datetimeV2* entities when required. Here are some examples:
+
+> actually, let's do tomorrow night at 4:30
+
+> change the date to Monday at 5:30 pm
+
+> sorry, let's do 9:30 next Friday
+
+> tomorrow at 3pm
+
+> on second thought, I'd like to eat tonight at 7
+
+> sorry, I gave you the wrong date, let's do Friday at 9:15 pm
+
+> update my reservation to tomorrow at 4:30 pm
+
+#### Set Reservation Cuisine Intent
+Create a new **intent** called *Set Reservation Cuisine*.
+
+Add some utterances representing someone wanting to change preferred cuisine and map the *RestaurantReservation.Cuisine* entities when required. Here are some examples:
+
+> actually, are there any good mexican options
+
+> I'm in the mood for italian
+
+> actually, thai sounds good
+
+> On second thought, I could go for some chinese food
+
+> A restaurant that serves Mediterranean would be nice
+
+> Sorry, let's look for a restaurant that serves burgers
+
+> you know what, I could go for sushi
+
+> let's see if there are any restaurants that serve sandwiches
+
+> nothing great there, how about middle eastern?
+
+
+#### Set Reservation Party Size Intent
+Create a new **intent** called *Set Reservation Party Size*.
+
+Add some utterances representing someone wanting to change the number of people on a reservation and map the *number* entities when required. Here are some examples:
+
+> actually, there will be three of us
+
+> on second thought, there will be 10 of us
+
+> sorry, can you update the reservation to six people
+
+> actually, there will just be 2 of us
+
+> we're expecting 6 people
+
+> eight people
+
+> actually, there are 7 of us
+
+> sorry, we'll have 3 people
+
+> update the reservation for 4 people
+
+### Train and Publish
+Now go ahead and *train* and subsequently *publish* you changes (remember, you need to *publish* after training for you updated model to be exposed via the LUIS REST API).
+
+Let's go back to our bot an try again.  Begin a new reservation request, and when the bot prompts you for the number of people, enter `there will be 6 of us`.
+
+![Smart Number of People]()
+
