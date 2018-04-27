@@ -11,7 +11,7 @@ In this lab, we'll setup our Visual Studio .NET Bot Framework development enviro
 
 
 ## Installing the Bot Emulator
-In a production world, user's interface with your bots through one or more configured **channels**.  These channels represent the different *interfaces* that end-users can use to interact with your application.  One of the power features of Bot Framework and Bot Services is the ability to code once for multiple **channels**.  The following **channels** are currently supported:
+In a production world, user's interface with your bots through one or more configured **channels**.  These channels represent the different *interfaces* that end-users can use to interact with your application.  One of the more power features of Bot Framework and Bot Services is the ability to code once for multiple **channels**.  The following **channels** are currently supported:
 
 *	Cortana
 *	Bing
