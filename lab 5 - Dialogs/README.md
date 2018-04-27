@@ -1,6 +1,15 @@
 
+# Lab 5 - Dialogs
+Glad you made it here.  This is where our bot starts to get interesting!  We're now going to update the bot to walk a user through the entire reservation process.  The goal of our bot will be to provide restaurant recommendations based on the user's location and preferred cuisine and help them make a reservation for a given date and number of people.  
+
+At this point, we've trained our LUIS model to allow users to provide most of this information through requests such as `I'd like to reserve a table in Pittsburgh at a good Italian restaurant tomorrow at 8:30 pm for six people`, but we still need to prompt them to select a restaurant...
+
+Additionally, what if the user only provides *some* of the information required to make a reservation, such as `Make me a reservation in Pittsburgh` or `I'd like a table at 8:30 tomorrow night`.  In these cases, we still need to collect additional information, such as location, date, and number of people.
+
+In this lab, we are going to create a **Dialog** for each piece of information we need to collect from the user and prompt them when we require additional information.
+
 ## Start Solution
-The starter solution in this lab has a number of classes that you'll need to complete the lab.  This just helps keep the lab focused on the Bot Framework logic.  Below is a brief explanations of the new code in the starter project (I recommend taking a look at these files before moving forward):
+Once again, you'll need to use starter solution in this lab has as it contains a number of classes that you'll need get your code running (baking it into the starter project just helps keep the lab focused on the Bot Framework logic).  Below is a brief explanation of the new classes you'll find in the starter project (I recommend taking a look at these files before moving forward):
 
 #### Properties/Resources.resx
 It's typically not a good practice to place strings within complied C# files.  Therefore, I've placed all the potential bot responses into a *Resources.resx* file.  Doing so makes the code more maintainable and sets us up to support multilingual scenarios in the future.
