@@ -5,7 +5,7 @@ Run your bot and ask it to `make a reservation in Pittsburgh`.  When it prompts 
 
 ![Confused Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-confused.png)
 
-Don't worry, we're going to fix that!  Here's one the most important things to understand when designing your bot...**CONVERSATIONS ARE NOT LINEAR**!  We often bounce around between different topics.  Another thing...user's aren't robots.  When the bot asks the user for the number of people on the reservation, what if the user responds `There will be 6 of us`?  Right now, our bot has no idea how to interpret this response, and would again ask the user for the party size.  It's almost like we need some kind of natural language processing when dealing with user responses to our bot...but how?
+Don't worry, we're going to fix that!  Here's one the most important things to understand when designing your bot...**CONVERSATIONS ARE NOT LINEAR**!  We often bounce around between different topics.  Another thing...**USERS AREN'T ROBOTS**!  When the bot asks the user for the number of people on the reservation, what if the user responds `There will be 6 of us`?  Right now, our bot has no idea how to interpret this response, and would again ask the user for the party size.  It's almost like we need some kind of natural language processing when dealing with user responses to our bot...but how?
 
 Oh Yeah, LUIS!
 
