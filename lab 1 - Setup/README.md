@@ -2,7 +2,7 @@
 
 In this lab, we'll setup our Visual Studio .NET Bot Framework development environment.  This includes the following:
 
-1.	Installing the Bot Emulator (used for testing our bot locally)
+1.	Installing the Bot Emulator (used to test and debug our bot locally)
 2.	Adding the Visual Studio 2017 Bot Framework project templates
 3.	Creating and running our first *Hello World* bot project
 4.	A quick review of the Bot Builder SDK for .NET
