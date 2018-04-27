@@ -780,5 +780,9 @@ Now go ahead and *train* and subsequently *publish* you changes (remember, you n
 
 Let's go back to our bot an try again.  Begin a new reservation request, and when the bot prompts you for the number of people, enter `there will be 6 of us`.
 
-![Smart Number of People]()
+![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-number-people.png)
+
+Success!  The request should have been gracefully interpreted as a *Set Reservation Party Size* intent your *LuisReservationDialog*.  Let's try another example.  Start a new conversation and type `Make me a reservation at a good italian restaurant in pittsburgh`.  When the bot prompts you with restaurant recommendations, type `actually, I'm in the mood for chinese`.  
+
+![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
 
