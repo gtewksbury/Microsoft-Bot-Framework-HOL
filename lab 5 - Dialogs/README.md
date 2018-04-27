@@ -170,6 +170,8 @@ namespace GoodEats.Dialogs
 
 > IMPORTANT   Don't forget to update the *LuisModelAttribute* with your LUIS app's *Model Id* and *Subscription Key*
 
+![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/root-dialog-update.png)
+
 A couple of noticable updates:
 
 1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
