@@ -117,7 +117,7 @@ If you've done any .NET web development, you'll probably notice Visual Studio cr
     }
 ``` 
 
-Immediately we see a few things that are probably new to us.  Our *RootDialog* class implements  something called *IDialog* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NEt Bot Builder SDK (don't worry, we'll cover these in detail in future labs).  No better way to see how things work than to step through the code, so let's run the project and see it in action!
+Immediately we see a few things that are probably new to us.  Our *RootDialog* class implements  something called *IDialog* and we have a couple methods that seem to be getting passed an *IDialogContext*.  These are some of the fundamental building blocks available within the .NET Bot Builder SDK (don't worry, we'll cover these in detail in future labs).  No better way to see how things work than to step through the code, so let's run the project and see it in action!
 
 ## Testing your Bot Application
 
@@ -153,7 +153,7 @@ Now let's go back to the Emulator and type a message to our bot and see what hap
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
-> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should expect to receive a message from the user which should be passed to the *MessageReceivedAsync* handler.
+> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should wait to receive a message from the user.  When it arrives, this message should in turn be passed to the *MessageReceivedAsync* handler.
 
 Let's hit F5 and see what happens next.  As you might have expected, our *MessageReceivedAsync* handler was invoked.
 
