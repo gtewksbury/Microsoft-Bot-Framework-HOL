@@ -16,12 +16,12 @@ namespace GoodEats.Dialogs
         public Task StartAsync(IDialogContext context)
         {
             // wait for the response (this should be received automatically via the Forward(...) request
-            context.Wait(MessageReceived);
+            context.Wait(MessageReceivedAsync);
 
             return Task.CompletedTask;
         }
 
-        private async Task MessageReceived(IDialogContext context, IAwaitable<IMessageActivity> message)
+        private async Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> message)
         {
             // send a message to user confirming their cancel request
             await context.PostAsync(Properties.Resources.CANCEL_CONFIRMATION);
