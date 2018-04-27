@@ -178,7 +178,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\ConfirmReservationDialog.cs" />
-    <Compile Include="Dialogs\EndConversationDialog.cs" />
     <Compile Include="Dialogs\LuisReservationDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="StateExtensions.cs" />
@@ -203,10 +202,8 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Services\RestaurantService.cs" />
-    <Compile Include="Modules\ScorableModule.cs" />
     <Compile Include="Modules\StateModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scorables\CancelScorable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

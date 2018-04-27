@@ -30,7 +30,7 @@ namespace GoodEats.Scorables
             // this method simply returns the received message if it matches any of the
             // following keywords
             var message = activity as IMessageActivity;
-            var values = new string[] { "cancel", "nevermind", "never mind", "forget it","forgetit" };
+            var values = new string[] { "cancel", "nevermind", "never mind", "forget it", "forgetit" };
 
             if (message != null && !string.IsNullOrWhiteSpace(message.Text))
             {
@@ -60,10 +60,10 @@ namespace GoodEats.Scorables
 
         protected override async Task PostAsync(IActivity item, string state, CancellationToken token)
         {
-          // if this scorable wins and executes, simply call the EndOfConversation dialog
-          // which in turn will end the conversation.  I couldn't find a way of successfully
-          // ending the conversation directly from here, so I push it to the dialog
-          await this.DialogTask.Forward(new EndConversationDialog(), null, item as IMessageActivity, token);
+            // if this scorable wins and executes, simply call the EndOfConversation dialog
+            // which in turn will end the conversation.  I couldn't find a way of successfully
+            // ending the conversation directly from here, so I push it to the dialog
+            await this.DialogTask.Forward(new EndConversationDialog(), null, item as IMessageActivity, token);
         }
 
 

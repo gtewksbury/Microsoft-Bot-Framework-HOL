@@ -792,4 +792,4 @@ Hopefully this helps instill the importance of supporting fluid conversations wh
 In this lab, we learned some relatively simple design patterns for integrating LUIS at all levels of a **conversation**, making our bots adaptive to fluid requests.  By doing so, we were able to drastically improve the user experience of our bot application.
 
 ## Next Steps
-There may be times, that you want to globally handle very specific commands regardless of the user's current position in the **conversation** (such as *help* or *cancel*).  In [Lab 7]() we'll introduce the concept of **Scorables** and Global Message Handlers to do exactly that.
+There may be times, that you want to globally handle very specific commands regardless of the user's current position in the **conversation** (such as *help* or *cancel*).  In [Lab 7]() we'll introduce the concept of **Scorables** and global message handlers to do exactly that.

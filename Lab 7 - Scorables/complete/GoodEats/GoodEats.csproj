@@ -181,6 +181,8 @@
     <Compile Include="Dialogs\EndConversationDialog.cs" />
     <Compile Include="Dialogs\LuisReservationDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
+    <Compile Include="Modules\ScorableModule.cs" />
+    <Compile Include="Scorables\CancelScorable.cs" />
     <Compile Include="StateExtensions.cs" />
     <Compile Include="Dialogs\LocationDialog.cs" />
     <Compile Include="Dialogs\PartySizeDialog.cs" />

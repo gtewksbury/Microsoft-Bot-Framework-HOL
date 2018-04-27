@@ -178,7 +178,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Dialogs\ConfirmReservationDialog.cs" />
-    <Compile Include="Dialogs\EndConversationDialog.cs" />
     <Compile Include="Dialogs\LuisReservationDialog.cs" />
     <Compile Include="Dialogs\RootDialog.cs" />
     <Compile Include="StateExtensions.cs" />
