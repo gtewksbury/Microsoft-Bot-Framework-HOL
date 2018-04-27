@@ -173,7 +173,9 @@ You can always *End Conversations*, essentially wiping out the state of a given 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
 
-After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was again called.  Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
+After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was again called.  
+
+> Because this was a new conversation, we didn't have an existing dialog waiting for a response, so Bot Framework *Started* a new dialog.
 
 ## Quick Recap
 
