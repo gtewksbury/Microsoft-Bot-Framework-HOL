@@ -21,6 +21,13 @@ namespace GoodEats
     {
         protected void Application_Start()
         {
+            Conversation.UpdateContainer(
+                builder =>
+                {
+                    builder.RegisterModule(new AzureModule(Assembly.GetExecutingAssembly()));
+                    //builder.RegisterModule<DialogModule>();
+                    builder.RegisterModule<ScorableModule>();
+                });
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }

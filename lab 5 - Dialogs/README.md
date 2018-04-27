@@ -8,6 +8,8 @@ Additionally, what if the user only provides *some* of the information required 
 
 In this lab, we are going to create a **Dialog** for each piece of information we need to collect from the user and prompt them when we require additional information.
 
+> I'm going to mention it here, but this will get you just like it gets everyone.  All **Dialogs** must be flagged as *Serializable*.  This is done by decorating your **Dialog** classes with the *SerializableAttribute*.  The reason for this is that conversations can in theory last indefinitely, so the bot framework needs to be able to serialize you conversation state and **DialogStack** in between responses.
+
 ## Start Solution
 Once again, you'll need to use starter solution in this lab has as it contains a number of classes that you'll need get your code running (baking it into the starter project just helps keep the lab focused on the Bot Framework logic).  Below is a brief explanation of the new classes you'll find in the starter project (I recommend taking a look at these files before moving forward):
 

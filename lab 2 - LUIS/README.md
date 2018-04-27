@@ -146,6 +146,8 @@ As we said before, you model is only as good as your training.  Add and train 5 
 
 > Reserve me a table at a local Mediterranean restaurant
 
+> Can you make me a reservation at a pizza restaurant
+
 Go ahead an map the entities in these requests.  Just remember as you go through the labs that the more training you provide, the more accurate LUIS will become.  This is the power of machine learning!  We can make our app smarter through training without having to *code* around individual scenarios!
 
 ### Re-associated Utterances
