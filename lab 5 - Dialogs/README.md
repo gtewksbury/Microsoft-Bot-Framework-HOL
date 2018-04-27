@@ -1,9 +1,28 @@
 
+## Start Solution
+The starter solution in this lab has a number of classes that you'll need to complete the lab.  This just helps keep the lab focused on the Bot Framework logic.  Below is a brief explanations of the new code in the starter project (I recommend taking a look at these files before moving forward):
+
+### Properties/Resources.resx
+It's typically not a good practice to place strings within complied C# files.  Therefore, I've placed all the potential bot responses into a *Resources.resx* file.  Doing so makes the code more maintainable and sets us up to support multilingual scenarios in the future.
+
+### Services/RestaurantService.cs
+The *RestaurantService* contains all the logic for querying and returning restaurants based on location and cuisine.  This class makes use of the publicly available Eat Street REST API.
+
+### Models
+This directory contains *Cuisine*, *Reservation*, *Restaurant*, and *RestaurantSearchResults* classes.  These classes house data that we retrieve from the *RestaurantService*
+
+
+### StateExtensions.cs
+This class *extends* *IBotData* implemented by *IDialogContext*.  It simply provides convenience methods for managing location, cuisine, and restaurant state against *PrivateConversationData*.  
+
+### ValueTypeExtensions.cs
+Here we use a couple of nuget packages to help us work with natural language date and number representations.  *Ploeh.Numsense.ObjectOriented.ChronicParser* is used to parse natural language dates and *Ploeh.Numsense.ObjectOriented.Numeral* is used to parse natural language numbers.  These are available through *nuget*.
+
 ## Prerequisites
-There are just a couple things we need to take care of before we get started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
+There's a quick prerequisite need to take care of before getting started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
 
 #### Eat Street API Key
-The code in the RestaurantServices uses the EatStreet API to query for restaurants by location.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
+The code in the *RestaurantServices* uses the publicly available *EatStreet API* to query for restaurants by location.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
 
 1.	Navigate to the [Eat Street sign-in page](https://developers.eatstreet.com/sign-in) and create a new account
 	
@@ -17,14 +36,8 @@ The code in the RestaurantServices uses the EatStreet API to query for restauran
 
 	![Update Web.config](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/web-config.png)
 
-
-#### Update Root Dialog
-Since you're going to be working from the *starter* solution in this lab, you'll need to re-apply your *LUIS Model Id* and *LUIS Subscription Key* in your *RootDialog*.  Go ahead and open the *RootDialog.cs* file in the *starter* directory and update the *LuisModelAttribute* with the values for your LUIS app:
-
- ![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/root-dialog-update.png)
-
 ## Reservation Conversation Logic
-Below you'll find a high-level blueprint of our reservation conversational flow.  Hopefully you notice a number of repeating patterns for each dialog. 
+Alright, we're ready to get going!  Below you'll find a high-level blueprint of the reservation conversational flow your going to be created.  Hopefully you notice a number of repeating patterns for each dialog. 
 
 
 * **RootDialog**
@@ -74,6 +87,95 @@ Below you'll find a high-level blueprint of our reservation conversational flow.
 
 ## Dialogs
 Let's add **Dialogs** for each piece of reservation state our application is tracking.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
+
+### RootDialog
+Let's go ahead and make some updates to our *RootDialog*.  Go ahead and open the *RootDialog* in Visual Studio and replace everything with the following code:
+
+```csharp
+
+using GoodEats.Models;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.Luis;
+using Microsoft.Bot.Builder.Luis.Models;
+using Microsoft.Bot.Connector;
+using System;
+using System.Threading.Tasks;
+
+namespace GoodEats.Dialogs
+{
+    [Serializable]
+    [LuisModel("<LUIS Model Id>", "<Luis Subscription Key>")]
+    public class RootDialog : LuisDialog<Reservation>
+    {
+        [LuisIntent("")]
+        [LuisIntent("None")]
+        public async Task None(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
+        {
+            // send a message to the user indicating the request was not recognized
+            await context.PostAsync(Properties.Resources.NONE);
+
+            // end the conversation
+            context.EndConversation(EndOfConversationCodes.Unknown);
+        }
+
+        [LuisIntent("Create Reservation")]
+        public async Task CreateReservation(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
+        {
+            // attempt to parse the reservation location (city, state) if provided and set to state
+            if (result.TryFindEntity("RestaurantReservation.Address", out var locationRecommendation))
+            {
+                context.SetLocation(locationRecommendation.Entity);
+            }
+
+            // attempt to parse the cuisine preference if provided and set to state
+            if (result.TryFindEntity("RestaurantReservation.Cuisine", out var cuisineRecommendation))
+            {
+                context.SetCuisine(cuisineRecommendation.Entity);
+            }
+
+            // if the user enters a full date (for example, tomorrow night at 9pm), set to state
+            if (result.TryFindDateTime("builtin.datetimeV2.datetime", out var date))
+            {
+                context.SetWhen(date.Value);
+            }
+            else if (result.TryFindDateTime("builtin.datetimeV2.time", out var time))
+            {
+                 // if the user only enters a time (9pm), we parse the time into the current date
+                context.SetWhen(time.Value);
+            }
+
+            // if the user provided the number of people, set the value in state
+            if (result.TryFindInteger("builtin.number", out var partySize))
+            {
+                context.SetPartySize(partySize.Value);
+            }
+
+            // send a message to the user confirming their intent to create a reservation
+            await context.PostAsync(Properties.Resources.GREETING);
+
+            // we need to make sure we capture the following information for the reservation:
+            // 1. User's location (city, state)
+            // 2. User's preferred cuisine (thai, italian, etc.)
+            // 3. Restaurant (based on location and cuisine)
+            // 4. Date / time of the reservation
+            // 5. Number of people
+
+            // we start by first invoking a dialog for requesting the location
+            // and in turn call other state-specific dialogs in sequence
+            context.Call(new LocationDialog(), null);
+        }
+    }
+}
+```
+
+> IMPORTANT   Don't forget to update the *LuisModelAttribute* with your LUIS app's *Model Id* and *Subscription Key*
+
+A couple of noticable updates:
+
+1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
+2.	You'll notice *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
+3.	Once the state has been parsed, we *Post* a greet to the user using the response in our *Resources.resx* file and *Call* the *LocationDialog*
+4.	Lastly, we *Post* a friendly message to the user in the *None* method (if we can't handle the intent) and end the conversation.
 
 ### Reservation Location Dialog
 Create a new class or code file called *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:

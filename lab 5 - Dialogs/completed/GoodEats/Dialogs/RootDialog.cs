@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GoodEats.Dialogs
 {
     [Serializable]
-    [LuisModel("12e1e7da-4bf4-42b1-b3e2-0da78f7814e3", "")]
+    [LuisModel("<LUIS Model Id>", "<Luis Subscription Key>")]
     public class RootDialog : LuisDialog<Reservation>
     {
         [LuisIntent("")]
@@ -43,9 +43,9 @@ namespace GoodEats.Dialogs
             {
                 context.SetWhen(date.Value);
             }
-            // if the user only enters a time (9pm), we parse the time into the current date
             else if (result.TryFindDateTime("builtin.datetimeV2.time", out var time))
             {
+                // if the user only enters a time (9pm), we parse the time into the current date
                 context.SetWhen(time.Value);
             }
 
