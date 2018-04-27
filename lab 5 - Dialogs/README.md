@@ -2,20 +2,20 @@
 ## Start Solution
 The starter solution in this lab has a number of classes that you'll need to complete the lab.  This just helps keep the lab focused on the Bot Framework logic.  Below is a brief explanations of the new code in the starter project (I recommend taking a look at these files before moving forward):
 
-### Properties/Resources.resx
+#### Properties/Resources.resx
 It's typically not a good practice to place strings within complied C# files.  Therefore, I've placed all the potential bot responses into a *Resources.resx* file.  Doing so makes the code more maintainable and sets us up to support multilingual scenarios in the future.
 
-### Services/RestaurantService.cs
+#### Services/RestaurantService.cs
 The *RestaurantService* contains all the logic for querying and returning restaurants based on location and cuisine.  This class makes use of the publicly available Eat Street REST API.
 
-### Models
+#### Models
 This directory contains *Cuisine*, *Reservation*, *Restaurant*, and *RestaurantSearchResults* classes.  These classes house data that we retrieve from the *RestaurantService*
 
 
-### StateExtensions.cs
+#### StateExtensions.cs
 This class *extends* *IBotData* implemented by *IDialogContext*.  It simply provides convenience methods for managing location, cuisine, and restaurant state against *PrivateConversationData*.  
 
-### ValueTypeExtensions.cs
+#### ValueTypeExtensions.cs
 Here we use a couple of nuget packages to help us work with natural language date and number representations.  *Ploeh.Numsense.ObjectOriented.ChronicParser* is used to parse natural language dates and *Ploeh.Numsense.ObjectOriented.Numeral* is used to parse natural language numbers.  These are available through *nuget*.
 
 ## Prerequisites
@@ -175,7 +175,7 @@ namespace GoodEats.Dialogs
 A couple of noticable updates:
 
 1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
-2.	You'll notice *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
+2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
 3.	Once the state has been parsed, we *Post* a greet to the user using the response in our *Resources.resx* file and *Call* the *LocationDialog*
 4.	Lastly, we *Post* a friendly message to the user in the *None* method (if we can't handle the intent) and end the conversation.
 
