@@ -217,6 +217,13 @@ namespace GoodEats
 }
 ```
 
+Let's go ahead and give it a try.  Go ahead and run your solution along with the emulator and type `I'd like to reserve a table in Pittsburgh`.  When the bot prompts you for a preferred cuisine, type `nevermind`.
+
+You're bot should have sent you a friendly *Good-Bye* message before it ended the conversation.  This should work regardless of your current position in the **conversation**.  This time, enter information up until the point when the bot asks you to confirm your reservation.  At that point, type `cancel`.  You should see the same result!
+
+## Quick Recap
+In this short lab, we learned how to create and register **Scorables** to handle messages globally throughout our bot application.
+
 
 
 
