@@ -702,3 +702,12 @@ namespace GoodEats.Dialogs
 > Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a fixed layout, you can optional create *AdaptiveCards* provide you complete control over the layout [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots).
 
 ![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
+
+## Quick Recap
+Congratulations!  At this point you should have a bot that walks a user through the entire reservation process.  In this lab, we completed the following:
+
+1. Incorporated a **Dialog** chain to solicity reservatio information from the user
+2. Provided rich visualizations in the form of message **Attachments**
+
+## Next Steps
+While our bot is fairly functional at this point, there are some limitations in that the bot is very linear.  What if the user wants to change some previously previously entered information.  At this point, our bot has no way of handling this.  But fear not, in the [Next Lab](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down), we're going to kick it up a notch and update our bot to support more fluid conversations!
