@@ -4,14 +4,14 @@ In this lab, we'll setup our Visual Studio .NET Bot Framework development enviro
 
 1.	Installing the Bot Emulator (used for testing our bot locally)
 2.	Adding the Visual Studio 2017 Bot Framework project templates
-3.	Create and running our first *Hello World* bot project
+3.	Creating and running our first *Hello World* bot project
 4.	A quick review of the Bot Builder SDK for .NET
 
 > Note, the following labs will require Visual Studio 2017 (preferably with the latest updates)
 
 
 ## Installing the Bot Emulator
-In a production world, user's interface with your bots through one or many configured **Channels**.  These channels represent the different *interfaces* that end-users can use to interact with your application.  One of the power features of Bot Framework and Bot Services is the ability to code once for multiple channels.  Currently, the supported channels include the following:
+In a production world, user's interface with your bots through one or more configured **channels**.  These channels represent the different *interfaces* that end-users can use to interact with your application.  One of the power features of Bot Framework and Bot Services is the ability to code once for multiple **channels**.  The following **channels** are currently supported:
 
 *	Cortana
 *	Bing
@@ -26,12 +26,12 @@ In a production world, user's interface with your bots through one or many confi
 *	Telegram
 *	SMS (Twilio)
 
-However, none of these **channels** support a local debugging experience.  Luckily for us, Microsoft has created a Bot Emulator desktop client that can serve as a testing and debugging **channel** as you develop your bot application!
+Unfortunately, none of these **channels** support a local debugging experience.  Luckily for us, Microsoft has created the Bot Emulator desktop client that can serve as a testing and debugging **channel** as you develop your bot application!
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator.png)
 
-You can download and run the Bot Emulator installer from [here](https://github.com/Microsoft/BotFramework-Emulator/releases/download/v3.5.35/botframework-emulator-Setup-3.5.35.exe). 
+Download and run the Bot Emulator installer from [here](https://github.com/Microsoft/BotFramework-Emulator/releases/download/v3.5.35/botframework-emulator-Setup-3.5.35.exe). 
 
 
 ## Installing Visual Studio Bot Framework Project Templates
@@ -49,11 +49,11 @@ Next, download the [Bot Controller](http://aka.ms/bf-bc-vscontrollertemplate) an
 
 > For typical Visual Studio installations, the *item templates* directory is located under ` %USERPROFILE%\Documents\Visual Studio 2017\Templates\ItemTemplates\Visual C#\ `
 
-If you have issues, more information on installing .NET Bot Framework Visual Studio templates can be found [here](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-quickstart).
+Once the templates have been added, go ahead and open Visual Studio 2017.
 
-Once the templates have been added, open Visual Studio 2017 (if Visual Studio was previously open, you might need to close it and re-open it for Visual Studio to find your templates).
+> If Visual Studio was previously open, you might need to close it and re-open it for Visual Studio to find your templates.
 
-Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might now have been installed correctly in the previous steps).  Since throughout the labs we'll be creating a restaurant reservation bot, I named mine *GoodEats*, but you can name yours whatever you want.
+Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might not have been installed correctly in the previous steps).  Since throughout the labs we'll be creating a restaurant reservation bot, I named mine *GoodEats*, but you can name yours whatever you want.
 
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
@@ -67,7 +67,7 @@ At this point you should be all set to start developing your bot application.  B
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
-If you've done any .NET web development, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application via RESTful Post calls to a Web API endpoint, passing something called an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
+If you've done any .NET web development, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application via Posts to our service, passing something called an *Activity* in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
 
 ```csharp
 
