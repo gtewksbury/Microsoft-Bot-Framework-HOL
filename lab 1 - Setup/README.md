@@ -153,7 +153,7 @@ Now let's go back to the Emulator and type a message to our bot and see what hap
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
-> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should wait to receive a message from the user.  When it arrives, this message should in turn be passed to the *MessageReceivedAsync* handler.
+> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should wait to receive a message from the user.  When it arrives, this message should in turn be passed to the *MessageReceivedAsync* handler. 
 
 Let's hit F5 and see what happens next.  As you might have expected, our *MessageReceivedAsync* handler was invoked.
 
