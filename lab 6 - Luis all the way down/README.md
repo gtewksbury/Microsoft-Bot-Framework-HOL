@@ -3,7 +3,7 @@ Welcome to Lab 6!  At this point, you should have a fully-functioning reservatio
 
 Run your bot and ask it to `make a reservation in Pittsburgh`.  When it prompts you for your preferred cuisine, type `sorry, actually make my reservation in Cleveland`.  We're stuck!  Our bot has no idea what's going on!
 
-[Confused Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-confused.png)
+![Confused Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-confused.png)
 
 Don't worry, we're going to fix that!  Here's one the most important thing to understand when designing your bot...**CONVERSATIONS ARE NOT LINEAR**!  We often bounce around between different topics.  Another thing...user's aren't robots.  When the bot asks the user for the number of people on the reservation, what if the user responds `There will be 6 of us`?  Right now, our bot would say '*Huh*', and again ask the user for the party size.  It's almost like we need some kind of natural language processing when dealing with user responses to our bot...but how?
 
