@@ -9,7 +9,7 @@ Don't worry, we're going to fix that!  Here's one the most important things to u
 
 Oh Yeah, LUIS!
 
-In this lab, we're going to integrate LUIS not only in our *RootDialog*, but with every **Dialog** along the way!
+In this lab, we're going to integrate LUIS not only in our *RootDialog*, but with every **Dialog** on the path to making a reservation!
 
 ## LuisReservationDialog
 Open the start solution in Visual Studio and create a new class or code file called *LuisReservationDialog.cs* in the *Dialogs* directory and replace with the following code:
