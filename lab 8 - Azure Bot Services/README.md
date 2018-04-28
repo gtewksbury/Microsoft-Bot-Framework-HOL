@@ -67,7 +67,7 @@ By default, *Web App Bots* have enabled the *Web Chat* **channel** (we'll see wh
 
 ## Channels
 
-Let's click the *Channels* link in the Azure Portal.  This is where you configure additional **channels** for your application.  You can see I've enabled the *Slack* **channel** as well.
+Let's click the *Channels* link in the Azure Portal.  This is where you configure additional **channels** for your application.  Thankfully, Microsoft provides step-by-step instructions for configuring each supported **channel**, making setup pretty painless.  You can see I've enabled *Slack*!
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-web-chat.png)
 
@@ -75,7 +75,6 @@ And here's what our bot looks like in *Slack*
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/bot-slack.png)
 
-Thankfully, Microsoft provides step-by-step instructions for configuring each of the supported channels!
 
 ## Quick Recap
 In this lab, we learned how to create a durable bot hosting environment in Azure and how to deploy our bot through Visual Studio.
