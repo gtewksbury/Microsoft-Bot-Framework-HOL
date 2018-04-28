@@ -39,7 +39,7 @@ Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can n
 
 Your app is now ready to be built and trained!
 
-> Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation**).  It is the job of LUIS to predict and interpret a user's **intent**.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+> Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation**).  It is the job of LUIS to predict and interpret a user's **intent**.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
@@ -84,7 +84,7 @@ We've now identified the different information that LUIS should attempt to ident
 
 ### Add Utterances
 
-We're now ready to start training our app!  Let's navigate back to our *Create Reservation* **intent**.  We are going to train our intent by giving it different examples of the ways people might ask for a reservation.  These examples are what LUIS refers to as **Utterances**.  Note that the more **utterances** we provide for training, the more accurate LUIS will become!
+We're now ready to start training our app!  Let's navigate back to our *Create Reservation* **intent**.  We are going to train our **intent** by giving it different examples of the ways people might ask for a reservation.  These examples are what LUIS refers to as **Utterances**.  Note that the more **utterances** we provide for training, the more accurate LUIS will become!
 
 Enter the following **utterance** into your *Create Reservation* **intent** and click *Enter*
 
@@ -104,7 +104,7 @@ We need to give LUIS a little help to understand the other pertinent information
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-highlight-city-entity.png)
 
-Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather are training LUIS to understand how to recognize *RestaurantReservation.Addresss* based on natural language heuristics!
+Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather we're training LUIS to understand how to recognize *RestaurantReservation.Addresss* based on natural language heuristics!
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-city-entity.png)
 
@@ -112,7 +112,7 @@ Now let's start to train the model to recognize the requested cuisine.  Click *t
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-cuisine.png)
 
-Let's add another **utterance** and see what LUIS has learned!  Type the following statement into the *utterance* textbox and click enter:
+Let's add another **utterance**.  Type the following statement into the *utterance* textbox and click *Enter*:
 
 
 > I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
