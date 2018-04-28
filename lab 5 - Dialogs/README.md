@@ -473,7 +473,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Here we are sending the user a visual card (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine (including an image of the restaurants logo).  You'll notice each card contains 2 *buttons*.  One of the buttons allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the *button* value (set as the restaurant name) using *ActionType.ImBack*.  There are other available *ActionTypes* as well.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
+> Here we are sending the user a visual card (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine.  You'll notice each card contains 2 *buttons*.  One of the buttons allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the *button* value (set as the restaurant name) using *ActionType.ImBack*.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
 
 ![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
 
