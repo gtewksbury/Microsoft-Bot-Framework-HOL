@@ -680,7 +680,7 @@ Alright, let's try something else.  Go back to your emulator, and walk through c
 
 ![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
 
-What happened here?  We'll, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that has been trained to do so.  Remember our *LuisReservationDialog* contained a number of handlers for **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
+What happened here?  We'll, *PartySizeDialog* was expecting an integer value.  When it detected the provided response was NOT an integer, it passed the response to *LuisReservationDialog.MessageReceivedAsync*.  However, unlike our previous example, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that have been trained to do so.  Remember our *LuisReservationDialog* contained a number of handlers for **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
 
 #### Set Reservation Location Intent
 Browse to your [LUIS App](https://www.luis.ai), and create a new **intent** called *Set Reservation Location*.
