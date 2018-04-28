@@ -172,7 +172,7 @@ We've actually used this method in our previous lab.  This is probably the simpl
 ```
 
 ### DialogContext.PostAsync(IMessageActivity)
-In some cases, you may want to send the user rich visualizations a long with your message.  Bot Framework supports a number of visualizations, such as *ThumbnailCards*, *HeroCards*, and if you're feeling adventurous, *AdaptiveCards*.  These visualizations are added to messages as [Attachments](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-add-rich-card-attachments).  For such cases, you can call *IDialogContext.PostAsync(IMessageActivity)*.
+In some cases, you may want to send the user rich visualizations along with your message.  Bot Framework supports a number of visualizations, such as *ThumbnailCards*, *HeroCards*, and if you're feeling adventurous, *AdaptiveCards*.  These visualizations are added to messages as [Attachments](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-add-rich-card-attachments).  For such cases, you can call *IDialogContext.PostAsync(IMessageActivity)*.
 
 ```csharp
 
@@ -223,7 +223,7 @@ And here's what it looks like in the Bot Emulator.
 ```
 
 ## IDialogContext.Wait
-Much of the life of a bot application is waiting for users to post information to them.  Within the Bot Framework, you instruct a **Dialog** to wait for a user response by calling *IDialogContext.Wait(...)*.  It should be noted that the Bot Framework will wait  indefinitely unless the conversation is either ended or reset (meaning, if I come back to the conversation 14 days later, the active **Dialog** in the stack will pick the conversation back up).  When *Wait* is called, the Bot Framework will serialize the state of the **DialogStack** as well as any custom state stored with the application to your configured state provider (this will be in-memory by default, but you can easily configure your bot to store state to Azure Cosmos DB or Table Storage as well, which is recommended for production workloads).  Note, at any given time, a **conversation** only supports ONE *Wait* handler.  If you multiple **Dialogs** configured to *Wait* for a message, you'll receive an exception when the **Dialog** is serialized.
+Much of the life of a bot application is spent waiting for users to post information to them.  Within the Bot Framework, you instruct a **Dialog** to wait for a user response by calling *IDialogContext.Wait(...)*.  It should be noted that the Bot Framework will wait  indefinitely unless the conversation is either ended or reset (meaning, if I come back to the conversation 14 days later, the active **Dialog** in the stack will pick the conversation back up).  When *Wait* is called, the Bot Framework will serialize the state of the **DialogStack** as well as any custom state stored with the application to your configured state provider (this will be in-memory by default, but you can easily configure your bot to store state to Azure Cosmos DB or Table Storage as well, which is recommended for production workloads).  Note, at any given time, a **conversation** only supports ONE *Wait* handler.  If you multiple **Dialogs** configured to *Wait* for a message, you'll receive an exception when the **Dialog** is serialized.
 
 ## IDialogContext.EndConversation
 At any point, you can end a conversation by calling *IDialogContext.EndConversation(...)*.  Upon doing so, the **DialogStack** and any **conversation** state will be destroyed.  The next message from the user will invoke the *Root Dialog*, kicking off a brand new conversation.
