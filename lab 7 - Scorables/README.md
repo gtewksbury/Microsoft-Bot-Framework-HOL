@@ -90,10 +90,10 @@ namespace GoodEats.Scorables
 Let's take a look at what this code is doing.
 
 #### PrepareAsync
-The *PrepareAsync* method receives a message and checks if the message content equals different variations of *Cancel*, *Nevermind*, or *Forget It*.  If the message content equals any of these values, it returns the the message text, otherwise, it returns null (this is setting the *state* value that get's passed to the other methods).
+First,the *PrepareAsync* method receives a message and checks if the message content equals different variations of *Cancel*, *Nevermind*, or *Forget It*.  If the message content equals any of these values, it returns the the message text, otherwise, it returns null (this is setting the *state* value that get's passed to the other methods).
 
 #### HasScore
-This is the next method to be called in the pipeline, and returns true if the provided *state* from the PrepareAsync method is NOT Null.
+This is the next method to be called in the pipeline, and returns true if the provided *state* from the PrepareAsync method is NOT Null (for us, that means the user typed *Cancel*, *Nevermind*,  or *Forget It*).
 
 #### GetScore
 Next, if *HasScore* equals *true*, the Bot Framework will call *GetScore* which should return a value between 0 and 1.  In our case, we return the highest score possible of 1 if the user typed *Cancel*, *Nevermind*, or *Forget It*.  The reason you can return a range between 0 and 1 is because your bot application can have many **Scorables**.  After it determines all **Scorables** that have a score for the current request, and executes the **Scorable** with the highest score.  If none of your **Scorables** have a score for the current request, the message is passed to the active **Dialog**.
