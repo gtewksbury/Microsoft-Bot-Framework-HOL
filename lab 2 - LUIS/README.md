@@ -172,7 +172,7 @@ After a few moments, you're model has now been trained with your latest **uttera
 
 What happened?  For me, LUIS was able to identify all the pertinent information in the request with a very high confidence score!  Nice work LUIS, pat on the back to ya!
 
-> Predictions are scored on a scale between 0 and 1.  Look at the score for you're request.  Depending on the results, you might need more training.
+> Predictions are scored on a scale between 0 and 1 (1 being the highest).  Look at the score for you're request.  Depending on the results, you might need more training.
 
 ### Publishing
 
