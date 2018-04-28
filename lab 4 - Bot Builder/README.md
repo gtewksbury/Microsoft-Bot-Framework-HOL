@@ -56,7 +56,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
     }
 ```
 
-> In the *ParentDialog's* *MessageReceivedAsync*, we are *Calling* a new **Dialog** named *ChildDialog*.  This will inturn invoke the *ChildDialog's* *StartAsync* method.  Additionally, we've passed in an optional *ResumeHandler* named *DoneAsync*.  If provided, this method will be invoked when a child **Dialog's** *Done(...)* method is called (We'll discuss this method later in the lab).
+> In the *ParentDialog's* *MessageReceivedAsync*, we are *Calling* a new **Dialog** named *ChildDialog*.  This will in turn invoke the *ChildDialog's* *StartAsync* method.  Additionally, we've passed in an optional *ResumeHandler* named *DoneAsync*.  When provided, this method will be invoked when the child **Dialog's** *Done(...)* method is called.
 
 ### IDialogContext.Forward
 *IDialogContext* also provides a *Forward* method.  The difference is that *Forward* provides a *message* parameter which will be passed to the child **Dialog**.
@@ -77,7 +77,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
         {
             var message = await result;
 
-			// 1. Parent Forwards to Child Dialog
+	    // 1. Parent Forwards to Child Dialog
             await context.Forward(new ChildDialog(), DoneAsync, message);
 
         }
@@ -92,7 +92,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
     public class ChildDialog : IDialog<Object>
     {
 		
-		// 2. Called immediately upon invoking the dialog
+	// 2. Called immediately upon invoking the dialog
         public Task StartAsync(IDialogContext context)
         {
             context.Wait(MessageReceivedAsync);
@@ -102,7 +102,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
 
         public Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> activity)
         {
-			// 3.  Called with the message provided to the Forward(...) method
+	    // 3.  Called with the message provided to the Forward(...) method
             return Task.CompletedTask;
         }
     }
