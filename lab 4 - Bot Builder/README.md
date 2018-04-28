@@ -119,7 +119,7 @@ What's important to note is that top (or active) **Dialog** in the stack is in c
 
 > If you think about it, traditional web and mobile UIs are similar, in that only the current screen will accept input from the user.
 
-Equally important to note is that the current active **Dialog** in the stack must ALWAYS be configured to wait for incoming messages via *IDialogContext.Wait(...)*.
+Equally important to note is that the current active **Dialog** in the stack must ALWAYS be configured to *Wait* for incoming messages via *IDialogContext.Wait(...)*.  The method handler provided to *IDialogContext.Wait(...)* will be executed when the next message arrives.
 
 > If the current active **Dialog** completes execution without calling *IDialogContext.Wait(...)*, you'll receive an error similar to *'IDialog method execution finished with no resume handler specified through IDialogStack'*.  If you think about it, this makes sense since Bot Builder would have nowhere to route incoming messages.
 
