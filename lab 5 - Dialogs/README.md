@@ -2,9 +2,7 @@
 # Lab 5 - Dialogs
 Glad you made it here.  This is where our bot starts to get interesting!  We're now going to update our bot to walk a user through the entire reservation process.  The goal of will be to provide restaurant recommendations based on the user's location and preferred cuisine and help them make a reservation on a given date and for a specified number of people.  
 
-At this point, we've trained our LUIS model to allow users to provide most of this information through requests such as `I'd like to reserve a table in Pittsburgh at a good Italian restaurant tomorrow at 8:30 pm for six people`, but we still need to prompt them to select a restaurant...
-
-Additionally, what if the user only provides *some* of the information required to make a reservation, such as `Make me a reservation in Pittsburgh` or `I'd like a table at 8:30 tomorrow night`.  In these cases, we still need to collect additional information, such as location, date, and number of people.
+At this point, we've trained our LUIS model to allow users to provide most of this information through requests such as `I'd like to reserve a table in Pittsburgh at a good Italian restaurant tomorrow at 8:30 pm for six people`, but we still need to prompt them to select a restaurant.  Additionally, what if the user only provides *some* of the information required to make a reservation, such as `Make me a reservation in Pittsburgh` or `I'd like a table at 8:30 tomorrow night`.  In these cases, we still need to collect additional information to complete the reservation.
 
 In this lab, we are going to create a **Dialog** for each piece of information we need to collect from the user and prompt them when we require additional information.
 
