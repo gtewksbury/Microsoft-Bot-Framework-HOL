@@ -9,7 +9,7 @@ using Microsoft.Bot.Builder.Luis.Models;
 namespace GoodEats.Dialogs
 {
     [Serializable]
-    [LuisModel("<Luis Model Id>", "<Luis Subscription Id")]
+    [LuisModel("<LUIS Model Id>", "<LUIS Subscription Key>")]
     public class RootDialog : LuisDialog<Reservation>
     {
 

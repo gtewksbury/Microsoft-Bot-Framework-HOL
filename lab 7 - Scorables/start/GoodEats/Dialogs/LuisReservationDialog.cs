@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GoodEats.Dialogs
 {
     [Serializable]
-    [LuisModel("<Luis Model Id>", "<LUIS Subscription Key>")]
+    [LuisModel("<LUIS Model Id>", "<LUIS Subscription Key>")]
     public abstract class LuisReservationDialog : LuisDialog<Reservation>
     {
 

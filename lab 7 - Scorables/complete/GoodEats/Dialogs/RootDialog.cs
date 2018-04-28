@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GoodEats.Dialogs
 {
     [Serializable]
-    [LuisModel("12e1e7da-4bf4-42b1-b3e2-0da78f7814e3", "0d5085f68e794e3b95eee073cfdfab3d")]
+    [LuisModel("<LUIS Model Id>", "<LUIS Subscription Key>")]
     public class RootDialog : LuisDialog<Reservation>
     {
         [LuisIntent("")]
