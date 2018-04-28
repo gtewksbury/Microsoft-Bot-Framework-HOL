@@ -158,7 +158,7 @@ Once a **Dialog** has done all it was intended to do, you can call *IDialogConte
 ## Sending Messages to Users
 There are a number of different ways and formats in which the Bot Framework can send messages to the user.  Again, this is typically handled through *IDialogContext*.
 
-###IDialogContext.PostAsync(string)
+### IDialogContext.PostAsync(string)
 We've actually used this method in our previous lab.  This is probably the simplest way to send a text-based message back to the user.
 
 ```csharp
