@@ -55,7 +55,7 @@ The code in the *RestaurantServices* uses the publicly available  [EatStreet RES
 	![Update Web.config](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/web-config.png)
 
 ## Reservation Conversation Logic
-Alright, we're ready to get going!  Below you'll find a high-level blueprint of the reservation conversational flow your going to be created.  Hopefully you notice a number of repeating patterns for each dialog. 
+Alright, we're ready to get going!  Below you'll find a high-level blueprint of the reservation conversational flow your going to be creating.  Hopefully you'll notice a pattern across all **Dialogs**. 
 
 
 * **RootDialog**
