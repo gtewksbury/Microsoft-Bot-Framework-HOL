@@ -170,9 +170,9 @@ Here we call *LuisResult's TryFindEntity* extension method which will look in th
 
 > While *string* values are simple to parse through the *LuisResult.TryFindEntity(...)* method, grabbing the converted values for Dates and Integers requires a little more work.  Therefore, I've added a custom *LuisExtensions* class to help make this a bit easier.  I encourage you to take a look at what's involved!
 
-In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
+In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConversationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
-* User State - State tied to the user outside of any specific conversation (NOT cleared when conversation ends)
+* User State - State tied to the user outside of any specific conversation (NOT cleared when a conversation ends)
 * Conversation State - State tied to a conversation (which could include group conversations)
 * Private Conversation State - State tied to the current user within a given conversation
 
