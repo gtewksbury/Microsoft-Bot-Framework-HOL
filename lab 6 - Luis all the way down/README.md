@@ -652,7 +652,7 @@ Here's the basic blueprint for the updated conversational logic within the above
 * *StartAsync*
 	* IF the state is NOT set for the given dialog, prompt the user for the appropriate information and *Wait* for a response
 	* IF the state IS currently set but is NOT valid, notify the user by asking them to provide another value and *Wait* for a response
-	* IF the state is set valid for the given dialog, *Call* the next dialog in the chain
+	* IF the state is valid for the given dialog, *Call* the next dialog in the chain
 * *MessageReceivedAsync*
 	* IF the user provided a valid value for the given dialog, set the state, and *Call* the next dialog in the chain
 	* OTHERWISE, call the base *LuisReservationDialog's* *MessageReceivedAsync* handler, passing the user's response
@@ -660,13 +660,13 @@ Here's the basic blueprint for the updated conversational logic within the above
 	* Pass the user's response to LUIS and attempt to identify the user's **Intent** and provided **entities**
 	* IF an appropriate **intent** handler IS found on the *LuisReservationDialog*, pass the parsed LuisResult to the handler
 		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the converation back through our chain
-	* If an **intent** handler is NOT found on *LuisReservationDialog*, invoke the *None* handler, which when implemented by the parent dialog, notifies the user that the request was not understand by asking them to provide another value, and *Wait* for a response 
+	* If an **intent** handler is NOT found on *LuisReservationDialog*, invoke the *None* handler, which when implemented by the parent dialog, notifies the user that the request was not understand by asking them to provide another value, and *Wait* for a response
 
 Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh`.  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
 
 ![Smarter Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-change-location.png)
 
-> Hopefully you're bot was smart enough to handle this!  if not, it probably needs more training.  In that case, go back to the [Luis Website](https://www.luis.ai) and enter, train, and publish some additional **utterances** (If you need a refresher on doing so, you can refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).  Here are some examples:
+> Hopefully you're bot was smart enough to handle this!  if not, it probably needs more training.  In that case, go back to the [Luis Website](https://www.luis.ai) and enter, train, and publish some additional **utterances** (If you need a refresher on doing so, you can refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).  Here are some examples:
 >
 * `Actually, I want to make a reservation in Pittsburgh`
 * `Sorry, I actually wanted to reserve a table in Miami FL`
