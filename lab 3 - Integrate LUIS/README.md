@@ -166,9 +166,9 @@ Let's start by retrieving the LUIS **entities** from the given *LuisResult*.  Ba
         }
 ```
 
-Here we call *LuisResult's TryFindEntity* extension method which will look in the *LuisResult* for a value associated with the given **entity** name (if you remember from the last lab, we associated the *'RestaurantReservation.Address'* entity with our LUIS application).
+Here we call *LuisResult's TryFindEntity* extension method which will look in the *LuisResult* for a value associated with the given **entity** name (if you remember from the last lab, we associated the *RestaurantReservation.Address* entity with our LUIS application).
 
-> While *string* values are simple to parse through the *LuisResult.TryFindEntity(...)* method, grabbing the converted values for Dates and Integers requires a little more work.  Therefore, I've added a custom *LuisExtensions* class to help make this a bit easier.
+> While *string* values are simple to parse through the *LuisResult.TryFindEntity(...)* method, grabbing the converted values for Dates and Integers requires a little more work.  Therefore, I've added a custom *LuisExtensions* class to help make this a bit easier.  I encourage you to take a look at what's involved!
 
 In the example above, if we find a *RestaurantReservation.Address* entity, we add the value to our *PrivateConverationState* through *IDialogContext*.  While all are simple key / value pairs, there are 3 types of state that you can store:
 
