@@ -99,6 +99,8 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 ```csharp
 
+    [Serializable]
+    [LuisModel("<Your Luis Model Id>", "<Your LUIS Subscription Key>")]
     public class RootDialog : LuisDialog<Reservation>
     {
 
