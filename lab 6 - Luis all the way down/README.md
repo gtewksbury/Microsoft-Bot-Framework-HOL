@@ -786,7 +786,7 @@ Success!  The request should have been gracefully interpreted as a *Set Reservat
 
 ![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
 
-Hopefully this helps instill the importance of supporting fluid conversations when building your own bot experiences!
+Hopefully this helps instill the importance of supporting fluid conversations when building your own bot experiences! 
 
 ## Quick Recap
 In this lab, we learned some relatively simple design patterns for integrating LUIS at all levels of a **conversation**, making our bots adaptive to fluid requests.  By doing so, we were able to drastically improve the user experience of our bot application.
