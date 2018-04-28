@@ -176,9 +176,9 @@ What happened?  For me, LUIS was able to identify all the pertinent information 
 
 ### Publishing
 
-Now that we've trained our model, it's time to publish externally.  Once published, LUIS exposes your app publicly via a REST API (protected by a secret subscription key that only you and your team should know).  To make our most recent training publicly available, navigate to the *Publish* menu on the top of your screen.
+Now that we've trained our model, it's time to publish them!  Once published, LUIS exposes your app publicly via a REST API (protected by a secret subscription key that only you and your team should know).  To make our most recent training publicly available to external consumers, navigate to the *Publish* menu on the top of your screen.
 
-> Each time you re-train your app, you'll also have to *publish* to make the changes available through the REST API.
+> Each time you re-train your app, you'll also have to *publish* to make the changes available through the REST API.  In future labs, our bot will connect to this API to parse incoming user messages.
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
 
