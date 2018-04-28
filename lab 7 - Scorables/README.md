@@ -1,12 +1,12 @@
 # Lab 7 - Scorables
-Throughout the labs, we've learned that bot applications can be made of multiple **Dialogs**, and all user responses are passed to the top (or active) **Dialog** in the **DialogStack**.  But what if you want to globally handle incoming messages from users, regardless of the current active **Dialog**?  For example, if the user types *'help'* we should provide help options regardless of the current **Dialog**.  Another example would be allowing the user to *'cancel'* any point in a conversation.
+Throughout the labs, we've learned that bot applications can be made of multiple **Dialogs**, and all user responses are passed to the top (or active) **Dialog** in the **DialogStack**.  But what if you want to globally handle incoming messages from users, regardless of the current active **Dialog**?  For example, if the user types *'help'*, we should provide help options regardless of the current **Dialog**.  Another example would be allowing the user to *'cancel'* any point in a conversation.
 
 In this short lab, we'll learn how we can use **Scorables** to introduce global message handlers throughout our bot application.
 
 ## Scorables
-Scorables provide a way of intercepting incoming messages prior to being passed to the active **Dialog**, and potentially handling the message in place of the active **Dialog**.  We're going to create a *CancelScorable* which will end the conversation if the user types *Cancel*, *Nevermind*, or *Forget it*.  Let's open the starter solution in Visual Studio (or you can use you completed solution from the last lab).  
+**Scorables** provide a way of intercepting incoming messages prior to being passed to the active **Dialog**.  When a **Scorable** handles a request, the request will NOT be forwarded to the active **Dialog**.  We're going to create a *CancelScorable* which will end the conversation if the user types *Cancel*, *Nevermind*, or *Forget it*.  Let's open the starter solution in Visual Studio (or you can use you completed solution from the last lab).  
 
-Add a *Scorables* directory to your project, add a new *CancelScorable.cs* file to the new directory, and replace with the following code:
+Add a *Scorables* directory to your project, add a new *CancelScorable.cs* file to the new directory, and replace its contents with the following code:
 
 ```csharp
 
