@@ -124,7 +124,7 @@ Interesting...LUIS was able to identify the number of people and date.  Note in 
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
-As we said before, you model is only as good as your training.  Add some more reservation **utterances**, providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Go ahead and add the followings (make sure to map the **entities** in each **utterance**):
+As we said before, you model is only as good as your training.  Add some more reservation **utterances**, providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Go ahead and add the followings **utterances** (make sure to map the **entities** in each):
 
 > Make me a reservation in Pittsburgh
 
