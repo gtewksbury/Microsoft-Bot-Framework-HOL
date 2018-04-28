@@ -647,7 +647,7 @@ namespace GoodEats.Dialogs
 ```
 
 ## Updated Converation Flow
-Here's the basic blueprint for the updated conversational logic witin each of the above **Dialogs**:
+Here's the basic blueprint for the updated conversational logic within the above **Dialogs**:
    
 * *StartAsync*
 	* IF the state is NOT set for the given dialog, prompt the user for the appropriate information and *Wait* for a response
