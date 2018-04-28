@@ -120,7 +120,7 @@ Let's add another **utterance**.  Type the following statement into the *utteran
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
 
-Hmm...although LUIS was able to identify the number of people and date, it seems that it is yet to master the art interpreting restaurant location.  In the LUIS world, that can only make one thing...more training!  The difference here is that our location is actually two words *New* and *Orleans*.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
+Interesting...LUIS was able to identify the number of people and date.  Note in this case our location is actually two words *New* and *Orleans*.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
