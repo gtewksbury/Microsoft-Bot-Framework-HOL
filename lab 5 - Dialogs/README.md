@@ -707,7 +707,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a fixed layout, you can optional create *AdaptiveCards* provide you complete control over the layout [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots).
+> Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a simple fixed layout, you can optional create [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots), granting you complete control over their layout.
 
 ![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
 
