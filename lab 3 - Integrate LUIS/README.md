@@ -136,7 +136,7 @@ Make me a reservation in Pittsburgh tomorrow at 7:30 pm
 
 Hopefully the *CreateReservation* method hit!  Take a moment to inspect the *LuisResult* that was passed to the method.  You should hopefully see the *RestaurantReservation.Address* and the *builtin.datetimeV2.datetime* **entities** and their parsed values.
 
-> If you don't get the expected results, it might mean that your app needs to be further trained and re-published, or your current model was never published.
+> If you don't get the expected results, it might mean that your app needs to be further trained and re-published, or perhaps your app was not previously published.
 
 Assuming the last test was successful, let's type another message into the Bot Emulator.  Something that has nothing to do with restaurant reservations, such as:
 
