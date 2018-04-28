@@ -4,9 +4,11 @@ Throughout the labs, we've learned that bot applications can be made of multiple
 In this short lab, we'll learn how we can use **Scorables** to introduce global message handlers throughout our bot application.
 
 ## Scorables
-**Scorables** provide a way of intercepting incoming messages prior to being passed to the active **Dialog**.  When a **Scorable** handles a request, the request will NOT be forwarded to the active **Dialog**.  We're going to create a *CancelScorable* which will end the conversation when the user types *Cancel*, *Nevermind*, or *Forget it*.  Let's open the starter solution in Visual Studio (or you can use you completed solution from the last lab).  
+**Scorables** provide a way of intercepting incoming messages prior to being passed to the active **Dialog**.  When a **Scorable** handles a request, the request will NOT be forwarded to the active **Dialog**.  We're going to create a *CancelScorable* which will end the conversation when the user types *Cancel*, *Nevermind*, or *Forget it*.  
 
-Add a *Scorables* directory to your project, add a new *CancelScorable.cs* file to the new directory, and replace its contents with the following code:
+> Your application can have many **Scorables** to handle different situations.  The Bot Framework will execute the **Scorable** with the highest *score* for the given response.  If none of the **Scorables** are configured to handle the user's response, the response will be passed to the active **Dialog**.
+
+Let's open the starter solution in Visual Studio (or you can use you completed solution from the last lab).  Add a *Scorables* directory to your project, add a new *CancelScorable.cs* file to the new directory, and replace its contents with the following code:
 
 ```csharp
 
