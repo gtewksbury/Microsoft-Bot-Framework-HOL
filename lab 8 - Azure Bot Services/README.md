@@ -56,7 +56,7 @@ Click the *Publish* button as shown below:
 
 Congratulations!  You're bot should now be successfully hosted within a durable Azure App Services environment!
 
-## Channels
+## Test Web Chat
 Let's go back to our app in Azure and explore a bit.  You should notice a *Test in Web Chat* option in the side menu.  Go ahead and click it.
 
 This is a test area for your deployed bot.  Go ahead and type a message to see if it's working!
@@ -64,6 +64,8 @@ This is a test area for your deployed bot.  Go ahead and type a message to see i
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-test.png)
 
 By default, *Web App Bots* have enabled the *Web Chat* **channel** (we'll see where this is done in a moment).  This same web chat experience can easily be added to your own web applications via [Microsoft Bot Frameworks Embedded Web Chat Control](https://github.com/Microsoft/BotFramework-WebChat).
+
+## Channels
 
 Let's click the *Channels* link in the Azure Portal.  This is where you configure additional **channels** for your application.  You can see I've enabled the *Slack* **channel** as well.
 
