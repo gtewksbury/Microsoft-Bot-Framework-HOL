@@ -90,9 +90,9 @@ Alright, we're ready to get going!  Below you'll find a high-level blueprint of 
 * **PartySizeDialog**     
     * *StartAsync*
         * IF the party size was NOT retrieved from the original request, ask the user for their preferred number of people and *Wait* for their response
-        * OTHERWISE, *Call* the *ConfirmReservationDialog* and register a *Done* handler
+        * OTHERWISE, *Call* the *ConfirmReservationDialog* with a registered *Done* handler
     * *MessageReceivedAsync*
-        * IF the user-provided party size is valid, save to state and *Call* the *ConfirmReservationDialog* and register a *Done* handler
+        * IF the user-provided party size is valid, save to state and *Call* the *ConfirmReservationDialog* with a registered *Done* handler
         * OTHERWISE, notify the user that the provided party size is invalid, ask for the party size, and *Wait* for their response  
     * *ConfirmationDoneHandler*
         * Notify the user that their reservation has been booked and end the conversation   
