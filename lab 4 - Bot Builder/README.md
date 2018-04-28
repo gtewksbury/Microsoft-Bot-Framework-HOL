@@ -25,7 +25,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
 
         private Task MessageReceivedAsync(IDialogContext context, IAwaitable<IMessageActivity> result)
         {
-			// 1.  Parent Calls Child Dialog
+	    // 1.  Parent Calls Child Dialog
             context.Call(new ChildDialog(), DoneAsync);
 
             return Task.CompletedTask;
@@ -41,7 +41,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
     public class ChildDialog : IDialog<Object>
     {
 		
-		// 2. Called immediately upon invoking the dialog
+	// 2. Called immediately upon invoking the dialog
         public Task StartAsync(IDialogContext context)
         {
             context.Wait(MessageReceivedAsync);
