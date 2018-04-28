@@ -226,14 +226,14 @@ And here's what it looks like in the Bot Emulator.
 Much of the life of a bot application is spent waiting for users to post information to them.  Within the Bot Framework, you instruct a **Dialog** to wait for a user response by calling *IDialogContext.Wait(...)*.  It should be noted that the Bot Framework will wait  indefinitely unless the conversation is either ended or reset (meaning, if I come back to the conversation 14 days later, the active **Dialog** in the stack will pick the conversation back up).  When *Wait* is called, the Bot Framework will serialize the state of the **DialogStack** as well as any custom state stored with the application to your configured state provider (this will be in-memory by default, but you can easily configure your bot to store state to Azure Cosmos DB or Table Storage as well, which is recommended for production workloads).  Note, at any given time, a **conversation** only supports 1 *Wait* handler.  If you multiple **Dialogs** *Waiting* for the next incoming message, you'll receive an exception when the **conversation** is serialized.
 
 ## IDialogContext.EndConversation
-At any point, you can end a conversation by calling *IDialogContext.EndConversation(...)*.  Upon doing so, the **DialogStack** and any **conversation** state will be destroyed.  The next message from the user will invoke the *Root Dialog*, kicking off a brand new conversation.
+At any point, you can end a conversation by calling *IDialogContext.EndConversation(...)*.  Upon doing so, the **DialogStack** and any custom **conversation** state will be destroyed.  The next message from the user will invoke the *Root Dialog*, kicking off a brand new conversation.
 
 > *IDialogContext* also contains a *Reset* method.  Calling this method will reset the **DialogStack**, but retain any custom **conversation** state.  However, you will receive errors if you attempt to call this from within a **Dialog**.  These are useful when working with **Scorables**, which we'll briefly discuss in the next section.
 
 ## Global Message Handlers (Scorables)
 There are times when you need to provide the user with  *global* commands regardless of the current **Dialog** (for example, if the user types *'cancel'* or *'nevermind'*, we might want to end the conversation regardless of the current **Dialog**).  That being said, we shouldn't have to handle this in every **Dialog**, and luckily we don't. 
 
-**Scorables** provide a means of monitoring all incoming messages prior to the message being sent to the active **Dialog**, providing a means of intercepting the message and taking action.  
+**Scorables** are a means of monitoring all incoming messages prior to being sent to the active **Dialog**, providing a means of intercepting the message and taking action.  
 
 > We'll learn more about **Scorables** in a later lab.
 
