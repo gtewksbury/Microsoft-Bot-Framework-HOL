@@ -1,4 +1,4 @@
-# Azure Bot Services
+# Lab 8 - Azure Bot Services
 Up until this point, we've been interacting with our bot through our local emulator, but how do you actually host your bot so it can be consumed by external **channels**?  In this lab, we'll learn how to deploy our bot application to an Azure Bot Service via Visual Studio.
 
 ## Create Azure Web App Bot
