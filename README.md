@@ -7,15 +7,15 @@ Welcome!  I'm a big fan of the Microsoft .NET Bot Framework and bot development 
 
 [Lab 1 - Setup](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%201%20-%20Setup) walks through the setup of your Visual Studio development environment as well as the installation of the Microsoft Bot Emulator (priceless when it comes to debugging your application).
 
-[Lab 2 - LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) provides a detailed walk through of Microsoft's Language Understanding Intelligence Service (aka LUIS), which allows you to integrate natural language processing into your bot.  An absolute must for building conversational experiences.
+[Lab 2 - LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) provides a hands-on walk through of training a custom LUIS model to understand and interpret user intents.  An absolute must for building conversational experiences.
 
 [Lab 3 - Integrate LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL) demonstrates how to integrate the .NET Bot Framework with LUIS in addition to some basic conversational state management.
 
 [Lab 4 - Bot Builder](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%204%20-%20Bot%20Builder) provides a conceptual overview of the .NET Bot Framework and some of the critical components you'll want to become familiar with.
 
-[Lab 5 - Dialogs](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%205%20-%20Dialogs) Outlines some general bot design patterns that I've found to be successful when working with the Bot Framework.
+[Lab 5 - Dialogs](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%205%20-%20Dialogs) Introduces and implements some general **Dialog** design patterns that I've found to be successful when working with the Bot Framework.
 
-[Lab 6 - LUIS all the way down](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%206%20-%20Luis%20all%20the%20way%20down) outlines some design patterns for integrating LUIS and natural language processing throughout the entire life cycle of a bot conversation.
+[Lab 6 - LUIS all the way down](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%206%20-%20Luis%20all%20the%20way%20down) implements design patterns for integrating our LUIS model throughout the entire life cycle of a conversation.
 
 [Lab 7 - Scorables](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%207%20-%20Scorables) demonstrates global message handlers for 
 addressing common commands within your bot application.
