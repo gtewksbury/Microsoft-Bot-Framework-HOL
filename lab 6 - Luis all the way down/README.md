@@ -812,7 +812,7 @@ At this point, our bot is starting to become pretty powerful, allowing the user 
 
 In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* **intent** and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our converation chain.
 
-Alright, let's try something else.  Go back to your emulator, and walk through creating a reservation, all the way up until the bot asks you for the number of people on the reservation.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
+Alright, let's try something else.  Go back to your emulator (make sure to end the previous conversation), and walk through creating a reservation, all the way up until the bot asks you for the number of people on the reservation.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
 
 ![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
 
