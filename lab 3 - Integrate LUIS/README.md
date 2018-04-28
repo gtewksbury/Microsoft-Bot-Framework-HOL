@@ -69,6 +69,7 @@ Next, we no longer need to inherit from *IDialog*.  Instead, we're going to inhe
 You'll also need to add the following *using* statements:
 * *using GoodEats.Models;*
 * *using Microsoft.Bot.Builder.Luis;*
+* *using Microsoft.Bot.Builder.Luis.Models;*
 
 > Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog which integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  To summarize, it handles the *StartAsync* and implements it's own *MessageReceived* handler.  The *MessageReceived* handler in turn passes the incoming user message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to methods that you configure to handle specific **intents**.  
  
