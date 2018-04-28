@@ -11,6 +11,11 @@ Oh Yeah, LUIS!
 
 In this lab, we're going to integrate LUIS not only in our *RootDialog*, but with every **Dialog** on the path to making a reservation!
 
+> In this lab, we will be calling LUIS more frequently, which *may* cause you to see errors if the free LUIS tier starts throttles your requests.  If you want to move onto a paid tier of LUIS, you can perform the following step (you'll need to access your Azure subscription with the same account you used to log into LUIS):
+> 
+> * Create a new *Cognitive Service Account* within your Microsoft Azure Subscription and follow [these steps](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).  Make sure to select *Standard* for the pricing tier and copy the *Key*
+> * Register the *Cognitive Service Account's* access key with your LUIS application as described [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/manage-keys)
+
 ## LuisReservationDialog
 Open the starter solution in this lab (or your completed solution from the last lab) in Visual Studio, create a new class or code file named *LuisReservationDialog.cs* in the *Dialogs* directory, and replace its contents with the following code:
 
