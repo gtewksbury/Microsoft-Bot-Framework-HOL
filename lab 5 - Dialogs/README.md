@@ -721,6 +721,14 @@ Let's run it!  Fire up the Bot Emulator and enter the following information:
 4. Then select a restaurant from the provided options
 5. When asked for the date, type `tommorrow night at 7:30`
 6. And when asked for the number of people, type `6`
+7. Click *Reserve*
+
+Your bot should also be smart enough to not request information the user previously provide.  Let's try the following:
+
+1. First, ask your bot to `make me a reservation in Pittsburgh for 6 people tomorrow night at 7:30`
+2. When asked for cuisine, select from the provided suggestions
+4. Next select a restaurant from the provided options
+7. Click *Reserve*
 
 ## Quick Recap
 Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In doing so, we implemented the following:
