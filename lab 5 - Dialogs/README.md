@@ -4,7 +4,14 @@ Glad you made it here.  This is where our bot starts to get interesting!  We're 
 
 At this point, we've trained our LUIS model to allow users to provide most of this information through requests such as `I'd like to reserve a table in Pittsburgh at a good Italian restaurant tomorrow at 8:30 pm for six people`, but we still need to prompt them to select a restaurant.  Additionally, what if the user only provides *some* of the information required to make a reservation, such as `Make me a reservation in Pittsburgh` or `I'd like a table at 8:30 tomorrow night`.  In these cases, we still need to collect additional information to complete the request.
 
-In this lab, we are going to create a **Dialog** for each piece of information we need to collect and prompt the user when additional information is required.
+In this lab, we are going to create a **Dialog** for each piece of information we need to collect and prompt the user when additional information is required.  Below is a list of the **Dialogs** we'll be creating:
+
+* *ConfirmReservationDialog*
+* *LocationDialog*
+* *CuisineDialog*
+* *RestaurantDialog*
+* *WhenDialog*
+* *PartySizeDialog*
 
 > All **Dialogs** must be flagged as *Serializable*.  This is done by decorating your **Dialog** classes with the *SerializableAttribute*.  The reason for this is that conversations can in theory last indefinitely, so the bot framework needs to be able to serialize you conversation state and **DialogStack** in between responses.
 
