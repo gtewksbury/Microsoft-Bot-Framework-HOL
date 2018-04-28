@@ -194,7 +194,7 @@ A couple of noticable updates:
 
 1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
 2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
-3.	Once the state has been parsed, we *Post* a message to the user using our *Resources.resx's* *GREETING* text and *Call* the *LocationDialog*
+3.	Once the state has been parsed, we *Post* a *GREETING* message from our *Resources.resx* and *Call* the *LocationDialog*
 
 ### Reservation Location Dialog
 Create a new class or code file called *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:
