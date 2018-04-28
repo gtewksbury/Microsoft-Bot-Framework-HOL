@@ -712,7 +712,7 @@ namespace GoodEats.Dialogs
 ![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
 
 ## Quick Recap
-Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In this lab, we completed the following:
+Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In doing so, we implemented the following:
 
 1. Incorporated a **Dialog** chain to solicity reservation information from the user
 2. Provided rich visualizations in the form of message **Attachments**
