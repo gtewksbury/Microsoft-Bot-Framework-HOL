@@ -786,10 +786,10 @@ Success!  The request should have been gracefully interpreted as a *Set Reservat
 
 ![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
 
-Hopefully this helps instill the importance of supporting fluid conversations when building your own bot experiences!  Bot we're not quite done...
+Hopefully this helps instill the importance of supporting fluid conversations when building your own bot experiences!
 
 ## Quick Recap
 In this lab, we learned some relatively simple design patterns for integrating LUIS at all levels of a **conversation**, making our bots adaptive to fluid requests.  By doing so, we were able to drastically improve the user experience of our bot application.
 
 ## Next Steps
-There may be times, that you want to globally handle very specific commands regardless of the user's current position in the **conversation** (such as *help* or *cancel*).  In [Lab 7](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%207%20-%20Scorables) we'll introduce the concept of **Scorables** and global message handlers to do exactly that.
+There may be times, that you want to globally handle specific responses regardless of the user's current position in the **DialogStack** (such as the user typing *help* or *cancel*).  In [Lab 7](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%207%20-%20Scorables) we'll introduce the concept of **Scorables** and global message handlers to do exactly that.
