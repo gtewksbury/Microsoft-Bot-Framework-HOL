@@ -4,7 +4,7 @@ If you're following the labs in order, at this point we have a pretty basic 'Hel
 
 LUIS is a natural language processing machine-learning service in Microsoft's Cognitive Services suite of APIs.  Best of all, LUIS provides a free tier we can start using immediately!
 
-To see where LUIS really shines, let's consider the bot that we will be building out during the remainder of the Labs.  Our bot will help users find restaurants and book reservations.  Think about all the different ways someone might request this if speaking with another person:
+To see where LUIS really shines, let's consider the bot that we will be building out during the remainder of the Labs.  Our bot will help users find restaurants and book reservations.  Think about all the different ways someone might request to make a reservation:
 
 * *"I'd like to make a reservation for 6 people in Pittsburgh tomorrow night at 8:30 at a nice italian restaurant"*
 
@@ -12,7 +12,7 @@ To see where LUIS really shines, let's consider the bot that we will be building
 
 * *Six of us are in the mood for a good Italian restaurant tonight at 8:30 here in Pittsburgh"
 
-While we can easily interpret and parse the relevant information from there requests, doing so programmatically represents a significant challenge.  Luckily, in less than 30 minutes we can train LUIS to understand both the users' **Intent** to *Create a Reservation* as well as the relevant information (or **Entities** in LUIS-speak) included in the above statements:
+While we as humans can easily interpret and parse the relevant information from such requests, doing so programmatically represents a significant challenge.  Luckily, in less than 30 minutes we can train LUIS to understand not only a user's' **Intent** to *Create a Reservation* but also the relevant information (or **Entities** in LUIS-speak) included in the request.  For example:
 
 1. Where:  **Pittsburgh**
 2. When:   **tomorrow night at 8:30 pm**
