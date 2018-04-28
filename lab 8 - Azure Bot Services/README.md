@@ -1,8 +1,8 @@
 # Azure Bot Services
-Up until this point, we've been interacting with our bot through the emulator, but how do you actually host your bot so it can be consumed by external **channels**.  In this lab, we'll learn how to deploy our bot application to an Azure Bot Service via Visual Studio
+Up until this point, we've been interacting with our bot through our local emulator, but how do you actually host your bot so it can be consumed by external **channels**?  In this lab, we'll learn how to deploy our bot application to an Azure Bot Service via Visual Studio
 
 ## Create Azure Web App Bot
-Log into the [Azure Portal](https://portal.azure.com), and click the *Create a resource* button the top left of your screen.  On the following screen, select *AI + Cognitive Services* and click *Web App Bot*
+Log into the [Azure Portal](https://portal.azure.com), and click the *Create a resource* button on the top left of your screen.  On the following screen, select *AI + Cognitive Services* and click *Web App Bot*
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-create-resource.png)
 
@@ -10,10 +10,11 @@ Enter the required settings and click the *Create* button
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-settings.png)
 
-> * **Bot name** must be globally unique.  This will be included in the URL to your Bot API
+* **Bot name** must be globally unique.  This will be included in the URL to your Bot API
 * **Pricing Tier** *F0* is free of charge
 * **Bot Template** should be *Basic (C#)
-> The remaining settings are outside the scope of this tutorial, but the defaults should be fine for our purposes
+
+The remaining settings are outside the scope of this tutorial, but the defaults should be fine for our purposes
 
 Once created, you can navigate to your new *Web App Bot* within Azure.  It should look something like this:
 
