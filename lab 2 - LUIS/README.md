@@ -120,11 +120,11 @@ Let's add another **utterance**.  Type the following statement into the *utteran
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
 
-Interesting...LUIS was able to identify the number of people and date.  Note in this case our location is actually two words *New* and *Orleans*.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
+Interesting...LUIS was able to identify the number of people and date.  Note in this case our location is actually two words *New* and *Orleans* separately.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
-As we said before, you model is only as good as your training.  Add and train 5 or 6 more examples of reservation **utterances** providing different cuisine types and locations.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
+As we said before, you model is only as good as your training.  Add some more reservation **utterances** providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
 
 > Make me a reservation in Pittsburgh
 
