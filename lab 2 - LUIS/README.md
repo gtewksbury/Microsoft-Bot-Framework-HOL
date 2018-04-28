@@ -182,7 +182,7 @@ Now that we've trained our model, it's time to publish them!  Once published, LU
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
 
-*You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain your model and publish to a Staging environment to verify you changes before pushing to Production.*
+> You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain and test within a Staging environment before publishing to Production.
 
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  
 
