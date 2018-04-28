@@ -1,5 +1,5 @@
 # .NET Bot Builder
-We're going to put Visual Studio to the side for a bit so we can focus on learning some of the core concepts and capabilities within the .NET Bot Builder SDK (don't worry, we'll get back to coding again in the next lab).
+We're going to put Visual Studio on hold for a bit so we can focus on learning some of the core concepts and capabilities within the .NET Bot Builder SDK (don't worry, we'll get back to coding again in the next lab).
 
 ## Dialogs
 Much like traditional web and mobile applications are made up of screens and UIs, bot applications are made up of **Dialogs**.  While at this point our reservation bot only has one **Dialog** (which we named *RootDialog*), bot applications can (and many times will) have numerous **Dialogs**, all encapsulating different aspects of a **conversation** (the same way traditional web and mobile applications have numerous screens to encapsulate different scenarios).
