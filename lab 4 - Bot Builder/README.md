@@ -233,7 +233,7 @@ At any point, you can end a conversation by calling *IDialogContext.EndConversat
 ## Global Message Handlers (Scorables)
 There are times when you need to provide the user with  *global* commands regardless of the current **Dialog** (for example, if the user types *'cancel'* or *'nevermind'*, we might want to end the conversation regardless of the current **Dialog**).  That being said, we shouldn't have to handle this in every **Dialog**, and luckily we don't. 
 
-**Scorables** are a means of monitoring all incoming messages prior to being sent to the active **Dialog**, providing a means of intercepting the message and taking action.  
+**Scorables** are a means of monitoring all incoming messages prior to being sent to the active **Dialog**, providing the ability to intercept the message and taking action.  
 
 > We'll learn more about **Scorables** in a later lab.
 
