@@ -56,7 +56,7 @@ One way to invoke a new **Dialog** is by calling *IDialogContext.Call*, passing 
     }
 ```
 
-> In the *ParentDialog's* *MessageReceivedAsync*, we are *Calling* a new **Dialog** named *ChildDialog*.  This will in turn invoke the *ChildDialog's* *StartAsync* method.  Additionally, we've passed in an optional *ResumeHandler* named *DoneAsync*.  When provided, this method will be invoked when the child **Dialog's** *Done(...)* method is called.
+> In the *ParentDialog's* *MessageReceivedAsync*, we are *Calling* a new **Dialog** named *ChildDialog*.  This will in turn invoke the *ChildDialog's* *StartAsync* method.  Additionally, we've passed in an optional *ResumeHandler* named *DoneAsync*.  When provided (you can optionally pass *null*), this method will be invoked when the child **Dialog's** *Done(...)* method is called.
 
 ### IDialogContext.Forward
 *IDialogContext* also provides a *Forward* method.  The difference is that *Forward* provides a *message* parameter which will be passed to the child **Dialog**.
