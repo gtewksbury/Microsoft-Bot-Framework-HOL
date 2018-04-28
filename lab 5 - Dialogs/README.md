@@ -714,8 +714,8 @@ namespace GoodEats.Dialogs
 ## Quick Recap
 Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In doing so, we implemented the following:
 
-1. Incorporated a **Dialog** chain to solicity reservation information from the user
-2. Provided rich visualizations in the form of message **Attachments**
+1. A **Dialog** chain to solicity reservation information from the user
+2. Rich visualizations in the form of message **Attachments**
 
 ## Next Steps
 While our bot is fairly functional, there's a glaring limitation.  What if the user wants to change information provided in a previous step.  At this point, our bot has no way of handling this.  But fear not, in the [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down), we're going to kick it up a notch and refactor our bot to support fluid conversations!
