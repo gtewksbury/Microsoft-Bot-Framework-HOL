@@ -2,7 +2,7 @@
 
 If you're following the labs in order, at this point we have a pretty basic 'Hello World' bot that simply listens to incoming message from the user and returns the number of characters in the message (not very useful).  More sophisticated bots interact with users through *conversational interfaces*.  It's the bot's job to interpret the **intent** of a user's request and respond accordingly.  This is where LUIS comes in!
 
-LUIS is a natural language processing machine-learning service in Microsoft's Cognitive Service's suite of APIs that can be easily trained to understand the content of natural language content.  Best of all, LUIS provides a FREE tier that we can start using immediately without any upfront cost!
+LUIS is a natural language processing machine-learning service in Microsoft's Cognitive Services suite of APIs.  Best of all, LUIS provides a free tier we can start using immediately!
 
 To see where LUIS really shines, let's consider the bot that we will be building out during the remainder of the Labs.  Our bot will help users find restaurants and book reservations.  Think about all the different ways someone might request this if speaking with another person:
 
