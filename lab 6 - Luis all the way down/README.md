@@ -731,7 +731,7 @@ Add some utterances representing someone wanting to change their reservation dat
 #### Set Reservation Cuisine Intent
 Create a new **intent** called *Set Reservation Cuisine*.
 
-Add some utterances representing someone wanting to change preferred cuisine and map the *RestaurantReservation.Cuisine* entities when required. Here are some examples:
+Add some utterances representing someone wanting to change their preferred cuisine and map the *RestaurantReservation.Cuisine* entities when required. Here are some examples:
 
 > actually, are there any good mexican options
 
@@ -782,7 +782,7 @@ Let's go back to our bot an try again.  Begin a new reservation request, and whe
 
 ![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-number-people.png)
 
-Success!  The request should have been gracefully interpreted as a *Set Reservation Party Size* intent your *LuisReservationDialog*.  Let's try another example.  Start a new conversation and type `Make me a reservation at a good italian restaurant in pittsburgh`.  When the bot prompts you with restaurant recommendations, type `actually, I'm in the mood for chinese`.  Hopefully your bot was able to handle this gracefully as well.
+Success!  The request should have been gracefully interpreted as a *Set Reservation Party Size* **intent** within your *LuisReservationDialog*.  Let's try another example.  Start a new conversation and type `Make me a reservation at a good italian restaurant in pittsburgh`.  When the bot prompts you with restaurant recommendations, type `actually, I'm in the mood for chinese`.  Hopefully your bot was able to handle this gracefully as well.
 
 ![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
 
