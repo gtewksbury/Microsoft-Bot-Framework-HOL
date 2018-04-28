@@ -41,13 +41,13 @@ Chose your Azure subscription in the dropdown, select the app you just created, 
 
 Once Visual Studio is done deploying, click the *Settings* link as shown below:
 
-![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/vs-select-app.png)
+![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/vs-settings.png)
 
 In the *Publish* dialog, select *Settings*, and check *Remove additional files at destination* under the *File Publish Options*
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/vs-remove.png)
 
-> This tells WebDeploy to remove any existing files in the deployment destination prior to deploying your code.  This is important because the *Web Bot App* we created in Azure already has a sample application deployed.  When Visual Studio immediately deployed in the previous step, it did NOT remove these files.  Therefore, with this value set, we'll deploy again.
+> This tells *WebDeploy* to remove any existing files in the deployment destination prior to deploying your code.  This is important because the *Web Bot App* we created in Azure already has a sample application deployed.  When Visual Studio immediately deployed in the previous step, it did NOT remove these files.  Therefore, with this value set, we'll deploy again.
 
 Click the *Publish* button as shown below:
 

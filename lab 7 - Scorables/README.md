@@ -226,6 +226,7 @@ You're bot should have sent you a friendly *Good-Bye* message before it ended th
 ## Quick Recap
 In this short lab, we learned how to create and register **Scorables** to handle messages globally throughout our bot application.
 
-
+## Next Steps
+In [Lab 8](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%208%20-%20Azure%20Bot%20Services), we'll learn how to deploy and host our bot within Microsoft Azure.
 
 
