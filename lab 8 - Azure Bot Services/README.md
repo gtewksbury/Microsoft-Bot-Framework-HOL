@@ -12,9 +12,9 @@ Enter the required settings and click the *Create* button
 
 * **Bot name** must be globally unique.  This will be included in the URL to your Bot API
 * **Pricing Tier** *F0* is free of charge
-* **Bot Template** should be *Basic (C#)
+* **Bot Template** should be *Basic (C#)*
 
-The remaining settings are outside the scope of this tutorial, but the defaults should be fine for our purposes
+> The remaining settings are outside the scope of this tutorial, but the defaults should be fine for our purposes
 
 Once created, you can navigate to your new *Web App Bot* within Azure.  It should look something like this:
 
@@ -38,7 +38,7 @@ Chose your Azure subscription in the dropdown, select the app you just created, 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/vs-select-app.png)
 
 
-> Visual Studio will immediately start deploying your application to Azure.  However, once finished, we need to make a quick change and deploy again.  We'll talk about why in a minute.  
+> Visual Studio will immediately start deploying your application to Azure.  However, once finished we'll need to make a quick change and redeploy.  We'll talk about why in a minute.  
 
 Once Visual Studio is done deploying, click the *Settings* link as shown below:
 
@@ -48,7 +48,7 @@ In the *Publish* dialog, select *Settings*, and check *Remove additional files a
 
 ![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/vs-remove.png)
 
-> This tells *WebDeploy* to remove any existing files in the deployment destination prior to deploying your code.  This is important because the *Web Bot App* we created in Azure already has a sample application deployed.  When Visual Studio immediately deployed in the previous step, it did NOT remove these files.  Therefore, with this value set, we'll deploy again.
+> This tells *WebDeploy* to remove any existing files in the deployment destination prior to deploying your code.  This is important because the *Web Bot App* we created in Azure already has a sample application deployed.  When Visual Studio immediately deployed in the previous step, it did NOT remove these files.  Therefore, with this value set we'll need to deploy again.
 
 Click the *Publish* button as shown below:
 
@@ -61,7 +61,7 @@ Let's go back to our app in Azure and explore a bit.  You should notice a *Test 
 
 This is a test area for your deployed bot.  Go ahead and type a message to see if it's working!
 
-![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-web-chat.png)
+![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-test.png)
 
 By default, *Web App Bots* have enabled the *Web Chat* **channel** (we'll see where this is done in a moment).  This same web chat experience can easily be added to your own web applications via [Microsoft Bot Frameworks Embedded Web Chat Control](https://github.com/Microsoft/BotFramework-WebChat).
 
@@ -71,7 +71,7 @@ Let's click the *Channels* link in the Azure Portal.
 
 By default, you *Web App Bot* will enable the *Web Chat* **channel**, but as you can see, I've enabled the *Slack* **channel** as well.
 
-![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-channels.png)
+![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/bot-slack.png)
 
 And here's what our bot looks like in *Slack*
 
