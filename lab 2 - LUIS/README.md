@@ -172,11 +172,13 @@ After a few moments, you're model has now been trained with your latest **uttera
 
 What happened?  For me, LUIS was able to identify all the pertinent information in the request with a very high confidence score!  Nice work LUIS, pat on the back to ya!
 
-> Predictions are scored on a scale between 0 and 1 (1 being the highest).  Look at the score for you're request.  Depending on the results, you might need more training.
+> Predictions are scored on a scale between 0 and 1 (1 being the highest).  Look at the score for you're request.  Depending on the results, your app may need more training.
 
 ### Publishing
 
-Now that we've trained our model, it's time to publish our changes so that we can consume our model externally.  LUIS exposes published models via a publicly accessible REST API (protected by a secret subscription key that only you and your team should know).  To make our most recent training publicly available, navigate to the *Publish* menu on the top of your screen.
+Now that we've trained our model, it's time to publish externally.  Once published, LUIS exposes your app publicly via a REST API (protected by a secret subscription key that only you and your team should know).  To make our most recent training publicly available, navigate to the *Publish* menu on the top of your screen.
+
+> Each time you re-train your app, you'll also have to *publish* to make the changes available through the REST API.
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
 
