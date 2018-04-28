@@ -65,13 +65,9 @@ This is a test area for your deployed bot.  Go ahead and type a message to see i
 
 By default, *Web App Bots* have enabled the *Web Chat* **channel** (we'll see where this is done in a moment).  This same web chat experience can easily be added to your own web applications via [Microsoft Bot Frameworks Embedded Web Chat Control](https://github.com/Microsoft/BotFramework-WebChat).
 
-Let's click the *Channels* link in the Azure Portal.
+Let's click the *Channels* link in the Azure Portal.  This is where you configure additional **channels** for your application.  You can see I've enabled the *Slack* **channel** as well.
 
-![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-channels.png)
-
-By default, you *Web App Bot* will enable the *Web Chat* **channel**, but as you can see, I've enabled the *Slack* **channel** as well.
-
-![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/bot-slack.png)
+![Create Azure Web Bot App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%208%20-%20Azure%20Bot%20Services/images/azure-web-chat.png)
 
 And here's what our bot looks like in *Slack*
 
