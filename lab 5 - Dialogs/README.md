@@ -29,7 +29,7 @@ This directory contains *Cuisine*, *Reservation*, *Restaurant*, and *RestaurantS
 
 
 #### StateExtensions.cs
-This class *extends* *IBotData* by provides convenience methods for managing our custom conversation state within *PrivateConversationData*.  
+This class *extends* *IBotData* to provide convenience methods for managing our custom conversation state within *PrivateConversationData*.  
 
 #### ValueTypeExtensions.cs
 Provides *extension* methods for parsing natural language date and number values.  These include references to the following *nuget packages*:
