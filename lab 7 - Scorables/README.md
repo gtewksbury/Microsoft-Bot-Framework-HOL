@@ -101,7 +101,7 @@ This is the next method to be called in the pipeline, and returns true if the pr
 Next, if *HasScore* equals *true*, the Bot Framework will call *GetScore* which should return a value between 0 and 1.  In our case, we return the highest score possible of 1 if the user typed *Cancel*, *Nevermind*, or *Forget It*.  The reason you can return a range between 0 and 1 is because your bot application can have many **Scorables**.  After it determines all **Scorables** that have a score for the current request, and executes the **Scorable** with the highest score.  If none of your **Scorables** have a score for the current request, the message is passed to the active **Dialog**.
 
 #### PostAsync
-Once that Bot Framework finds the highest-scoring **Scorable**, it calls it's *PostAsync* method.  This is where your code should actually *do something* with the message.  In our case, we're *Forwarding* to a new *EndConverationDialog*.  
+Once the Bot Framework finds the highest-scoring **Scorable**, it calls it's *PostAsync* method.  This is where your code should actually *do something* with the message.  In our case, we're *Forwarding* to a new *EndConverationDialog*.  
 
 ### EndConverationDialog
 Let's go ahead and add the EndConversationDialog to our solution.  Open the *Dialogs* directory, add a new code or class file named *EndConversationDialog.cs*, and replace the contents with the following code:
@@ -148,7 +148,7 @@ Since we *Forwarded* to this **Dialog** (instead of *Calling*), the MessageRecei
 ### Dependency Injection
 The .NET Bot Builder uses AutoFac internally to register and resolve dependencies throughout the framework.  While outside the scope of this tutorial, if you haven't worked with *AutoFac* or Dependency Injection and IoC containers before, you can learn more about it on [AutoFac's Website](https://autofac.org/).
 
-We need to register our *CancelScorable* with .NET Bot Builder's IoC container so that it can discover and execute our **Scorable**.  Here's how...
+We need to register our *CancelScorable* with .NET Bot Builder's IoC container so that it can discover and execute our **Scorable**.
 
 #### ScorableModule
 Create a new class or code file named *ScorableModule* in the *Modules* directory and replace the contents with the following code:
@@ -219,7 +219,7 @@ namespace GoodEats
 }
 ```
 
-Let's go ahead and give it a try.  Go ahead and run your solution along with the emulator and type `I'd like to reserve a table in Pittsburgh`.  When the bot prompts you for a preferred cuisine, type `nevermind`.
+Let's give it a try.  Go ahead and run your solution along with the emulator and type `I'd like to reserve a table in Pittsburgh`.  When the bot prompts you for a preferred cuisine, type `nevermind`.
 
 You're bot should have sent you a friendly *Good-Bye* message before it ended the conversation.  This should work regardless of your current position in the **conversation**.  This time, enter information up until the point when the bot asks you to confirm your reservation.  At that point, type `cancel`.  You should see the same result!
 
