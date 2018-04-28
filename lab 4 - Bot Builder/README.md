@@ -237,7 +237,7 @@ There are times when you need to provide the user with  *global* commands regard
 
 > We'll learn more about **Scorables** in a later lab.
 
-##Quick Recap
+## Quick Recap
 Throughout this lab, we learned some basic Bot Framework concepts, including **Dialogs**,  **DialogStacks**, and **IDialogContext**.
 
 ## Next Steps
