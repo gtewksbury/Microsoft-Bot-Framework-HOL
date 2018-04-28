@@ -9,7 +9,7 @@ Welcome!  I'm a huge fan of the Microsoft .NET Bot Framework and bot development
 
 [Lab 2 - LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) provides a hands-on walk through of training a custom LUIS model to understand and interpret user intents.  An absolute must for building conversational experiences.
 
-[Lab 3 - Integrate LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL) demonstrates how to integrate the .NET Bot Framework with LUIS in addition to some basic conversational state management.
+[Lab 3 - Integrate LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL) demonstrates how to integrate the .NET Bot Framework with our LUIS model in addition to some basic conversational state management.
 
 [Lab 4 - Bot Builder](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%204%20-%20Bot%20Builder) provides a conceptual overview of the .NET Bot Framework and some of the critical components you'll want to become familiar with.
 
@@ -18,7 +18,7 @@ Welcome!  I'm a huge fan of the Microsoft .NET Bot Framework and bot development
 [Lab 6 - LUIS all the way down](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%206%20-%20Luis%20all%20the%20way%20down) implements design patterns for integrating our LUIS model throughout the entire life cycle of a conversation.
 
 [Lab 7 - Scorables](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%207%20-%20Scorables) demonstrates global message handlers for 
-addressing common commands within your bot application.
+addressing common commands throughout your bot application.
 
 [Lab 8 - Azure Bot Service](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%208%20-%20Azure%20Bot%20Services) walks through the process of deploying and hosting your bot logic within a reliable and durable Azure environment.
 
