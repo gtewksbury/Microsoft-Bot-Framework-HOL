@@ -723,7 +723,7 @@ Let's run it!  Fire up the Bot Emulator and enter the following information:
 6. And when asked for the number of people, type `6`
 7. Click *Reserve*
 
-Your bot should also be smart enough to not request information the user previously provide.  Let's try the following:
+Your bot should also be smart enough to avoid asking for information the user provided during the initial request.  Let's try the following:
 
 1. First, ask your bot to `make me a reservation in Pittsburgh for 6 people tomorrow night at 7:30`
 2. When asked for cuisine, select from the provided suggestions
