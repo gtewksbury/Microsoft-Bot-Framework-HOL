@@ -178,17 +178,13 @@ What happened?  For me, LUIS was able to identify all the pertinent information 
 
 Now that we've trained our model, it's time to publish them!  Once published, LUIS exposes your app publicly via a REST API (protected by a secret subscription key that only you and your team should know).  To make our most recent training publicly available to external consumers, navigate to the *Publish* menu on the top of your screen.
 
-> Each time you re-train your app, you'll also have to *publish* to make the changes available through the REST API.  In future labs, our bot will connect to this API to parse incoming user messages.
+> In future labs, our bot will connect to this API to parse incoming user messages.
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
 
-> You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain and test within a Staging environment before publishing to Production.
+> You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain and test within a Staging environment before publishing to Production.  **Important**: Every time you re-train your app, you'll have to re-publish before those changes impact your external-facing API.
 
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  
-
-
-> If you re-train your model, you'll have to re-publish before those changes impact your LUIS API.
-
 
 #### Calling LUIS Externally
 
