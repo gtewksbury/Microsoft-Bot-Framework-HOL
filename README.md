@@ -3,7 +3,7 @@ Welcome!  I'm a big fan of the Microsoft .NET Bot Framework and bot development 
 
 ![Screenshot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/images/bot-slack.png)
 
-The content is broken up into 8 separate labs.  Each lab builds upon the previous, so it's highly recommended to walk through them in order.  That being said, if you're impatient I've added *starter* projects for each section.  
+> The content is broken up into 8 separate labs.  Each lab builds upon the previous, so it's highly recommended to walk through them in order.  That being said, if you're impatient I've added *starter* projects for each section.  
 
 [Lab 1 - Setup](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%201%20-%20Setup) walks through the setup of your Visual Studio development environment as well as the installation of the Microsoft Bot Emulator (priceless when it comes to debugging your application).
 
