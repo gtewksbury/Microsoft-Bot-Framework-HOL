@@ -1,15 +1,15 @@
 # Microsoft .NET Bot Framework Hands On Labs
-Welcome!  I'm a big fan of the Microsoft .NET Bot Framework and bot development in general (there just fun to write)!  Therefore, I decided to buckle down and create a series of hands-on-labs as an end-to-end guide to building delightful experiences using the Microsoft .NET Bot Framework.  Throughout these labs, we'll be building a conversational bot that helps users find restaurants and make reservations.  Here's a quick example of what we'll be creating:
+Welcome!  I'm a big fan of the Microsoft .NET Bot Framework and bot development in general (bot applications are just fun to write)!  Therefore, I decided to buckle down and create a series of hands-on-labs as an end-to-end guide to building delightful experiences using the Microsoft .NET Bot Framework.  Throughout these labs, we'll be building a conversational bot that helps users find restaurants and make reservations.  Here's a quick example of what we'll be creating:
 
 ![Screenshot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/images/bot-slack.png)
 
-The content is broken up into 8 separate labs.  Each lab builds upon the previous, so it's highly recommended to walk through them in order.  That being said, if you're impatient, I've added *starter* projects for each lab.  
+The content is broken up into 8 separate labs.  Each lab builds upon the previous, so it's highly recommended to walk through them in order.  That being said, if you're impatient I've added *starter* projects for each section.  
 
 [Lab 1 - Setup](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%201%20-%20Setup) walks through the setup of your Visual Studio development environment as well as the installation of the Microsoft Bot Emulator (priceless when it comes to debugging your application).
 
 [Lab 2 - LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) provides a detailed walk through of Microsoft's Language Understanding Intelligence Service (aka LUIS), which allows you to integrate natural language processing into your bot.  An absolute must for building conversational experiences.
 
-[Lab 3 - Integrate LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL) demonstrates how we integrate with LUIS through the .NET Bot Framework and as well as state management within our bot applications.
+[Lab 3 - Integrate LUIS](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL) demonstrates how the .NET Bot Framework can be integrate with LUIS in addition to basic conversational state management.
 
 [Lab 4 - Bot Builder](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%204%20-%20Bot%20Builder) provides a conceptual overview of the .NET Bot Framework and some of the critical components you'll want to become familiar.
 
