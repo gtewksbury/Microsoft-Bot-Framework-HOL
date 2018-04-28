@@ -730,7 +730,7 @@ Your bot should also be smart enough to avoid asking for information the user pr
 4. Next select a restaurant from the provided options
 7. Click *Reserve*
 
-Notice this time, it should NOT have asked you to provide a date or number of people since you already gave it that information.
+Notice this time you should NOT have been asked to provide a date or number of people since you already provided that information in the initial request.
 
 ## Quick Recap
 Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In doing so, we implemented the following:
