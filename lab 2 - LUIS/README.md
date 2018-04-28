@@ -26,7 +26,7 @@ Log into the [Luis Website](https://www.luis.ai) to begin building and training 
 
 ![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
 
-> To sign into the site, you'll need a valid Microsoft Account.  Preferably, the Microsoft account you select would be associated with an Azure subscription as well, so you can optionally associate your LUIS app with a Standard pricing tier (you *might* start received 403 throttling errors in [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down) on the free tier), but this is NOT required for these labs.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.*
+> To sign into the site, you'll need a valid Microsoft Account.  Preferably, the Microsoft account you select would be associated with an Azure subscription as well, so you can optionally associate your LUIS app with a Standard pricing tier (you *might* start received 403 throttling errors in [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down) on the free tier), but this is NOT required for these labs.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.
 
 ### Create a LUIS App
 From the following screen, click the **Create New App** button
@@ -39,7 +39,7 @@ Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can n
 
 Your app is now ready to be built and trained!
 
-> Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation** are two different intents).  It is the job of LUIS to predict and interpret a user's intent.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
+> Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation**).  It is the job of LUIS to predict and interpret a user's **intent**.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')*
 
 ![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
 
