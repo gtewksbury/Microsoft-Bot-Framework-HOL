@@ -1,10 +1,10 @@
 # Lab 3 - LuisDialog and State Management
-Congratulations on making it this far!  At this point you should have setup your .NET Bot Framework development environment ([Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup)) and have created, trained, and published your LUIS application ([Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).
+Congratulations on making it this far!  At this point you should have setup your .NET Bot Framework development environment ([Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%201%20-%20Setup)) and have created, trained, and published your LUIS application ([Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).
 
 > Make sure that didn't forget to **publish** you LUIS app before preceding to this lab, or things won't go quite as expected.
 
 
-In this lab, we are going to integrate the sample bot we created in [Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%201%20-%20Setup) with the LUIS model we trained in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).  Moving forward, we're going to be spending most of our time in Visual Studio, so hopefully you're ready to get your hands dirty with some coding!
+In this lab, we are going to integrate the sample bot we created in [Lab 1](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%201%20-%20Setup) with the LUIS model we trained in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS).  Moving forward, we're going to be spending most of our time in Visual Studio, so hopefully you're ready to get your hands dirty with some coding!
 
 I hate to do this to you, but I'm going to ask that you start from the *start* project included in this lab (as opposed to the project we created in Lab 1).  I promise, they are almost identical with a couple of minor exceptions:
 
@@ -71,7 +71,7 @@ You'll also need to add the following *using* statements:
 * *using Microsoft.Bot.Builder.Luis;*
 * *using Microsoft.Bot.Builder.Luis.Models;*
 
-> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog which integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  To summarize, it handles the *StartAsync* and implements it's own *MessageReceived* handler.  The *MessageReceived* handler in turn passes the incoming user message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) and passes the result to methods that you configure to handle specific **intents**.  
+> Because LUIS is such an integral part of bot development, the Bot Builder SDK was friendly enough to create this base dialog which integrates directly with your LUIS app!  If you're curious about how the LuisDialog works, feel free to take a look on [GitHub](https://github.com/Microsoft/BotBuilder/blob/master/CSharp/Library/Microsoft.Bot.Builder/Dialogs/LuisDialog.cs).  To summarize, it handles the *StartAsync* and implements it's own *MessageReceived* handler.  The *MessageReceived* handler in turn passes the incoming user message to the LUIS service endpoint you published in [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) and passes the result to methods that you configure to handle specific **intents**.  
  
 Let's take a look at how to wireup the dialog to our LUIS app and **intents**.  First, *LuisDialog* needs to know how to reach our published LUIS app.  Luckily, this can be done by simply decorating our class with the *LuisModelAttribute*, giving it the Model ID and Subscription Key for our LUIS endpoint.  
 
@@ -90,7 +90,7 @@ Let's take a look at how to wireup the dialog to our LUIS app and **intents**.  
 If you don't remember these values, you can retrieve them from the *publish* page for your app in https://www.luis.ai.  
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%203%20-%20Integrate%20LUIS/images/luis-publish.png)
 
 Mine looks something like this:
 
@@ -133,7 +133,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
 
 At this point, let's run our bot and see how smart it is.  Go ahead and place breakpoints in the *None* and *CreateReservation* methods and run Visual Studio in *Debug* mode.
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/vis2017-breakpoints.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%203%20-%20Integrate%20LUIS/images/vis2017-breakpoints.png)
 
 Fire up the bot emulator and type in a message similar to the following:
 
@@ -275,7 +275,7 @@ Make me a reservation in Pittsburgh tomorrow at 12:30 pm
 
 You should see a response similar to the following in your emulator.
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-intial-state.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-intial-state.png)
 
 Let's send another message.  This time only send the location in the request:
 
@@ -284,7 +284,7 @@ Make me a reservation in Cleveland
 ``
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-second-state.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%203%20-%20Integrate%20LUIS/images/bot-emulator-second-state.png)
 
 Wait a second, I only provided the city this time.  Why did it also return the date from the previous request?  If you remember, we replied with any values that we stored in state.  This state persists throughout the conversation, therefore the state still contained the date from the previous request.  I wonder what happens if you end the conversation?  Let's go back into Visual Studio in the *CreateReservation* method and make a small change.  
 
@@ -321,7 +321,7 @@ This time we should notice that the date is NOT returned.  This is because you d
 In this lab, we successfully connected our bot to our LUIS application, and configured  our *RootDialog* with handlers for specific **intents**.  We also learned how to parse **entity** values from the provided *LuisResult*.  Finally, we learned how to persist and retrieve state for our bot application.
 
 ## Next Steps
-At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In subsequent labs, we'll create a more sophisticated conversational flow with multiple dialogs.  However, before doing so I thought it would be a good idea to become familiar with some basic .NET Bot Builder concepts.  In [Lab 4](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%204%20-%20Bot%20Builder) we'll focus on learning these concepts before moving back to Visual Studio to enhance our bot!
+At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In subsequent labs, we'll create a more sophisticated conversational flow with multiple dialogs.  However, before doing so I thought it would be a good idea to become familiar with some basic .NET Bot Builder concepts.  In [Lab 4](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%204%20-%20Bot%20Builder) we'll focus on learning these concepts before moving back to Visual Studio to enhance our bot!
 
 
  

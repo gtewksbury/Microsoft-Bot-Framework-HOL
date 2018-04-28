@@ -190,7 +190,7 @@ namespace GoodEats.Dialogs
 
 > IMPORTANT   Don't forget to update the *LuisModelAttribute* with your LUIS app's *Model Id* and *Subscription Key*
 
-![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/root-dialog-update.png)
+![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/root-dialog-update.png)
 
 A couple of noticable updates:
 
@@ -369,7 +369,7 @@ namespace GoodEats.Dialogs
 
 > Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an opportunity to provide user's with fixed options, it's considered a best practice to do so (rather than make them type or say everything).  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
 
-![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/suggested-actions.png)
+![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/suggested-actions.png)
 
 
 ### RestaurantDialog
@@ -477,7 +477,7 @@ namespace GoodEats.Dialogs
 
 > Here we are sending the user visual cards (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine.  You'll notice each card contains 2 *buttons*.  The *More Info* button allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the button's value (set as the restaurant name) using *ActionType.ImBack*.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
 
-![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
+![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/restaurants.png)
 
 ### WhenDialog
 Create a new class or code file named *WhenDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
@@ -711,7 +711,7 @@ namespace GoodEats.Dialogs
 
 > Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a simple fixed layout, you can optional create [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots), granting you complete control over their layout.
 
-![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
+![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/hero-card.png)
 
 Let's run it!  Fire up the Bot Emulator and enter the following information:
 
@@ -739,4 +739,4 @@ Congratulations!  At this point you should have a fairly nifty bot that walks us
 2. Rich visualizations in the form of message **Attachments**
 
 ## Next Steps
-While our bot is fairly functional, there's a glaring limitation.  What if the user wants to change information provided in a previous step.  At this point, our bot has no way of handling this.  But fear not, in the [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down), we're going to kick it up a notch and refactor our bot to support fluid conversations!
+While our bot is fairly functional, there's a glaring limitation.  What if the user wants to change information provided in a previous step.  At this point, our bot has no way of handling this.  But fear not, in the [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%206%20-%20Luis%20all%20the%20way%20down), we're going to kick it up a notch and refactor our bot to support fluid conversations!

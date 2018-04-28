@@ -204,7 +204,7 @@ And here's what it looks like in the Bot Emulator.
 
 > You'll notice slight variations of how different **channels** render attachments.  You can visit the [Channel Inspector](https://docs.botframework.com/en-us/channel-inspector/channels/Skype/) to view examples of these variants.
 
-![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%204%20-%20Bot%20Builder/images/bot-eumulator-hero-card.png)
+![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%204%20-%20Bot%20Builder/images/bot-eumulator-hero-card.png)
 
 > Always be aware of the different **channels** with which your users might be interfacing.  For example, visualizations wouldn't make sense if your bot is integrated with speech-only **channels**.
 
@@ -241,4 +241,4 @@ There are times when you need to provide the user with  *global* commands regard
 Throughout this lab, we learned some basic Bot Framework concepts, including **Dialogs**,  **DialogStacks**, and **IDialogContext**.
 
 ## Next Steps
-Hopefully you will find this information useful throughout the remainder of the labs and your future bot development.  Armed with this new-found knowledge, we're going to continue to build-out our reservation bot in [Lab 5](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%205%20-%20Dialogs), using many of these concepts.
+Hopefully you will find this information useful throughout the remainder of the labs and your future bot development.  Armed with this new-found knowledge, we're going to continue to build-out our reservation bot in [Lab 5](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%205%20-%20Dialogs), using many of these concepts.

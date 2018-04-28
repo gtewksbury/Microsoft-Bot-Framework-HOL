@@ -24,24 +24,24 @@ Don't believe me?  Let's try it for ourselves!
 ## Getting Started
 Log into the [Luis Website](https://www.luis.ai) to begin building and training your model(s).  
 
-![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-homepage.png)
+![LUIS Homepage](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-homepage.png)
 
 > To sign into the site, you'll need a valid Microsoft Account.  Preferably, the Microsoft account you select would be associated with an Azure subscription as well, so you can optionally associate your LUIS app with a Standard pricing tier (you *might* start received 403 throttling errors in [Lab 6](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down) on the free tier), but this is NOT required for these labs.  If you don't already have one, you can create one by clicking the **Sign-Up** button on the home screen.  Additionally, if this is the first time you've logged into the site, you'll likely be taken to a welcome page and asked to fill in a couple of configuration settings.
 
 ### Create a LUIS App
 From the following screen, click the **Create New App** button
 
-![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-app.png)
+![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-blank-app.png)
 
 Give your app a *Name* and *Description* (I named mine *GoodEats*, but you can name yours whatever you want).
 
-![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-create-new-app.png)
+![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-create-new-app.png)
 
 Your app is now ready to be built and trained!
 
 > Notice the newly-created app already contains a default **None** intent.  A single LUIS app can (and likely will) have multiple intents to signify the different requets a user can make (for example, **Create Reservation** vs **Cancel Reservation**).  It is the job of LUIS to predict and interpret a user's **intent**.  LUIS will select **None** when no other intents match the user's request (for example, if someone asked our reservation app 'What's the weather like in Chicago')
 
-![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-app.png)
+![Create LUIS App](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-new-app.png)
 
 ### Add Create Reservation Intent
 The next step is to add the **Intents** that our app will be trained to interpret.  For the purposes of this lab, we will be creating a single *Create Reservation* **Intent**.
@@ -49,25 +49,25 @@ The next step is to add the **Intents** that our app will be trained to interpre
 Click the *Create New Intent* button and set the **intent** name to *Create Reservation*
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-create-intent.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-create-intent.png)
 
 The following screen is where we train our **intent** to understand different variations of how users might ask for a reservation.  We'll come back to this in a moment.
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-new-intent.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-new-intent.png)
 
 
 ### Add Entities
 
 Before we start training our *Create Reservation* **Intent**, let's define the data (or **Entities**) associated with our app.  **Entities** represent data that LUIS will be trained to identify within a user's request.  On the left menu, click *Entities*.  You should be taken to the following screen:
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-blank-entities.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-blank-entities.png)
 
 Notice you have a few options.  You can *Create new entity* from scratch, or you can use *prebuilt entities*.  For this lab, we are going to include a number of prebuilt entities.  Click the *Manage prebuilt entities* button and add the following:
 
 * **number**
 * **datetimeV2**
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-add-prebuilt-entities.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-add-prebuilt-entities.png)
 
 Next, click the *Add prebuilt domain entities* and add the following:
 
@@ -75,12 +75,12 @@ Next, click the *Add prebuilt domain entities* and add the following:
 * **RestaurantReservation.Cuisine**
 * **RestaurantReservation.PlaceName**
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-add-domain-entities.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-add-domain-entities.png)
 
 We've now identified the different information that LUIS should attempt to identify within a given request.  At this point, you're screen should look similar to the following:
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-entities-added.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-entities-added.png)
 
 ### Add Utterances
 
@@ -92,25 +92,25 @@ Enter the following **utterance** into your *Create Reservation* **intent** and 
 > Make me a reservation in Pitsburgh tomorrow night at 7:30 at a thai restaurant
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-utterance-1.png)
 
 In a moment, you should see your text added to the **utterance** list.  Notice that it has identified *tomorrow night at 7:30* as our *datetimeV2* entity.  I'm always impressed by the number of variations in which LUIS can interpret dates and times!
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-1-added.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-utterance-1-added.png)
 
 
 We need to give LUIS a little help to understand the other pertinent information in our **utterance**.  Hover your mouse over *Pittsburgh*.  Notice it places brackets around the text.  
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-highlight-city-entity.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-highlight-city-entity.png)
 
 Click the highlighted text and select *RestaurantReservation.Address* from the menu.  We've just told LUIS to interpret this as the restaurant's address.  Note, in training LUIS this way, we aren't just training LUIS to recognize the term *Pittsburgh*, but rather we're training LUIS to understand how to recognize *RestaurantReservation.Addresss* based on natural language heuristics!
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-city-entity.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-map-city-entity.png)
 
 Now let's start to train the model to recognize the requested cuisine.  Click *thai* and select *RestaurantReservation.Cuisine*.
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-cuisine.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-map-cuisine.png)
 
 Let's add another **utterance**.  Type the following statement into the *utterance* textbox and click *Enter*:
 
@@ -118,11 +118,11 @@ Let's add another **utterance**.  Type the following statement into the *utteran
 > I'd like to reserve a table for 6 people next Thursday at 8 pm in new orleans
 
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-utterance-2-added.png)
 
 Interesting...LUIS was able to identify the number of people and date.  Note in this case our location is actually two words *New* and *Orleans* separately.  To select this for training, simply click both *New* and *Orleans*.  You should notice the brackets now enclose both.  Click *New Orleans* and select *RestaurantReservation.Address*
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
 As we said before, you model is only as good as your training.  Add some more reservation **utterances**, providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are some examples to get you started (make sure to map the **entities** in each):
 
@@ -164,7 +164,7 @@ LUIS was kind enough to include these **utterances** when we added the *Restaura
 
 Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  I also excluded any **utterances** that include **RestaurantReservation.PlaceName** as our bot will not support user's requesting specific restaurants.
 
-![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-none-utterances.png)
+![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
 It's important to note that at any point in time, you can modify the associated intent of an **utterance**.  In fact, once you've published your model (we'll discuss *publishing* in the following section), you can view (and modify) LUIS's categorization of individual user **utterances** by navigating to the *Review endpoint utterances* link in the left menu!
 
@@ -172,7 +172,7 @@ It's important to note that at any point in time, you can modify the associated 
 
 At this point your *Create Reservation* **intent** should have around 25 utterances (give or take).  Let's make it official and *train* our app based on all the information we've given it so far!  You've probably noticed a *Train* button in the top right (next to the *Test* button).  Go ahead an click it!
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-train.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-train.png)
 
 After a few moments, you're model has now been trained with your latest **utterances** (it's important to note that you can retrain at any point in time).  Let's go back to our *Create Reservation* intent and see how smart LUIS has become.  Go ahead and add a new **utterance**, for example `Can you make me a reservation in Boston at a good seafood restaurant for eight people tomorrow at 5:30 pm`.
 
@@ -186,7 +186,7 @@ Now that we've trained our model, it's time to publish them!  Once published, LU
 
 > In future labs, our bot will connect to this API to parse incoming user messages.
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-publish.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-publish.png)
 
 > You'll notice you have the option to publish to either Production and Staging endpoints.  This allows you to retrain and test within a Staging environment before publishing to Production.  **Important**: Every time you re-train your app, you'll have to re-publish before those changes impact your external-facing API.
 
@@ -202,7 +202,7 @@ Notice the URL associated with your Starter_Key at the bottom of your screen (mi
 
 Copy the url into your favorite REST client and add a sample **utterance** to the *q=* querystring parameter (I prefer Postman, but feel free to use whatever makes you happy).
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-rest-api.png)
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-rest-api.png)
 
 You'll see that the response not only identified the *Create Reservation* **intent** but also provides a list of **entity** values it parsed from the request.  Notice also that *'tomorrow night at 7'* is further converted to a date/time format *(2018-04-26 19:00:00)*.
 
@@ -223,4 +223,4 @@ Remember, the more training you provide, the more accurate **intent** and **enti
 
 ## Next Steps
 
-Now that we've trained and published our LUIS app, it's time to integrate it with our chat bot in [Lab 3](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%203%20-%20Integrate%20LUIS)!
+Now that we've trained and published our LUIS app, it's time to integrate it with our chat bot in [Lab 3](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%203%20-%20Integrate%20LUIS)!

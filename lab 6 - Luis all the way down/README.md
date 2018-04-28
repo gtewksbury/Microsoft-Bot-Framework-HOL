@@ -3,7 +3,7 @@ Welcome to Lab 6!  At this point, you should have a fully-functioning reservatio
 
 Run your bot and ask it to `make a reservation in Pittsburgh`.  When it prompts you for your preferred cuisine, type `sorry, actually make my reservation in Cleveland`.  We're stuck!  Our bot has no idea what's going on!
 
-![Confused Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-confused.png)
+![Confused Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-confused.png)
 
 Don't worry, we're going to fix that!  Here's one the most important things to understand when designing your bot...**CONVERSATIONS ARE NOT LINEAR**!  We often bounce around between different topics.  Another thing...**USERS AREN'T ROBOTS**!  When the bot asks the user for the number of people on the reservation, what if the user responds `There will be 6 of us`?  Right now, our bot has no idea how to interpret this response, and would again ask the user for the party size.  It's almost like we need some kind of natural language processing when dealing with user responses to our bot...but how?
 
@@ -800,9 +800,9 @@ Here's the basic blueprint for the updated conversational logic within the above
 
 Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh` (make sure you end the previous conversation in the Bot Emulator).  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
 
-![Smarter Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-change-location.png)
+![Smarter Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-change-location.png)
 
-> Hopefully you're bot was smart enough to handle this!  if not, it probably needs more training.  In that case, go back to the [Luis Website](https://www.luis.ai) and enter, train, and publish some additional **utterances** (If you need a refresher on doing so, you can refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS)).  Here are some examples:
+> Hopefully you're bot was smart enough to handle this!  if not, it probably needs more training.  In that case, go back to the [Luis Website](https://www.luis.ai) and enter, train, and publish some additional **utterances** (If you need a refresher on doing so, you can refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS)).  Here are some examples:
 >
 * `Actually, I want to make a reservation in Pittsburgh`
 * `Sorry, I actually wanted to reserve a table in Miami FL`
@@ -814,14 +814,14 @@ In the example above, our *RestaurantDialog* was waiting for the user to select 
 
 Alright, let's try something else.  Go back to your emulator (make sure to end the previous conversation), and walk through creating a reservation, all the way up until the bot asks you for the number of people on the reservation.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
 
-![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
+![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
 
 What happened here?  We'll, *PartySizeDialog* was expecting an integer value.  When it detected the provided response was NOT an integer, it passed the response to *LuisReservationDialog.MessageReceivedAsync*.  However, unlike our previous example, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that have been trained to do so.  Remember how our *LuisReservationDialog* referenced a number of **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
 
 #### Set Reservation Location Intent
 Browse to your [LUIS App](https://www.luis.ai), and create a new **intent** called *Set Reservation Location*.
 
-> If you need a refresher on creating, training, and publishing intents, refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS).
+> If you need a refresher on creating, training, and publishing intents, refer back to [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS).
 
 Add some **utterances** representing someone wanting to change their location and map the *RestaurantReservation.Address* entities when required.  Here are some examples:
 
@@ -916,11 +916,11 @@ Now go ahead and *train* and subsequently *publish* you changes (remember, you n
 
 Let's go back to our bot an try again.  Begin a new reservation request, and when the bot prompts you for the number of people, enter `there will be 6 of us`.
 
-![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-number-people.png)
+![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-number-people.png)
 
 Success!  The request should have been gracefully interpreted as a *Set Reservation Party Size* **intent** within your *LuisReservationDialog*.  Let's try another example.  Start a new conversation and type `Make me a reservation at a good italian restaurant in pittsburgh`.  When the bot prompts you with restaurant recommendations, type `actually, I'm in the mood for chinese`.  Hopefully your bot was able to handle this gracefully as well.
 
-![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
+![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-cuisine.png)
 
 Hopefully this helps instill the importance of supporting fluid conversations when building your own bot experiences! 
 
@@ -928,4 +928,4 @@ Hopefully this helps instill the importance of supporting fluid conversations wh
 In this lab, we learned some relatively simple design patterns for integrating LUIS at all levels of a **conversation**, making our bots adaptive to fluid requests.  By doing so, we were able to drastically improve the user experience of our bot application.
 
 ## Next Steps
-There may be times that you want to globally handle specific responses regardless of the user's current position in the **DialogStack** (such as the user typing *help* or *cancel*).  In [Lab 7](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%207%20-%20Scorables) we'll introduce the concept of **Scorables** and global message handlers to do exactly that.
+There may be times that you want to globally handle specific responses regardless of the user's current position in the **DialogStack** (such as the user typing *help* or *cancel*).  In [Lab 7](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%207%20-%20Scorables) we'll introduce the concept of **Scorables** and global message handlers to do exactly that.
