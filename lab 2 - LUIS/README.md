@@ -124,7 +124,7 @@ Interesting...LUIS was able to identify the number of people and date.  Note in 
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-map-utterance-2.png)
 
-As we said before, you model is only as good as your training.  Add some more reservation **utterances** providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
+As we said before, you model is only as good as your training.  Add some more reservation **utterances**, providing different cuisine types, locations, etc.  Make sure to vary the **utterances** based on the different ways people might make this request.  Here are a few more examples to get you started:
 
 > Make me a reservation in Pittsburgh
 
@@ -156,9 +156,9 @@ If you navigate back to your **Intents** list,  you should see the count of **ut
 
 LUIS was kind enough to include these **utterances** when we added the *RestaurantReservation.Address*, *RestaurantReservation.PlaceName*, and *RestaurantReservation.Cuisne* *prebuilt domain entities* to our app.  However, in reviewing these, many of them should be associated with our *Create Reservation* intent.
 
-![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-none-utterances.png)
-
 Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  I also excluded any **utterances** that include **RestaurantReservation.PlaceName** as our bot will not support user's requesting specific restaurants.
+
+![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
 It's important to note that at any point in time, you can modify the associated intent of an **utterance**.  In fact, once you've published your model (we'll discuss *publishing* in the following section), you can view (and modify) LUIS's categorization of individual **utterances** from your users by navigating to the *Review endpoint utterances* link in the left menu!
 
