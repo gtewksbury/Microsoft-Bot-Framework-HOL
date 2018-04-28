@@ -179,8 +179,8 @@ This will serve as the base class for following **Dialogs**:
 
 Upon reviewing the code, you'll notice a couple things:
 
-1. Along with our *Create Reservation* intent, *LuisReservationDialog* handle a number of other intents we have yet to create.
-2. We have an abstract *None* intent handler.  Looks like our other dialogs will need to implement this method.
+1. Along with our *Create Reservation* intent, *LuisReservationDialog* handles additional intents we have yet to create.
+2. We have an abstract *None* intent handler.  Looks like our other **Dialogs** will need to implement this method.
 
 Next we're going to update our **Dialogs** to inherit from our new *LuisReservationDialog* (along with a couple of small enhancements).
 
