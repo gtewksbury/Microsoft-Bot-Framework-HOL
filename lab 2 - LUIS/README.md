@@ -187,7 +187,7 @@ Now that we've trained our model, it's time to publish them!  Once published, LU
 Make sure *Production* is selected and click the *Publish to production slot* button.  In a few moments, your newly trained model can be called externally.  In fact, you can try it yourself!  
 
 
-> Note, if you re-train your model, you'll have to re-publish before those changes impact your LUIS API.
+> If you re-train your model, you'll have to re-publish before those changes impact your LUIS API.
 
 
 #### Calling LUIS Externally
