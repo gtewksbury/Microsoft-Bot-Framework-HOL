@@ -1,6 +1,6 @@
 
 # Lab 5 - Dialogs
-Glad you made it here.  This is where our bot starts to get interesting!  We're now going to update the bot to walk a user through the entire reservation process.  The goal of our bot will be to provide restaurant recommendations based on the user's location and preferred cuisine and help them make a reservation for a given date and number of people.  
+Glad you made it here.  This is where our bot starts to get interesting!  We're now going to update our bot to walk a user through the entire reservation process.  The goal of our bot will be to provide restaurant recommendations based on the user's location and preferred cuisine and help them make a reservation on a given date and for a specified number of people.  
 
 At this point, we've trained our LUIS model to allow users to provide most of this information through requests such as `I'd like to reserve a table in Pittsburgh at a good Italian restaurant tomorrow at 8:30 pm for six people`, but we still need to prompt them to select a restaurant...
 
