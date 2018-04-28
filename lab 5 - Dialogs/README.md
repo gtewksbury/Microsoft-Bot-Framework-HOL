@@ -104,10 +104,10 @@ Alright, we're ready to get going!  Below you'll find a high-level blueprint of 
         * OTHERWISE, ask the user to confirm their reservation and *Wait* for their response  
 
 ## Dialogs
-Let's add **Dialogs** for each piece of reservation state our application is tracking.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
+Let's update our code to match this logic.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
 
 ### RootDialog
-Let's go ahead and make some updates to our *RootDialog*.  Go ahead and open the *RootDialog* in Visual Studio and replace everything with the following code:
+Go ahead and open the *RootDialog* in Visual Studio and replace it's contents with the following code:
 
 ```csharp
 
