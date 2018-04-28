@@ -196,7 +196,7 @@ A couple of noticable updates:
 2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
 3.	Once the state has been parsed, we *Post* a *GREETING* message from our *Resources.resx* and *Call* the *LocationDialog*
 
-### Reservation Location Dialog
+### LocationDialog
 Create a new class or code file named *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
@@ -269,7 +269,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-### Reservation Cuisine Dialog
+### CuisineDialog
 Create a new class or code file named *CuisineDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
@@ -370,7 +370,7 @@ namespace GoodEats.Dialogs
 ![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/suggested-actions.png)
 
 
-### Reservation Restaurant Dialog
+### RestaurantDialog
 Create a new class or code file named *RestaurantDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
@@ -477,7 +477,7 @@ namespace GoodEats.Dialogs
 
 ![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
 
-### Reservation Date / Time Dialog
+### WhenDialog
 Create a new class or code file named *WhenDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
@@ -542,7 +542,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-### Reservation Party Size Dialog
+### PartySizeDialog
 Create a new class or code file named *PartySizeDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
@@ -620,7 +620,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-### Reservation Confirmation Dialog
+### ConfirmReservationDialog
 Create a new class or code file named *ConfirmReservationDialog.cs* in the *Dialogs* directory and replace with the following code:
 
 ```csharp
