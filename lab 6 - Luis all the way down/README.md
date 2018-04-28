@@ -674,7 +674,7 @@ Alright, let's try this again.  Run your solution and ask your bot to `make a re
 
 At this point, our bot is starting to become pretty powerful, allowing the user to update reservation values at any step in the process!  But how did it work?
 
-In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* intent and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our converation chain.
+In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* **intent** and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our converation chain.
 
 Alright, let's try something else.  Go back to your emulator, and walk through creating a reservation, all the way up until the bot asked you for the number of people.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
 
