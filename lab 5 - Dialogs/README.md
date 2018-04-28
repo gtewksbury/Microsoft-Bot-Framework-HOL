@@ -107,7 +107,7 @@ Alright, we're ready to get going!  Below you'll find a high-level blueprint of 
 Let's update our code to match this logic.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
 
 ### RootDialog
-Go ahead and open the *RootDialog* in Visual Studio and replace it's contents with the following code:
+Go ahead and open the *RootDialog.cs* file in Visual Studio and replace it's contents with the following code:
 
 ```csharp
 
@@ -194,8 +194,7 @@ A couple of noticable updates:
 
 1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
 2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
-3.	Once the state has been parsed, we *Post* a greet to the user using the response in our *Resources.resx* file and *Call* the *LocationDialog*
-4.	Lastly, we *Post* a friendly message to the user in the *None* method (if we can't handle the intent) and end the conversation.
+3.	Once the state has been parsed, we *Post* a message to the user using our *Resources.resx's* *GREETING* text and *Call* the *LocationDialog*
 
 ### Reservation Location Dialog
 Create a new class or code file called *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:
