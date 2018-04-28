@@ -115,7 +115,7 @@ At this point, it's probably important to understand how Bot Builder manages **D
 ## Dialog Stack
 Bot Builder maintains a *Stack* of invoked **Dialogs** throughout a **conversation**.  Each time a new **Dialog** is invoked (through either *IDialogContext.Call(...)* or *IDialogContext.Forward(...)*, the invoked **Dialog** is added to the top of the stack.
 
-What's important to note is that top (or active) **Dialog** in the stack is in control of the **conversation**.  All messages sent to the **conversation** will be routed to the top **Dialog** until that **Dialog** either closes via *IDialogContext.Done(...)*, invokes another **Dialog**, or ends the conversation via **IDialogContext.EndConversation(...)*.
+What's important to note is that top (or active) **Dialog** in the stack is in control of the **conversation**.  All messages sent to the **conversation** will be routed to the top **Dialog** until that **Dialog** either closes via *IDialogContext.Done(...)*, invokes another **Dialog**, or ends the conversation via *IDialogContext.EndConversation(...)*.
 
 > If you think about it, traditional web and mobile UIs are similar, in that only the current screen will accept input from the user.
 
