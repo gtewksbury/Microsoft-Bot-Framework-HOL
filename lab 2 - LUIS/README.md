@@ -188,7 +188,7 @@ Make sure *Production* is selected and click the *Publish to production slot* bu
 
 #### Calling LUIS Externally
 
-Notice the URL associated with your Starter_Key.  Mine looks something like this:
+Notice the URL associated with your Starter_Key at the bottom of your screen (mine looks something like this):
 
 *westus.api.cognitive.microsoft.com/luis/v2.0/apps/ ``a2b4583a-539b-4fa8-8062-c3f0648b5400`` ?subscription-key= ``<subscription key>`` &verbose=true&timezoneOffset=0&q=*
 
