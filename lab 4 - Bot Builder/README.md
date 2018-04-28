@@ -151,7 +151,7 @@ Just a quick note about *Root Dialogs*.  The name of this dialog is insignifican
 ```
 
 ## IDialogContext.Done
-Once a **Dialog** has done all it was intended to do, you can call *IDialogContext.Done*, essentially passing control back to the previous **Dialog** in the stack.  When *Done* is called, it will execute the *ResumeHandler* provided by the parent **Dialog** if a *ResumeHandler* was provided.
+Once a **Dialog** has done all it was intended to do, you can call *IDialogContext.Done*, essentially passing control back to the previous **Dialog** in the stack.  When *Done* is called, it will execute the *ResumeHandler* provided by the parent **Dialog** (if a  non-null *ResumeHandler* was provided).
 
 > The *ResumeHandler* is optionally provided when the child **Dialog** is invoked via *IDialogContext.Call(...)* or *IDialogContext.Forward(...)*.  Be aware that if you call *Done* when a *ResumeHandler* was not provided, you'll likely receive errors, as the parent **Dialog** will have no means of registering a wait handler for the next incoming user message.  Typically, if the child **Dialog** calls *Done*, you should always register a *ResumeHandler*.
 
