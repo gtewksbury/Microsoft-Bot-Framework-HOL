@@ -37,10 +37,10 @@ Provides *extension* methods for parsing natural language date and number values
 * *Ploeh.Numsense.ObjectOriented.Numeral*
 
 ## Prerequisites
-There's a quick prerequisite need to take care of before getting started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
+There's a quick prerequisite we need to take care of before getting started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
 
 #### Eat Street API Key
-The code in the *RestaurantServices* uses the publicly available *EatStreet API* to query for restaurants by location.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
+The code in the *RestaurantServices* uses the publicly available  [EatStreet REST API](https://www.programmableweb.com/api/eatstreet) to query for restaurants.  Why did I chose this API?  Because it's free and getting access is a breeze.  That being said, you do have to register for an account to receive an access key.  Here are the steps:
 
 1.	Navigate to the [Eat Street sign-in page](https://developers.eatstreet.com/sign-in) and create a new account
 	
