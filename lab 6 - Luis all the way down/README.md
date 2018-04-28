@@ -12,7 +12,7 @@ Oh Yeah, LUIS!
 In this lab, we're going to integrate LUIS not only in our *RootDialog*, but with every **Dialog** on the path to making a reservation!
 
 ## LuisReservationDialog
-Open the starter solution in this lab (or your completed solution from the last lab) in Visual Studio and create a new class or code file named *LuisReservationDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
+Open the starter solution in this lab (or your completed solution from the last lab) in Visual Studio, create a new class or code file named *LuisReservationDialog.cs* in the *Dialogs* directory, and replace its contents with the following code:
 
 ```csharp
 
