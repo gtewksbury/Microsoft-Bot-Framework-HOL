@@ -314,7 +314,7 @@ This time we should notice that the date is NOT returned.  This is because you d
 In this lab, we successfully connected our bot to our LUIS application, and configured  our *RootDialog* with handlers for specific **intents**.  We also learned how to parse **entity** values from the provided *LuisResult*.  Finally, we learned how to persist and retrieve state for our bot application.
 
 ## Next Steps
-At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In subsequent labs, we'll create a more sophisticated conversational flow with multiple dialogs.  However, before doing so, I thought it would be a good idea to review some of the basic .NET Bot Builder concepts.  In [Lab 4]() we'll focus on learning these concepts before moving back to Visual Studio to enhance our bot!
+At this point in the labs we were able to configure our *RootDialog* to handle multiple user intents, but we're yet to do anything useful with the provided information.  In subsequent labs, we'll create a more sophisticated conversational flow with multiple dialogs.  However, before doing so I thought it would be a good idea to become familiar with some basic .NET Bot Builder concepts.  In [Lab 4]() we'll focus on learning these concepts before moving back to Visual Studio to enhance our bot!
 
 
  
