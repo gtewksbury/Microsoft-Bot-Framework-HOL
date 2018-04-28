@@ -197,7 +197,7 @@ A couple of noticable updates:
 3.	Once the state has been parsed, we *Post* a *GREETING* message from our *Resources.resx* and *Call* the *LocationDialog*
 
 ### LocationDialog
-Create a new class or code file named *LocationDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *LocationDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
@@ -270,7 +270,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### CuisineDialog
-Create a new class or code file named *CuisineDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *CuisineDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
@@ -371,7 +371,7 @@ namespace GoodEats.Dialogs
 
 
 ### RestaurantDialog
-Create a new class or code file named *RestaurantDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *RestaurantDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
@@ -478,7 +478,7 @@ namespace GoodEats.Dialogs
 ![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/restaurants.png)
 
 ### WhenDialog
-Create a new class or code file named *WhenDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *WhenDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
@@ -543,7 +543,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### PartySizeDialog
-Create a new class or code file named *PartySizeDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *PartySizeDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
@@ -621,7 +621,7 @@ namespace GoodEats.Dialogs
 ```
 
 ### ConfirmReservationDialog
-Create a new class or code file named *ConfirmReservationDialog.cs* in the *Dialogs* directory and replace with the following code:
+Create a new class or code file named *ConfirmReservationDialog.cs* in the *Dialogs* directory and replace its contents with the following code:
 
 ```csharp
 
