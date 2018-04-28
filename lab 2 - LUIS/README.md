@@ -128,6 +128,8 @@ As we said before, you model is only as good as your training.  Add some more re
 
 > Make me a reservation in Pittsburgh
 
+> I'd like to make a reservation
+
 > I'd like to reserve a table in Cleveland
 
 > I'd like to make a reservation in Miami FL for two of us
@@ -149,6 +151,8 @@ As we said before, you model is only as good as your training.  Add some more re
 > Reserve me a table at a local Mediterranean restaurant
 
 > Can you make me a reservation at a pizza restaurant
+
+> Make me a reservation
 
 Remember as you go through the labs that the more training you provide, the more accurate LUIS will become.  This is the power of machine learning!  We can make our app smarter through training without having to *code* around individual scenarios!
 

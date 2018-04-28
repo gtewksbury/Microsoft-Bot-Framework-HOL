@@ -106,6 +106,8 @@ Alright, we're ready to get going!  Below you'll find a high-level blueprint of 
 ## Dialogs
 Let's update our code to match this logic.  Go ahead and fire up Visual Studio and open the GoodEats solution in the Lab 5 *start* directory.
 
+> You'll need to add all the code referenced below before you can run your app
+
 ### RootDialog
 Go ahead and open the *RootDialog.cs* file in Visual Studio and replace it's contents with the following code:
 
@@ -710,6 +712,15 @@ namespace GoodEats.Dialogs
 > Here we render a *HeroCard*, showing the selected restaurant name, reservation date, restaurant logo, etc.  Creating *HeroCards* is very similar to creating *ThumbnailCards*.  While these cards provide a simple fixed layout, you can optional create [AdaptiveCards](https://docs.microsoft.com/en-us/adaptive-cards/get-started/bots), granting you complete control over their layout.
 
 ![Hero Card](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/hero-card.png)
+
+Let's run it!  Fire up the Bot Emulator and enter the following information:
+
+1. First, ask your bot to `make me a reservation`
+2. When it asked for a location, type `Pittsburgh`
+3. Next, select a Cuisine from the provided suggestions
+4. Then select a restaurant from the provided options
+5. When asked for the date, type `tommorrow night at 7:30`
+6. And when asked for the number of people, type `6`
 
 ## Quick Recap
 Congratulations!  At this point you should have a fairly nifty bot that walks user's through the entire reservation process.  In doing so, we implemented the following:
