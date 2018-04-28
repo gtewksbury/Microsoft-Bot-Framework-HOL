@@ -6,26 +6,28 @@ At this point, we've trained our LUIS model to allow users to provide most of th
 
 In this lab, we are going to create a **Dialog** for each piece of information we need to collect and prompt the user when additional information is required.
 
-> I'm going to mention it here, but this will get you just like it gets everyone.  All **Dialogs** must be flagged as *Serializable*.  This is done by decorating your **Dialog** classes with the *SerializableAttribute*.  The reason for this is that conversations can in theory last indefinitely, so the bot framework needs to be able to serialize you conversation state and **DialogStack** in between responses.
+> All **Dialogs** must be flagged as *Serializable*.  This is done by decorating your **Dialog** classes with the *SerializableAttribute*.  The reason for this is that conversations can in theory last indefinitely, so the bot framework needs to be able to serialize you conversation state and **DialogStack** in between responses.
 
 ## Start Solution
-Once again, you'll need to use starter solution in this lab has as it contains a number of classes that you'll need get your code running (baking it into the starter project just helps keep the lab focused on the Bot Framework logic).  Below is a brief explanation of the new classes you'll find in the starter project (I recommend taking a look at these files before moving forward):
+Once again, you'll need to use the *starter* solution in this lab has as it contains a number of classes that you'll need get your code running.  Below is a brief explanation of the new classes you'll find in the starter project (take a moment to review them):
 
 #### Properties/Resources.resx
-It's typically not a good practice to place strings within complied C# files.  Therefore, I've placed all the potential bot responses into a *Resources.resx* file.  Doing so makes the code more maintainable and sets us up to support multilingual scenarios in the future.
+Contains static strings for bot responses.  Doing so makes the code more maintainable and sets us up to support multilingual scenarios in the future.
 
 #### Services/RestaurantService.cs
-The *RestaurantService* contains all the logic for querying and returning restaurants based on location and cuisine.  This class makes use of the publicly available Eat Street REST API.
+Houses the logic for querying and returning restaurants based on location and cuisine.  This class makes use of the publicly available [EatStreet REST API](https://www.programmableweb.com/api/eatstreet).
 
 #### Models
-This directory contains *Cuisine*, *Reservation*, *Restaurant*, and *RestaurantSearchResults* classes.  These classes house data that we retrieve from the *RestaurantService*
+This directory contains *Cuisine*, *Reservation*, *Restaurant*, and *RestaurantSearchResults* classes.  These classes house the data we retrieve from the *RestaurantService*
 
 
 #### StateExtensions.cs
-This class *extends* *IBotData* implemented by *IDialogContext*.  It simply provides convenience methods for managing location, cuisine, and restaurant state against *PrivateConversationData*.  
+This class *extends* *IBotData* by provides convenience methods for managing our custom conversation state within *PrivateConversationData*.  
 
 #### ValueTypeExtensions.cs
-Here we use a couple of nuget packages to help us work with natural language date and number representations.  *Ploeh.Numsense.ObjectOriented.ChronicParser* is used to parse natural language dates and *Ploeh.Numsense.ObjectOriented.Numeral* is used to parse natural language numbers.  These are available through *nuget*.
+Provides *extension* methods for parsing natural language date and number values.  These include references to the following *nuget packages*:
+* *Ploeh.Numsense.ObjectOriented.ChronicParser*
+* *Ploeh.Numsense.ObjectOriented.Numeral*
 
 ## Prerequisites
 There's a quick prerequisite need to take care of before getting started.  Go ahead an open the *start* solution with Visual Studio and complete the following steps:
