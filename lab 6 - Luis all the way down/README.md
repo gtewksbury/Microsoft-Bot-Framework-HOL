@@ -798,7 +798,7 @@ Here's the basic blueprint for the updated conversational logic within the above
 		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the converation back through our chain
 	* If an **intent** handler is NOT found on *LuisReservationDialog*, invoke the *None* handler, which when implemented by the parent dialog, notifies the user that the request was not understand by asking them to provide another value, and *Wait* for a response
 
-Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh`.  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
+Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh` (Make sure you end the previous conversation in the Bot Emulator).  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
 
 ![Smarter Bot](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-change-location.png)
 
