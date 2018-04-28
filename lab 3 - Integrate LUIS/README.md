@@ -106,7 +106,7 @@ Now we have to tell the *LuisDialog* which methods to call when it predicts spec
         [LuisIntent("None")]
         public async Task None(IDialogContext context, IAwaitable<IMessageActivity> activity, LuisResult result)
         {
-		// wait for the next user request
+	// wait for the next user request
             context.Wait(MessageReceived);
         }
 
