@@ -365,7 +365,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an option to provide the user with fixed options, this is a preferred user experience as opposed to forcing them to type everything.  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
+> Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an opportunity to provide user's with fixed options, it's considered a best practice to do so (rather than make them type or say everything).  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
 
 ![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%205%20-%20Dialogs/images/suggested-actions.png)
 
