@@ -171,7 +171,7 @@ We've actually used this method in our previous lab.  This is probably the simpl
         }
 ```
 
-###DialogContext.PostAsync(IMessageActivity)
+### DialogContext.PostAsync(IMessageActivity)
 In some cases, you may want to send the user rich visualizations a long with your message.  Bot Framework supports a number of visualizations, such as *ThumbnailCards*, *HeroCards*, and if you're feeling adventurous, *AdaptiveCards*.  These visualizations are added to messages as [Attachments](https://docs.microsoft.com/en-us/azure/bot-service/dotnet/bot-builder-dotnet-add-rich-card-attachments).  For such cases, you can call *IDialogContext.PostAsync(IMessageActivity)*.
 
 ```csharp
@@ -208,7 +208,7 @@ And here's what it looks like in the Bot Emulator.
 
 > Always be aware of the different **channels** with which your users might be interfacing.  For example, visualizations wouldn't make sense if your bot is integrated with speech-only **channels**.
 
-###DialogContext.SayAsync
+### DialogContext.SayAsync
 *IDialogContext.PostAsync(string)* works well when your sending messages to text-based **channels**, such as Web Chat, Slack, and Microsoft Teams, but what if your bot supports speech-based channels such as Cortana.  In these cases, you can send messages via *IDialogContext.SayAsync(...)*.  The text you provide can be decorated to control various characteristics of synthesized speech via [Speech Synthesis Markup Language](https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx).
 
 ```csharp
