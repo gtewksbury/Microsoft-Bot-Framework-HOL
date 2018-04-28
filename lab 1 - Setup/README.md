@@ -29,7 +29,7 @@ In a production world, user's interface with your bots through one or more confi
 Unfortunately, none of these **channels** support a local debugging experience.  Luckily for us, Microsoft has created the Bot Emulator desktop client that can serve as a testing and debugging **channel** as you develop your bot application!
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator.png)
 
 Download and run the Bot Emulator installer from [here](https://github.com/Microsoft/BotFramework-Emulator/releases/download/v3.5.35/botframework-emulator-Setup-3.5.35.exe). 
 
@@ -56,7 +56,7 @@ Once the templates have been added, go ahead and open Visual Studio 2017.
 Navigate to *File* > *New Project*, select *Visual C#* in the *New Project* dialog, and select *Bot Application* (if you don't see this option, the templates might not have been installed correctly in the previous steps).  Since throughout the labs we'll be creating a restaurant reservation bot, I named mine *GoodEats*, but you can name yours whatever you want.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-project.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/vs2017-project.png)
 
 ## Basic Project Structure
 
@@ -65,7 +65,7 @@ At this point you should be all set to start developing your bot application.  B
 > If you're impatient like me, you might try to immediately run the project.  Just make sure you're connected to the internet as the project template has a number of *nuget* packages that must be downloaded, including the *Bot Builder SDK*.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/vs2017-explorer.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/vs2017-explorer.png)
 
 If you've done any .NET web development, you'll probably notice Visual Studio created a new ASP.NET Web API project.  **Channels** invoke our bot application by Posting requests to our Web API, passing an *Activity* object in the body of the request.  Using open HTTP standards allows Bot Framework to be integrated with nearly any platform!  Let's open *MessagesController.cs* and take a look.
 
@@ -130,26 +130,26 @@ Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulato
 > You'll notice inputs for *Microsoft App ID* and *Microsoft App Password*.  You can leave those blank for now as they are not required for local debugging.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-address.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-address.png)
 
 On the Emulator's right pane, you'll notice some information was output to the *Log* section.  This section will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occured).
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-connected.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-connected.png)
 
 
 > Note, if you see error messages similar to below, you probably forgot to run your Visual Studio project, or entered the wrong address into the Emulator.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-error.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-error.png)
 
 Go back to the *RootDialog.cs* class in Visual Studio and put a breakpoint on the *StartAsync* method and *MessageReceivedAsync* method.
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-visual-studio-breakpoints.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-visual-studio-breakpoints.png)
 
 Now let's go back to the Emulator and type a message to our bot and see what happens.
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-type-message.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-type-message.png)
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
@@ -161,7 +161,7 @@ Let's hit F5 and see what happens next.  As you might have expected, our *Messag
 
 Let's F5 one more time and take a look at our Emulator.
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-response.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-response.png)
 
 Nice!  We can see the bot returned a message to us (thanks to the *PostAsync* call).  Keep your breakpoints in place, and type another message into the Emulator.
 
@@ -171,7 +171,7 @@ Hmm...this time we went straight to the *MessageReceivedAsync* without calling *
 You can always *End Conversations*, essentially wiping out the state of a given **conversation**.  Upon doing so, the next message sent by the user will initiate a new **conversation**.  While you can do this programmatically, you can also do so directly through the Bot Emulator one of two ways as shown below:
 
 
-![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/luis-readme/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
+![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-end-conversation.png)
 
 After ending the conversation, go ahead and type another message.  You should notice that the *StartAsync* was again called.  
 
@@ -189,4 +189,4 @@ Throughout the remainder of the labs, we'll be building out a bot that helps use
 But wait a minute, we're simply sending text-based messages to our bot.  How can we possibly parse and interpret all the variations of how users might ask for a reservation?  That my friends is where Natural Language processing and Machine Learning comes in.
 
 ## Next Steps
-In [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/luis-readme/lab%202%20-%20LUIS) we'll build a machine learning model using Microsoft's Language Understanding Intelligence Service (known as LUIS) to give our bot some smarts.
+In [Lab 2](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/tree/master/lab%202%20-%20LUIS) we'll build a machine learning model using Microsoft's Language Understanding Intelligence Service (known as LUIS) to give our bot some smarts.
