@@ -170,7 +170,7 @@ At this point your *Create Reservation* **intent** should have around 25 utteran
 
 After a few moments, you're model has now been trained with your latest **utterances** (it's important to note that you can retrain at any point in time).  Let's go back to our *Create Reservation* intent and see how smart LUIS has become.  Go ahead and add a new **utterance**, for example `Can you make me a reservation in Boston at a good seafood restaurant for eight people tomorrow at 5:30 pm`.
 
-What happened?  For me, LUIS was able to identify all the pertinent information in the request with very high confidence!  Nice work LUIS, pat on the back to ya!
+What happened?  For me, LUIS was able to identify all the pertinent information in the request with a very high confidence score!  Nice work LUIS, pat on the back to ya!
 
 > Predictions are scored on a scale between 0 and 1.  Look at the score for you're request.  Depending on the results, you might need more training.
 
