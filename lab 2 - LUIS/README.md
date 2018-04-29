@@ -167,7 +167,7 @@ It's important to note that at any point in time, you can modify the associated 
 
 ### Training and Testing
 
-At this point your *Create Reservation* **intent** should have around 30-40 **utterances** (give or take).  Let's make it official and *train* our app based on all the information we've given it so far!  You've probably noticed a *Train* button in the top right (next to the *Test* button).  Go ahead an click it!
+At this point your *Create Reservation* **intent** should have around 20-30 **utterances** (give or take).  Let's make it official and *train* our app based on all the information we've given it so far!  You've probably noticed a *Train* button in the top right (next to the *Test* button).  Go ahead an click it!
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-train.png)
 
