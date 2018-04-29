@@ -914,7 +914,7 @@ Add some utterances representing someone wanting to change the number of people 
 #### Train and Publish
 Now go ahead and *train* and subsequently *publish* you changes (remember, you need to *publish* after training for you updated model to be exposed via the LUIS REST API).
 
-Let's go back to our bot an try again.  Begin a new reservation request, and when the bot prompts you for the number of people, enter `there will be 6 of us`.
+Let's go back to our bot and try again.  Begin a new reservation request, and when the bot prompts you for the number of people, enter `there will be 6 of us`.
 
 ![Smart Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-smart-number-people.png)
 
