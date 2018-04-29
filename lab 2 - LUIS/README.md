@@ -73,7 +73,6 @@ Next, click the *Add prebuilt domain entities* and add the following:
 
 * **RestaurantReservation.Address**
 * **RestaurantReservation.Cuisine**
-* **RestaurantReservation.PlaceName**
 
 ![Create LUIS Intent](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-add-domain-entities.png)
 
@@ -158,11 +157,9 @@ Remember as you go through the labs that the more training you provide, the more
 
 ### Re-associated Utterances
 
-If you navigate back to your **Intents** list,  you should see the count of **utternances** you added to your *Create Reservation* **intent**.  Oddly enough though, you'll notice that we also have a number of **utterances** in our *None* intent.  That seems strange since we didn't add any **utterances** to *None*.  Let's click on the *None* intent and see what's there.
+Navigate back to your **Intents** list,  and select the *None* **intent**.  You should notice a number of **utterances** have already been added.  LUIS was kind enough to include these **utterances** when we added the *RestaurantReservation.Address* and *RestaurantReservation.Cuisne* *prebuilt domain entities* to our app.  However, in reviewing these, many of them should be associated with our *Create Reservation* **intent**.
 
-LUIS was kind enough to include these **utterances** when we added the *RestaurantReservation.Address*, *RestaurantReservation.PlaceName*, and *RestaurantReservation.Cuisne* *prebuilt domain entities* to our app.  However, in reviewing these, many of them should be associated with our *Create Reservation* intent.
-
-Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  I also excluded any **utterances** that include **RestaurantReservation.PlaceName** as our bot will not support user's requesting specific restaurants.
+Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.
 
 ![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
