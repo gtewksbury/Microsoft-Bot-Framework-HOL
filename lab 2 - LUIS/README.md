@@ -163,7 +163,7 @@ Luckily, it's easy to re-associate an **utterance** to a different **intent** wh
 
 ![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
-Also, it's a good idea to train your *None* intent as well.  Within the *None* **intent**, add a few **utterances** that have nothing to do with making a restaurant reservation.  Here are some examples:
+Also, it's a good idea to train your *None* **intent** as well.  Within the *None* **intent**, add a few **utterances** that have nothing to do with making a restaurant reservation.  Here are some examples:
 
 > Book me a flight from Pittsburgh to Cleveland
 
