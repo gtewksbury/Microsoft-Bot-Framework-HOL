@@ -159,7 +159,11 @@ Remember as you go through the labs that the more training you provide, the more
 
 Navigate back to your **Intents** list,  and select the *None* **intent**.  You should notice a number of **utterances** have already been added.  LUIS was kind enough to include these **utterances** when we added the *RestaurantReservation.Address* and *RestaurantReservation.Cuisne* *prebuilt domain entities* to our app.  However, in reviewing these, many of them should be associated with our *Create Reservation* **intent**.
 
-Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  Also, it's a good idea to train your *None* intent as well.  Within the *None* **intent**, add a few **utterances** that have nothing to do with making a restaurant reservation.  Here are some examples:
+Luckily, it's easy to re-associate an **utterance** to a different **intent** when LUIS makes a mistake!  Review each **utterance** that seems to be associated with restaurant reservations and select *Create Reservation* in it's dropdown.  NOTE, leave any **utterances** NOT related to making a reservation with the *None* **intent**.  
+
+![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-none-utterances.png)
+
+Also, it's a good idea to train your *None* intent as well.  Within the *None* **intent**, add a few **utterances** that have nothing to do with making a restaurant reservation.  Here are some examples:
 
 > Book me a flight from Pittsburgh to Cleveland
 
@@ -168,9 +172,6 @@ Luckily, it's easy to re-associate an **utterance** to a different **intent** wh
 > How tall is the Eiffel Tower in Paris
 
 > What time is it in Chicago
-
-
-![Retrain Utterances](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%202%20-%20LUIS/images/luis-none-utterances.png)
 
 It's important to note that at any point in time, you can modify the associated intent of an **utterance**.  In fact, once you've published your model (we'll discuss *publishing* in the following section), you can view (and modify) LUIS's categorization of individual user **utterances** by navigating to the *Review endpoint utterances* link in the left menu!
 
