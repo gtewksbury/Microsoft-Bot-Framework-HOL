@@ -789,10 +789,10 @@ Here's the basic blueprint for the updated conversational logic within the above
 	* IF the state is NOT set for the given dialog, prompt the user for the appropriate information and *Wait* for a response
 	* IF the state IS currently set but is NOT valid, notify the user by asking them to provide another value and *Wait* for a response
 	* IF the state is valid for the given dialog, *Call* the next dialog in the chain
-* *MessageReceivedAsync*
+* *MessageReceived*
 	* IF the user provided a valid value for the given dialog, set the state, and *Call* the next dialog in the chain
-	* OTHERWISE, call the base *LuisReservationDialog's* *MessageReceivedAsync* handler, passing the user's response
-* *LuisReservationDialog.MessageReceivedAsync*
+	* OTHERWISE, call the base *LuisReservationDialog's* *MessageReceived* handler, passing the user's response
+* *LuisReservationDialog.MessageReceived*
 	* Pass the user's response to LUIS and attempt to identify the user's **Intent** and provided **entities**
 	* IF an appropriate **intent** handler IS found on the *LuisReservationDialog*, pass the parsed LuisResult to the handler
 		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the converation back through our chain
@@ -816,7 +816,7 @@ Alright, let's try something else.  Go back to your emulator (make sure to end t
 
 ![Number of People](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%206%20-%20Luis%20all%20the%20way%20down/images/bot-people-selection.png)
 
-What happened here?  We'll, *PartySizeDialog* was expecting an integer value.  When it detected the provided response was NOT an integer, it passed the response to *LuisReservationDialog.MessageReceivedAsync*.  However, unlike our previous example, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that have been trained to do so.  Remember how our *LuisReservationDialog* referenced a number of **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
+What happened here?  We'll, *PartySizeDialog* was expecting an integer value.  When it detected the provided response was NOT an integer, it passed the response to *LuisReservationDialog.MessageReceived*.  However, unlike our previous example, our *Create Reservation* **intent** isn't (and shouldn't be) trained to handle such a statement, and we don't have any **intents** that have been trained to do so.  Remember how our *LuisReservationDialog* referenced a number of **intents** that we've yet to create (more specifically, *Set Reservation Location*, *Set Reservation Date*, *Set Reservation Cuisine*, and *Set Reservation Party Size*)?  Let's create them now!
 
 #### Set Reservation Location Intent
 Browse to your [LUIS App](https://www.luis.ai), and create a new **intent** called *Set Reservation Location*.
