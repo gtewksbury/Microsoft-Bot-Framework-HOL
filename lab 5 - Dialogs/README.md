@@ -57,6 +57,10 @@ The code in the *RestaurantServices* uses the publicly available  [EatStreet RES
 ## Reservation Conversation Logic
 Alright, we're ready to get going!  Below you'll find a high-level blueprint of the reservation conversational flow your going to be creating.  Hopefully you'll notice a pattern forming. 
 
+Dialog Flow          |  Dialog flow with identified entities
+:-------------------------:|:-------------------------:
+![DialogFlow](images/dialogflow.png)  | ![DialogFlow](images/dialogflow-luisentity.png)
+
 
 * **RootDialog**
     * Gather the state provided by the user's initial request and *Call* the *LocationDialog*
