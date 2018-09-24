@@ -72,7 +72,7 @@ Alright, we're ready to get going!  Below you'll find a high-level blueprint of 
         * IF the cuisine was NOT retrieved from the original request, ask the user for their preferred cuisine and *Wait* for their response
         * OTHERWISE, *Call* the *RestaurantDialog*
     * *MessageReceivedAsync*
-        * IF the user-provided cusine is valid, save to state and *Call* the *RestaurantDialog*
+        * IF the user-provided cuisine is valid, save to state and *Call* the *RestaurantDialog*
         * OTHERWISE, notify the user that the cuisine was not found, ask for another cuisine, and *Wait* for their response  
 * **RestaurantDialog**     
     * *StartAsync*
@@ -192,10 +192,10 @@ namespace GoodEats.Dialogs
 
 ![Create Eat Street Account](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/root-dialog-update.png)
 
-A couple of noticable updates:
+A couple of noticeable updates:
 
 1.	We're using the *StateExtensions* convenience methods for storing location, cuisine, etc.
-2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpet this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
+2.	You'll notice an *If Else* statement when parsing the dates.  If the user only enters a time (such as *'make me a reservation at 11:30 in Pittsburgh'*, LUIS will interpret this as a *builtin.datetimeV2.time* entity, whereas if the user enters a complete date (such as *'make me a reservation tomorrow at 11:30 pm'*), LUIS will interpret this as a *builtin.datetimeV2.datetime*.  The code above is just covering both cases.
 3.	Once the state has been parsed, we *Post* a *GREETING* message from our *Resources.resx* and *Call* the *LocationDialog*
 
 ### LocationDialog
@@ -367,7 +367,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Notice above that we are adding something called *SuggestedActions* when we ask the user for their prerferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an opportunity to provide user's with fixed options, it's considered a best practice to do so (rather than make them type or say everything).  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
+> Notice above that we are adding something called *SuggestedActions* when we ask the user for their preferred cuisine.  SuggestedActions render as *buttons* through many of the visual bot **channels**.  When clicked, the value assigned to the a *button* as passed as the user's response.  If you have an opportunity to provide user's with fixed options, it's considered a best practice to do so (rather than make them type or say everything).  In our case, we're created a *button* for each cuisine that we discover in the user's preferred location.
 
 ![Suggested Actions](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/suggested-actions.png)
 
@@ -475,7 +475,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-> Here we are sending the user visual cards (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine.  You'll notice each card contains 2 *buttons*.  The *More Info* button allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the button's value (set as the restaurant name) using *ActionType.ImBack*.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them veritically on the screen.
+> Here we are sending the user visual cards (in this case, a collection of *ThumbnailCards*) for each restaurant associated with their preferred location and cuisine.  You'll notice each card contains 2 *buttons*.  The *More Info* button allows the user to open a website for the given restaurant, using *ActionTypes.OpenUrl*.  The other sets the user's response to the button's value (set as the restaurant name) using *ActionType.ImBack*.  Also notice that we set the message's *AttachementLayout* to *AttachmentLayoutTypes.Carousel*.  The makes our cards scroll horizontally as opposed to stacking them vertically on the screen.
 
 ![Thumbnail Cards](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%205%20-%20Dialogs/images/restaurants.png)
 
@@ -719,7 +719,7 @@ Let's run it!  Fire up the Bot Emulator and enter the following information:
 2. When it asked for a location, type `Pittsburgh`
 3. Next, select a Cuisine from the provided suggestions
 4. Then select a restaurant from the provided options
-5. When asked for the date, type `tommorrow night at 7:30`
+5. When asked for the date, type `tomorrow night at 7:30`
 6. And when asked for the number of people, type `6`
 7. Click *Reserve*
 

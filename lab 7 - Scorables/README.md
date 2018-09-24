@@ -92,7 +92,7 @@ namespace GoodEats.Scorables
 Let's take a look at what this code is doing.
 
 #### PrepareAsync
-First,the *PrepareAsync* method receives a message and checks if the message content equals different variations of *Cancel*, *Nevermind*, or *Forget It*.  If the message content equals any of these values, it returns the the message text, otherwise, it returns null (this is setting the *state* value that get's passed to the other methods).
+First, the *PrepareAsync* method receives a message and checks if the message content equals different variations of *Cancel*, *Nevermind*, or *Forget It*.  If the message content equals any of these values, it returns the the message text, otherwise, it returns null (this is setting the *state* value that get's passed to the other methods).
 
 #### HasScore
 This is the next method to be called in the pipeline, and returns true if the provided *state* from the PrepareAsync method is NOT Null (for us, that means the user typed *Cancel*, *Nevermind*,  or *Forget It*).
