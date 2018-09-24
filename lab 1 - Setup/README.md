@@ -121,7 +121,7 @@ Immediately we see a few things that are probably new to us.  Our *RootDialog* c
 
 ## Testing your Bot Application
 
-Go ahead an run your Visual Studio project in *Debug* mode.  You should notice a new window open in your defualt browser.  Make note of the URL and port in your browser.
+Go ahead an run your Visual Studio project in *Debug* mode.  You should notice a new window open in your default browser.  Make note of the URL and port in your browser.
 
 > If you receive any build errors, make sure you are connected to the internet and Visual Studio is able to download nuget packages
 
@@ -132,7 +132,7 @@ Let's open our Bot Emulator.  Copy the url from the browser into the Bot Emulato
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-address.png)
 
-On the Emulator's right pane, you'll notice some information was output to the *Log* section.  This section will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occured).
+On the Emulator's right pane, you'll notice some information was output to the *Log* section.  This section will provide you with the call stack and any potential exceptions that might arise within your code.  Go ahead an click on the *POST* link of one of the entries.  Above the *Logs*, you can see detailed information about the request (or exception if one occurred).
 
 ![Bot Emulator](https://github.com/gtewksbury/Microsoft-Bot-Framework-HOL/blob/master/lab%201%20-%20Setup/images/bot-emulator-connected.png)
 
@@ -153,7 +153,7 @@ Now let's go back to the Emulator and type a message to our bot and see what hap
 
 You should notice that our *StartAsync* method breakpoint hit.  
 
-> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notce in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should wait to receive a message from the user.  When it arrives, this message should in turn be passed to the *MessageReceivedAsync* handler. 
+> When you start a new **conversation**, Bot Framework will first call the *StartAsync* method of your *RootDialog* invoked via the *MessagesController*.  Notice in this example that the *StartAsync* method immediately calls *IDialogContext.Wait(MessageReceivedAsync)*.  This tells Bot Framework that the dialog should wait to receive a message from the user.  When it arrives, this message should in turn be passed to the *MessageReceivedAsync* handler. 
 
 Let's hit F5 and see what happens next.  As you might have expected, our *MessageReceivedAsync* handler was invoked.
 
