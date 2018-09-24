@@ -782,7 +782,7 @@ namespace GoodEats.Dialogs
 }
 ```
 
-## Updated Converation Flow
+## Updated Conversation Flow
 Here's the basic blueprint for the updated conversational logic within the above **Dialogs**:
    
 * *StartAsync*
@@ -795,7 +795,7 @@ Here's the basic blueprint for the updated conversational logic within the above
 * *LuisReservationDialog.MessageReceived*
 	* Pass the user's response to LUIS and attempt to identify the user's **Intent** and provided **entities**
 	* IF an appropriate **intent** handler IS found on the *LuisReservationDialog*, pass the parsed LuisResult to the handler
-		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the converation back through our chain
+		* The handler will store the parsed **entities** in state and *Call* the *LocationDialog*, pushing the conversation back through our chain
 	* If an **intent** handler is NOT found on *LuisReservationDialog*, invoke the *None* handler, which when implemented by the parent dialog, notifies the user that the request was not understand by asking them to provide another value, and *Wait* for a response
 
 Alright, let's try this again.  Run your solution and ask your bot to `make a reservation at a pizza restaurant in Pittsburgh` (make sure you end the previous conversation in the Bot Emulator).  When it prompts for your preferred cuisine, respond by saying `sorry, actually make my reservation in Cleveland`.
@@ -810,7 +810,7 @@ Alright, let's try this again.  Run your solution and ask your bot to `make a re
 
 At this point, our bot is starting to become pretty powerful, allowing the user to update reservation values at any step in the process!  But how did it work?
 
-In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* **intent** and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our converation chain.
+In the example above, our *RestaurantDialog* was waiting for the user to select a recommended restaurant.  When you typed `sorry, actually make my reservation in Cleveland`, the bot tried to find a restaurant by this name, but obviously couldn't.  At that point, it passed your response to the base *LuisReservationDialog* which in turn called LUIS to see if it recognized your **intent**.  It identified this as a *Create Reservation* **intent** and called *LuisReservationDialog.CreateReservation*, which overwrote the location value in state and *called* back up our conversation chain.
 
 Alright, let's try something else.  Go back to your emulator (make sure to end the previous conversation), and walk through creating a reservation, all the way up until the bot asks you for the number of people on the reservation.  When it does, type if `there will be 6 of us`.  Hmmm, maybe our bot isn't as smart as we thought.
 
